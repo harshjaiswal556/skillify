@@ -1,0 +1,43 @@
+
+.section {
+    padding: 5rem 0 0 0;
+  }
+
+  .review{
+    padding: 5rem;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .description {
+    padding: 0 10%;
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .highlight {
+    color: #4dc591;
+    font-weight: bold;
+  }
+
+
+.testimonial-card .card-up {
+    height: 120px;
+    overflow: hidden;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+  .testimonial-card .avatar {
+    width: 110px;
+    margin-top: -60px;
+    /* overflow: hidden; */
+    border: 3px solid #fff;
+    border-radius: 50%;
+  }

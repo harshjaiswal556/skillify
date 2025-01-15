@@ -1,0 +1,40 @@
+
+<div class="fixed-top">
+    <app-navbar/>
+</div>
+
+<header id="instructors" class="container d-flex align-items-center justify-content-between flex-column section" style="margin-top: 5rem;">
+    <h1 class="heading">
+      Meet Our Expert<span class="highlight"> Instructors</span>
+    </h1>
+    <p class="description">
+        Our instructors bring <span class="highlight">years of experience and a passion for teaching, </span> ensuring every student receives the guidance they need to excel.
+    </p>
+</header>
+
+<section>
+    <article class="gallery-table">
+        <table>
+            <thead>
+                <tr>
+                    <th class="text-center p-3">Name</th>
+                    <th class="text-center p-3">Teaching Subject</th>
+                    <th class="text-center p-3">Experience</th>
+                    <th class="text-center p-3">Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let instructor of instructors">
+                    <td class="text-center align-middle p-3">{{instructor.name}}</td>
+                    <td class="text-center align-middle p-3">{{instructor.teaching}}</td>
+                    <td class="text-center align-middle p-3">{{instructor.experience}} yrs</td>
+                    <td class="text-center align-middle p-3">
+                        <span *ngFor="let _ of Array(instructor.rating);">⭐</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+</section>
+
+<app-footer/>

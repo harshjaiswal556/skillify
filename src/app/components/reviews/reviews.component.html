@@ -1,0 +1,125 @@
+<section>
+    <div id="instructors" class="container d-flex align-items-center justify-content-between flex-column section">
+        <h1 class="heading">
+            Our Valuable<span class="highlight"> Testimonials</span>
+        </h1>
+        <p class="description">
+            Discover the experiences of our delighted customers and see how <span class="highlight"> our services have
+                made a positive impact </span> on their lives.
+        </p>
+    </div>
+
+
+    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let group of groupedTestimonials; index as i" class="carousel-item review" [class.active]="i-1">
+            <div class="row text-center d-flex align-items-stretch">
+              <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch" *ngFor="let testimonial of group">
+                <div class="card testimonial-card">
+                  <div class="card-up" [style.background-color]="testimonial.bgColor"></div>
+                  <div class="avatar mx-auto bg-white">
+                    <img [src]="testimonial.image" (click)="open(i)" class="rounded-circle img-fluid" />
+                  </div>
+                  <div class="card-body">
+                    <h4 class="mb-4">{{ testimonial.name }}</h4>
+                    <hr />
+                    <p class="dark-grey-text mt-4">
+                      <i class="fas fa-quote-left pe-2"></i>"{{ testimonial.review }}"
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+
+<!-- <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+        <div class="carousel-item active review">
+
+            <div class="row text-center d-flex align-items-stretch">
+                <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch"
+                    *ngFor="let testimonial of testimonials; index as i">
+                    <div class="card testimonial-card">
+                        <div class="card-up" [style.background-color]='testimonial.bgColor'></div>
+                        <div class="avatar mx-auto bg-white">
+                            <img [src]='testimonial.image' (click)="open(i)" class="rounded-circle img-fluid" />
+                        </div>
+                        <div class="card-body">
+                            <h4 class="mb-4">{{testimonial.name}}</h4>
+                            <hr />
+                            <p class="dark-grey-text mt-4">
+                                <i class="fas fa-quote-left pe-2"></i>"{{testimonial.review}}"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="carousel-item review">
+            <div class="row text-center d-flex align-items-stretch">
+                <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch"
+                    *ngFor="let testimonial of testimonials; index as i">
+                    <div class="card testimonial-card">
+                        <div class="card-up" [style.background-color]='testimonial.bgColor'></div>
+                        <div class="avatar mx-auto bg-white">
+                            <img [src]='testimonial.image' (click)="open(i)" class="rounded-circle img-fluid" />
+                        </div>
+                        <div class="card-body">
+                            <h4 class="mb-4">{{testimonial.name}}</h4>
+                            <hr />
+                            <p class="dark-grey-text mt-4">
+                                <i class="fas fa-quote-left pe-2"></i>"{{testimonial.review}}"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-item review">
+            <div class="row text-center d-flex align-items-stretch">
+                <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch"
+                    *ngFor="let testimonial of testimonials; index as i">
+                    <div class="card testimonial-card">
+                        <div class="card-up" [style.background-color]='testimonial.bgColor'></div>
+                        <div class="avatar mx-auto bg-white">
+                            <img [src]='testimonial.image' (click)="open(i)" class="rounded-circle img-fluid" />
+                        </div>
+                        <div class="card-body">
+                            <h4 class="mb-4">{{testimonial.name}}</h4>
+                            <hr />
+                            <p class="dark-grey-text mt-4">
+                                <i class="fas fa-quote-left pe-2"></i>"{{testimonial.review}}"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    </div> -->

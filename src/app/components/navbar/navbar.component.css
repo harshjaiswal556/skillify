@@ -1,0 +1,45 @@
+.navbar {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  background-color: #eeeeeeb0;
+  backdrop-filter: blur(10px);
+}
+
+.nav-item{
+    margin: 0px 0.5rem;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.nav-item.dropdown .dropdown-menu {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+}
+
+.custom-login-btn{
+    color: #4dc591;
+    border-color: #4dc591;
+}
+
+.custom-login-btn:hover{
+    background-color: #4dc591;
+    color: #fff;
+}
+
+a{
+    text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  font-size: smaller;
+  color: #000;
+}
+
+a:hover{
+    color: #4dc591;
+}
