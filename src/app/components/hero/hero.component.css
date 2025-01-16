@@ -7,6 +7,7 @@
     font-weight: bold;
     margin-bottom: 20px;
     color: #333;
+    text-align: center;
   }
   
   .description {
@@ -48,4 +49,10 @@
   .course-btn:hover{
     background-color: #333;
     color: #fff;
+  }
+
+  @media screen and (max-width: 600px) {
+    .container{
+      padding: 0 1rem;
+    }
   }

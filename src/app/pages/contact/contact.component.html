@@ -6,14 +6,11 @@
     <h1 class="heading">
       Get In <span class="highlight">Touch</span>
     </h1>
-    <!-- <p class="description"> -->
-        <ul class="contact-list d-flex justify-content-around w-100 px-0">
-            <li><span class="mx-3"><i class="fa-regular fa-location-dot"></i></span>Bengaluru, Karnataka</li>
-            <li><span class="mx-3"><i class="fa-regular fa-envelope"></i></span>help&#64;skillify.com</li>
-            <li><span class="mx-3"><i class="fa-regular fa-phone"></i></span>+91 78798 38693</li>
+    <ul class="contact-list d-flex justify-content-around w-100 px-0">
+            <li><span style="margin-right: 1rem;"><i class="fa-regular fa-envelope"></i></span>help&#64;skillify.com</li>
+            <li><span style="margin-right: 1rem;"><i class="fa-regular fa-location-dot"></i></span>Bengaluru, Karnataka</li>
+            <li><span style="margin-right: 1rem;"><i class="fa-regular fa-phone"></i></span>+91 78798 38693</li>
         </ul>
-        <!-- Our instructors bring <span class="highlight">years of experience and a passion for teaching, </span> ensuring every student receives the guidance they need to excel. -->
-    <!-- </p> -->
 </header>
 
 <main style="padding: 5rem;">
@@ -25,51 +22,8 @@
             referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
     <section class="container-right" style="margin: 3rem 3rem 3rem 1rem;">
-            <form action="thanks.html" name="form1">
-                <div class="mb-3">
-                    <label for="exampleFormControlName1" class="form-label">Full Name*</label>
-                    <input type="text" name="name" class="form-control" id="exampleFormControlName1" required
-                        placeholder="Enter Your Name">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email address*</label>
-                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" required
-                        placeholder="Enter Your Email">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Message*</label>
-                    <textarea  name="message" class="form-control" id="exampleFormControlTextarea1" rows="3" required
-                        placeholder="Enter Your Message"></textarea>
-                </div>
-                <article>
-                    <input type="submit" value="Submit" style="margin-right: 10px;">
-                    <button type="button" class="address" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Get Address
-                    </button>
-                </article>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Address</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                Impelsys, Survey No. 192, IWF Campus, B Narayanpura, Mahadevpura, Bengaluru,
-                                Karnataka - 560016
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger"
-                                    data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </section>
+        <app-contact-form/>
+    </section>
     </article>
 </main>
 

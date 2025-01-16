@@ -1,5 +1,7 @@
 .section {
     padding: 5rem 0;
+    display: flex;
+    flex-direction: row;
   }
 
   .left, .right {
@@ -23,15 +25,15 @@
   }
 
   .left{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     /* margin-bottom: 5rem; */
+    display: flex;
+    justify-content: start;
   }
   
- .right{
-    display: flex;
-    justify-content: end;
+  .right{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
   }
   
   
@@ -39,3 +41,30 @@
     color: #4dc591;
     font-weight: bold;
   }
+
+  @media screen and (max-width: 1000px) {
+    .section{
+      flex-direction: column;
+    }
+    .left, .right {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+  
+    .left {
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+    }
+  
+    .left img {
+      max-width: 100%; 
+      height: auto; 
+    }
+  
+    .right {
+      width: 100%;
+      padding: 1rem;
+    }
+  }
+  

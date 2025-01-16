@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { routes } from './app.router';
 import { provideRouter } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,8 @@ import { Lightbox, LightboxModule } from 'ngx-lightbox';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { CourseComponent } from './components/course/course.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +29,16 @@ import { ContactComponent } from './pages/contact/contact.component';
     ReviewsComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    ContactFormComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LightboxModule,
-    routes
+    routes,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
