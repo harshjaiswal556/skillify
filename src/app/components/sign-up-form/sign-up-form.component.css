@@ -1,0 +1,42 @@
+
+  label {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #4dc591;
+  }
+  
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+      border-color: #4dc591;
+      outline: none;
+      box-shadow: 0 0 4px #63e4ac;
+  }
+  
+  input[type="submit"] {
+      background-color: #4dc591;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+  
+  input[type="submit"]:hover{
+      background-color: #fff;
+      /* transform: scale(1.02); */
+      color: #4dc591;
+      border: 2px solid #4dc591;
+  }
+  
+  @media screen and (max-width: 768px) {  
+      input[type="submit"] {
+          font-size: 1rem;
+      }
+  }
+  

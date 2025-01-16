@@ -4,7 +4,7 @@
             <label for="exampleFormControlName1" class="form-label">Full Name*</label>
             <input type="text" name="name" class="form-control" [(ngModel)]="contact.name" #name="ngModel" id="exampleFormControlName1" required
                 placeholder="Enter Your Name" pattern="^[a-zA-Z][a-zA-Z\s]*$" >
-                <div *ngIf="(name.invalid && name.touched) || (form1.submitted && message.invalid)" class="text-danger">
+                <div *ngIf="(name.invalid && name.touched) || (form1.submitted && name.invalid)" class="text-danger">
                     Valid name is required.
                 </div>
         </div>
@@ -12,7 +12,7 @@
             <label for="exampleFormControlInput1" class="form-label">Email address*</label>
             <input type="email" name="email" class="form-control" [(ngModel)]="contact.email" #email="ngModel" id="exampleFormControlInput1" required
                 placeholder="Enter Your Email">
-                <div *ngIf="(email.invalid && email.touched)|| (form1.submitted && message.invalid)" class="text-danger">
+                <div *ngIf="(email.invalid && email.touched)|| (form1.submitted && email.invalid)" class="text-danger">
                     Valid email is required.
                 </div>
         </div>

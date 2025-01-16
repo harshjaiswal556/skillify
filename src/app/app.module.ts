@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { routes } from './app.router';
 import { provideRouter } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,10 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { CourseComponent } from './components/course/course.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
+import { LoginComponent } from './pages/login/login.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -31,14 +36,19 @@ import { CourseComponent } from './components/course/course.component';
     AboutComponent,
     ContactComponent,
     ContactFormComponent,
-    CourseComponent
+    CourseComponent,
+    SignUpComponent,
+    SignUpFormComponent,
+    LoginComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LightboxModule,
     routes,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
