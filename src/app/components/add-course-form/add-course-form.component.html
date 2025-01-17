@@ -1,0 +1,22 @@
+
+<form [formGroup]="courseForm" (ngSubmit)="courseSubmit()" novalidate>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Course Title*</label>
+        <input formControlName="title" type="text" class="form-control"
+            placeholder="Enter Course Title">
+            <div *ngIf="(courseForm.controls['title'].invalid) && (courseForm.controls['title'].touched)" class="text-danger">
+                Valid title is required.
+            </div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Price*</label>
+        <input type="number" formControlName="price" class="form-control"
+            placeholder="Enter Course Price">
+            <div *ngIf="(courseForm.controls['price'].invalid) && (courseForm.controls['price'].touched)" class="text-danger">
+                Valid price is required.
+            </div>
+    </div>
+    <article>
+        <input type="submit" value="Add Course" style="margin-right: 10px;" [disabled]="courseForm.invalid" >
+    </article>
+</form>

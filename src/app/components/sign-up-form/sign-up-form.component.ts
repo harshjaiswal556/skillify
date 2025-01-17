@@ -10,9 +10,6 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
   styleUrl: './sign-up-form.component.css'
 })
 export class SignUpFormComponent {
-
-  signUp!: SignUp;
-
   signUpForm!: FormGroup;
   constructor(private fb : FormBuilder){
     this.save()
@@ -26,7 +23,11 @@ export class SignUpFormComponent {
     })
   }
 
-  signUpSubmit(model: SignUp){
-    console.log(model);
+  signUpSubmit(){
+    if(this.signUpForm.valid){
+      const formValue = this.signUpForm.value as SignUp
+      console.log(formValue);
+      
+    }
   }
 }

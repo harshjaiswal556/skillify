@@ -1,5 +1,5 @@
 
-<form [formGroup]="signUpForm" (ngSubmit)="signUpSubmit(signUpForm.value)" novalidate>
+<form [formGroup]="signUpForm" (ngSubmit)="signUpSubmit()" novalidate>
     <div class="mb-3">
         <label for="exampleFormControlName1" class="form-label">Full Name*</label>
         <input formControlName="name" type="text" class="form-control" placeholder="Enter Your Name" pattern="^[a-zA-Z][a-zA-Z\s]*$">

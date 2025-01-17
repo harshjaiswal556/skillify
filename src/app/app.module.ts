@@ -23,6 +23,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { AddCourseFormComponent } from './components/add-course-form/add-course-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     SignUpComponent,
     SignUpFormComponent,
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    AddCourseFormComponent
   ],
   imports: [
     BrowserModule,
