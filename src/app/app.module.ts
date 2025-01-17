@@ -24,6 +24,7 @@ import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.comp
 import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { AddCourseFormComponent } from './components/add-course-form/add-course-form.component';
+import { FaqComponent } from './pages/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AddCourseFormComponent } from './components/add-course-form/add-course-
     SignUpFormComponent,
     LoginComponent,
     LoginFormComponent,
-    AddCourseFormComponent
+    AddCourseFormComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
