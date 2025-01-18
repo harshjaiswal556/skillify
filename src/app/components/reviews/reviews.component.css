@@ -9,7 +9,7 @@
 
   .heading {
     font-size: 2.5rem;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 20px;
     color: #333;
     text-align: center;
@@ -20,11 +20,12 @@
     color: #555;
     line-height: 1.6;
     text-align: center;
+    font-weight: 400;
   }
   
   .highlight {
     color: #4dc591;
-    font-weight: bold;
+    font-weight: 600;
   }
 
 
@@ -44,6 +45,6 @@
 
   @media screen and (max-width: 600px) {
     .container{
-      padding: 0 1rem;
+      padding: 3rem 1rem;
     }
   }

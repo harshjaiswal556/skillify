@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { routes } from './app.router';
-import { provideRouter } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material/material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { AddCourseFormComponent } from './components/add-course-form/add-course-form.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AllCoursesComponent } from './pages/all-courses/all-courses.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { FaqComponent } from './pages/faq/faq.component';
     LoginComponent,
     LoginFormComponent,
     AddCourseFormComponent,
-    FaqComponent
+    FaqComponent,
+    AllCoursesComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +56,13 @@ import { FaqComponent } from './pages/faq/faq.component';
     LightboxModule,
     routes,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

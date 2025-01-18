@@ -22,7 +22,7 @@ a{
 
 .card-heading {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
     background: #fff;
     padding: 10px 15px;
 }
@@ -40,7 +40,7 @@ a{
     padding: 10px 0;
     width: 100%;
     background-color: #31805d;
-    font-weight: bold;
+    font-weight: 700;
     color: #fff;
     border-radius: 0 0 8px 8px;
 }

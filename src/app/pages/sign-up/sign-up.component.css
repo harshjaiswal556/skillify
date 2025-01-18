@@ -1,10 +1,9 @@
 
   .highlight {
     color: #4dc591;
-    font-weight: bold;
+    font-weight: 600;
   }
 
-  
   .signUp-container {
       display: flex;
       justify-content: space-between;
@@ -47,7 +46,7 @@
   label {
       margin-bottom: 8px;
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: 600;
       color: #4dc591;
   }
   
@@ -66,7 +65,7 @@
       border: none;
       padding: 15px;
       font-size: 1.1rem;
-      font-weight: bold;
+      font-weight: 700;
       border-radius: 5px;
       cursor: pointer;
       transition: all 0.3s ease;
