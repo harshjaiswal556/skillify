@@ -3,6 +3,7 @@
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+/* @import '@angular/material/prebuilt-themes/azure-blue.css'; */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
 
@@ -10,7 +11,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: "Montserrat", serif !important;
+    /* font-family: "Montserrat", serif !important; */
     line-height: 1.6;
     /* font-family: "Inter", serif !important; */
 }

@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './all-courses.component.css'
 })
 export class AllCoursesComponent {
-
+  value: string = '';
+  isFocused: boolean = false;
 }
