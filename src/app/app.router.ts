@@ -7,6 +7,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { AllCoursesComponent } from './pages/all-courses/all-courses.component';
+import { StudentComponent } from './pages/dashboard/student/student.component';
 
 export const router: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +17,9 @@ export const router: Routes = [
     {path: 'signup', component: SignUpComponent},
     {path: 'login', component: LoginComponent},
     {path: 'faq', component: FaqComponent},
-    {path: 'course', component: AllCoursesComponent}
+    {path: 'course', component: AllCoursesComponent},
+    
+    {path: 'student-dashboard', component: StudentComponent},
+
 ];
 export const routes = RouterModule.forRoot(router);

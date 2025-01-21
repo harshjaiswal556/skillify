@@ -18,7 +18,7 @@
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Password*</label>
         <input type="password" formControlName="password" class="form-control"
-            placeholder="Enter Your Password">
+            placeholder="Enter Your Password" minlength="8">
             <div *ngIf="(signUpForm.controls['password'].invalid) && (signUpForm.controls['password'].touched)" class="text-danger">
                 Valid password is required.
             </div>

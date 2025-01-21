@@ -1,105 +1,21 @@
-footer {
-    background-color:#31805d;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    padding-top: 5rem;
+.container{
+  letter-spacing: 0.15em;
 }
 
-.footer-content {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+a{
+  text-decoration: none;
 }
 
-  
-  @media screen and (max-width: 900px) {
-    .left, .right{
-      flex: 1 1 100%;
-    }
-    .main .right {
-        display: flex;
-        justify-content: center;
-    }
+a:hover{
+  text-decoration: underline;
+  font-weight: 600;
 }
 
-@media screen and (max-width: 750px) {
-    .nav-menu {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    nav {
-        padding: 1rem !important;
-    }
-
-    .nav-menu-link a {
-        font-size: 1rem;
-    }
-
-    .main {
-        padding: 1rem 1rem 0rem 1rem;
-    }
-
-    .main .right {
-        width: 100%;
-    }
-
-    .main .right img{
-      max-width: 90%;
-    }
-
-    .left h1 {
-        font-size: 40px;
-    }
-
-    .left h3 {
-        margin: 15px 0px;
-        font-size: 25px;
-    }
+h6{
+  font-size: 15px;
 }
-  .footer-column {
-    text-align: center;
-  }
-  
-  .footer-column .nav-item .nav-link {
-    padding: 0.25rem 0;
-    letter-spacing: 0.1em;
-    font-size: 14px;
-  }
-  
-  .footer-column .nav-item span.nav-link {
-    color: #6c757d;
-  }
-  
-  .footer-column .nav-item span.footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    margin: 1rem 0;
-    color: #fff;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-  
-  .footer-column .nav-item .fas {
-    margin-right: 0.5rem;
-  }
-  
-  .footer-column ul {
-    display: inline-block;
-  }
-  
-  @media (min-width: 768px) {
-    .footer-column ul {
-      text-align: left;
-    }
-  }
-  
-footer .quick-links {
-  font-size: 90%;
-  line-height: 40px;
-  margin-bottom: 0;
-  text-transform: none;
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+p{
+  font-size: 14px;
+  letter-spacing: 0.1em;
 }

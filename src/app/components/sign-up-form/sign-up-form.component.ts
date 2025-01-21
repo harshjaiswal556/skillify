@@ -27,7 +27,6 @@ export class SignUpFormComponent {
     if(this.signUpForm.valid){
       const formValue = this.signUpForm.value as SignUp
       console.log(formValue);
-      
     }
   }
 }

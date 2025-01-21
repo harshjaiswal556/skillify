@@ -28,6 +28,9 @@ import { AddCourseFormComponent } from './components/add-course-form/add-course-
 import { FaqComponent } from './pages/faq/faq.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AllCoursesComponent } from './pages/all-courses/all-courses.component';
+import { StudentComponent } from './pages/dashboard/student/student.component';
+import { OverviewComponent } from './components/overview/overview.component';
+import { DetailedReportComponent } from './components/detailed-report/detailed-report.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { AllCoursesComponent } from './pages/all-courses/all-courses.component';
     LoginFormComponent,
     AddCourseFormComponent,
     FaqComponent,
-    AllCoursesComponent
+    AllCoursesComponent,
+    StudentComponent,
+    OverviewComponent,
+    DetailedReportComponent
   ],
   imports: [
     BrowserModule,

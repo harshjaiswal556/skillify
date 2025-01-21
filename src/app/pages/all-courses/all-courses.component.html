@@ -14,7 +14,7 @@
               type="text" 
               [(ngModel)]="value" 
               [ngClass]="{'focused-input': isFocused}" 
-              (focus)="isFocused = true" 
+              (focus)="isFocused = true"  
               (blur)="isFocused = false">
             <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
               <mat-icon>close</mat-icon>

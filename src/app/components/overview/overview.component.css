@@ -1,0 +1,40 @@
+.section{
+    padding: 2rem 0 5rem 0;
+}
+
+.heading {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    /* text-align: center; */
+  }
+
+  .highlight {
+    color: #4dc591;
+    font-weight: 700;
+}
+
+mat-card-title{
+    margin-top: 0.5rem;
+    font-weight: 700;
+    color: #4dc591;
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  mat-card-header{
+    margin: 1rem 1rem 2rem 1rem;
+  }
+
+  .card-sl{
+    border: 0px;
+    border-radius: 8px;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px 0 rgba(32, 32, 32, 0.1), 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  @media screen and (max-width:600px) {
+    .section{
+        padding: 2rem;
+    }
+  }
