@@ -1,16 +1,28 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-    @for (column of columns; track column) {
-      <ng-container [matColumnDef]="column.columnDef">
-        <th mat-header-cell *matHeaderCellDef>
-          {{column.header}}
-        </th>
-        <td mat-cell *matCellDef="let row">
-          {{column.cell(row)}}
-        </td>
-      </ng-container>
-    }
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
+<div class="container d-flex align-items-start justify-content-between flex-column section">
+  <h1 class="heading">
+    <span class="highlight text-uppercase">Detailed Report</span>
+  </h1>
+  </div>
+
+<section>
+  <article class="gallery-table">
+      <table>
+          <thead>
+              <tr>
+                  <th class="text-center p-3">S.No.</th>
+                  <th class="text-center p-3">Course Name</th>
+                  <th class="text-center p-3">Order Value</th>
+                  <th class="text-center p-3">Purchase Date</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let report of reports">
+                  <td class="text-center align-middle p-3">{{report.position}}</td>
+                  <td class="text-center align-middle p-3">{{report.name}}</td>
+                  <td class="text-center align-middle p-3">Rs. {{report.order_value}}</td>
+                  <td class="text-center align-middle p-3">{{report.date | date:'yyyy-MM-dd'}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </article>
+</section>

@@ -1,0 +1,87 @@
+{
+    "courses": [
+    {
+      "image":"assets/courses/mean.jpeg",
+      "title":"MEAN Stack",
+      "description":"JavaScript stack with MongoDB, Express.js, Angular, and Node.js.",
+      "price":2399,
+      "tag":"web"
+    },
+    {
+      "image":"assets/courses/mern.jpeg",
+      "title":"MERN Stack",
+      "description":"JavaScript stack with MongoDB, Express.js, React, and Node.js.",
+      "price":2399,
+      "tag":"web"
+    },
+    {
+      "image":"assets/courses/python.jpeg",
+      "title":"ML - Python",
+      "description":"A Versatile programming language for machine learning.",
+      "price":3499,
+      "tag":"python"
+    },
+    {
+      "image":"assets/courses/python.jpeg",
+      "title":"Data Science - Python",
+      "description":"A Versatile programming language for Data Science.",
+      "price":3499,
+      "tag":"python"
+    },
+    {
+      "image":"assets/courses/mern.jpeg",
+      "title":"Kotlin",
+      "description":"Beginner friendly course to start your journey in App Development.",
+      "price":1499,
+      "tag":"App"
+    },
+    {
+      "image":"assets/courses/mean.jpeg",
+      "title":"MySQL",
+      "description":"Learn basic to intermediate level of MySQL Database.",
+      "price":499,
+      "tag":"Database"
+    },
+    {
+      "image":"assets/courses/mern.jpeg",
+      "title":"App - Java",
+      "description":"Start learning App Development using Java language.",
+      "price":3499,
+      "tag":"App"
+    }
+  ],
+
+  "reviews":[
+        {
+          "name":"Steven Jhonsan",
+          "image":"assets/testimonials/steven.jpeg",
+          "review":"Skillify transformed the way I learn. The tailored courses and flexible scheduling made it so easy to pick up new skills while balancing my studies. Highly recommended!",
+          "bgColor":"#9d789b"
+        },
+        {
+          "name":"Shubh Gupta",
+          "image":"assets/testimonials/shubh.jpeg",
+          "review":"As an educator, Skillify has given me the perfect platform to share my knowledge and connect with students passionate about learning. The interface is intuitive, and the scheduling tools are a lifesaver!",
+          "bgColor":"#7a81a8"
+        },
+        {
+          "name":"Ananya Roy",
+          "image":"assets/testimonials/ananya.jpeg",
+          "review":"Thanks to Skillify, I could learn at my own pace and get guidance from top-notch teachers. The platform is user-friendly, and the support is fantastic!",
+          "bgColor":"#6d5b98"
+        },
+        {
+          "name":"Virat Singh",
+          "image":"assets/testimonials/virat.jpeg",
+          "review":"I enrolled in a coding course through Skillify, and it was the best decision I made. The ability to choose my teacher and time slot made the experience so personalized.",
+          "bgColor":"#5b7498"
+        },
+        {
+          "name":"Ritesh Mittal",
+          "image":"assets/testimonials/ritesh.jpeg",
+          "review":"I've been using Skillify for a few months, and I've seen such a positive change in my skills and confidence. The courses are engaging, and the teachers are excellent!",
+          "bgColor":"#985b65"
+        }
+      ]
+
+}

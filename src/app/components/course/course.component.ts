@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CourseService } from '../../services/course.service';
+import { Course } from './course.interface';
 
 @Component({
   selector: 'app-course',
@@ -10,18 +11,27 @@ import { CourseService } from '../../services/course.service';
 })
 export class CourseComponent {
 
-  courses: any[] = [];
+  courses!: Course[]
   courseLength: number = 0;
 
   @Input() displayCoursesCount: number = this.courseLength;
 
   constructor(private courseService: CourseService){
-    this.courses = courseService.getCourses();    
-    this.displayCoursesCount = this.courses.length;
-  }
+    this.courseService.getCourses().subscribe(res=>{
+      this.courses = res;
+    })
+  }  
   
+  // ngOnInit(){
+  //   this.courseService.getCourses().subscribe(res=>{
+  //     this.courses = res;
+  //   })
+  // }
+
   get limitedCourses() {
+    if (this.displayCoursesCount === 0) {
+      return this.courses.slice(0, this.courses.length);
+    }
     return this.courses.slice(0, this.displayCoursesCount);
   }
-  
 }

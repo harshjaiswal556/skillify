@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -54,7 +56,7 @@ import { DetailedReportComponent } from './components/detailed-report/detailed-r
     AllCoursesComponent,
     StudentComponent,
     OverviewComponent,
-    DetailedReportComponent
+    DetailedReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { DetailedReportComponent } from './components/detailed-report/detailed-r
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()
