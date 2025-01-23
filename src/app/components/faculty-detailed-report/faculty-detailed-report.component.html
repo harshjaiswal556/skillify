@@ -1,1 +1,58 @@
-<p>faculty-detailed-report works!</p>
+<div class="container d-flex align-items-start justify-content-between flex-row section">
+    <h1 class="heading">
+        <span class="highlight text-uppercase">Detailed Report</span>
+    </h1>
+    <button data-bs-toggle="modal" data-bs-target="#exampleModal" mat-fab class="text-light" style="width: auto; padding: 0.5rem 1rem; font-weight: 700;">
+            <mat-icon>add</mat-icon>
+            &nbsp;
+            Add Course
+      </button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header mb-3 d-flex col justify-content-between">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add Course</h1>
+                <mat-icon class="close" data-bs-dismiss="modal" aria-label="Close">close</mat-icon>
+            </div>
+            <div class="modal-body">
+                <app-add-course-form />
+            </div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <article class="gallery-table">
+        <table>
+            <thead>
+                <tr>
+                    <th class="text-center p-3">S.No.</th>
+                    <th class="text-center p-3">Course Name</th>
+                    <th class="text-center p-3">Order Value</th>
+                    <th class="text-center p-3">Published Date</th>
+                    <th class="text-center p-3">Total Students</th>
+                    <th class="text-center p-3">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let report of reports">
+                    <td class="text-center align-middle p-3">{{report.position}}</td>
+                    <td class="text-center align-middle p-3">{{report.name}}</td>
+                    <td class="text-center align-middle p-3">Rs. {{report.order_value}}</td>
+                    <td class="text-center align-middle p-3">{{report.date | date:'yyyy-MM-dd'}}</td>
+                    <td class="text-center align-middle p-3">{{report.students}}</td>
+                    <td class="text-center align-middle p-3">
+                        <button style="margin: 0 8px;" mat-fab>
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        <button style="margin: 0 8px;" mat-fab>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+</section>

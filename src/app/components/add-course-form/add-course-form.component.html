@@ -8,12 +8,27 @@
                 Valid title is required.
             </div>
     </div>
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label for="exampleFormControlInput1" class="form-label">Price*</label>
+            <input type="number" formControlName="price" class="form-control"
+                placeholder="Enter Course Price">
+                <div *ngIf="(courseForm.controls['price'].invalid) && (courseForm.controls['price'].touched)" class="text-danger">
+                    Valid price is required.
+                </div>
+        </div>
+        <div class="mb-3 col-md-6">
+            <label for="exampleFormControlInput1" class="form-label">Upload Image</label>
+            <input type="file" formControlName="image" class="form-control">
+        </div>
+    </div>
     <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Price*</label>
-        <input type="number" formControlName="price" class="form-control"
-            placeholder="Enter Course Price">
-            <div *ngIf="(courseForm.controls['price'].invalid) && (courseForm.controls['price'].touched)" class="text-danger">
-                Valid price is required.
+        <label for="exampleFormControlInput1" class="form-label">Description*</label>
+        <textarea formControlName="description" class="form-control"></textarea>
+        <!-- <input type="number" formControlName="price" class="form-control"
+            placeholder="Enter Course Price"> -->
+            <div *ngIf="(courseForm.controls['description'].invalid) && (courseForm.controls['description'].touched)" class="text-danger">
+                Valid description is required.
             </div>
     </div>
     <article>

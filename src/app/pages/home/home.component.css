@@ -29,10 +29,6 @@
     background-color: #333;
   }
 
-  .close{
-    cursor: pointer;
-  }
-
 @media screen and (max-width: 500px) {
     .course{
         padding: 0 1rem;

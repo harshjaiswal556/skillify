@@ -16,10 +16,13 @@ export class LoginService {
       if(users.length !== 0 ){
         if(password === users[0].password){
           console.log("Data found");
+          alert("Valid Login Credentials");
         }else{
+          alert("Invalid Login Credentials");
           console.log("Data not found");
         }
       }else{
+        alert("Invalid Login Credentials");
         console.log("Data not found");
       }
     }))

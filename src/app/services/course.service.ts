@@ -20,6 +20,10 @@ export class CourseService {
           );
       }
 
+      addCourses(item:any):Observable<any>{
+        return this.http.post<any>(this.url, item)
+      }
+
   // courses = [
   //   {
   //     "image":"assets/courses/mean.jpeg",
