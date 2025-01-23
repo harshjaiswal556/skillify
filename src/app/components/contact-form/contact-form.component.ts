@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Contact } from './contact.interface';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -11,6 +12,8 @@ import { Contact } from './contact.interface';
 export class ContactFormComponent {
   contact!: Contact;
 
+  constructor (private contactService: ContactService){}
+
   ngOnInit(){
     this.contact = {
       name: '',
@@ -21,5 +24,9 @@ export class ContactFormComponent {
 
   save(model: Contact){
     console.log(model);
+    this.contactService.sendMessage(model).subscribe(res=>{
+      console.log(res);
+      
+    })
   }
 }

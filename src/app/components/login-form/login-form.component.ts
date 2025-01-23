@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Login } from './login-form.interface';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LoginService } from '../../services/auth/login.service';
 
 @Component({
   selector: 'app-login-form',
@@ -11,7 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginFormComponent {
   loginForm!: FormGroup;
-  constructor(private fb : FormBuilder){
+  constructor(private fb : FormBuilder, private loginService : LoginService){
     this.save()
   }
   
@@ -25,7 +26,9 @@ export class LoginFormComponent {
   loginSubmit(){
     if (this.loginForm.valid) {
       const formValue = this.loginForm.value as Login; 
-      console.log(formValue);
+      this.loginService.getUser(formValue.email, formValue.password).subscribe(res => {
+        console.log(res);
+      })
     }
   }
 }

@@ -33,6 +33,8 @@ import { AllCoursesComponent } from './pages/all-courses/all-courses.component';
 import { StudentComponent } from './pages/dashboard/student/student.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { DetailedReportComponent } from './components/detailed-report/detailed-report.component';
+import { FacultyComponent } from './pages/dashboard/faculty/faculty.component';
+import { FacultyDetailedReportComponent } from './components/faculty-detailed-report/faculty-detailed-report.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { DetailedReportComponent } from './components/detailed-report/detailed-r
     StudentComponent,
     OverviewComponent,
     DetailedReportComponent,
+    FacultyComponent,
+    FacultyDetailedReportComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,13 +5,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SignUpService {
+export class ContactService {
 
-  protected url = 'http://localhost:3000/users';
+  protected url = 'http://localhost:3000/contact'
 
   constructor(private http : HttpClient) { }
 
-  createUser(item :any): Observable<any>{
+  sendMessage(item : any): Observable<any>{
     return this.http.post<any>(this.url, item)
   }
 }

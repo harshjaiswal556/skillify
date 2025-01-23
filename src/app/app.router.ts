@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { AllCoursesComponent } from './pages/all-courses/all-courses.component';
 import { StudentComponent } from './pages/dashboard/student/student.component';
+import { FacultyComponent } from './pages/dashboard/faculty/faculty.component';
 
 export const router: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,6 +21,7 @@ export const router: Routes = [
     {path: 'course', component: AllCoursesComponent},
     
     {path: 'student-dashboard', component: StudentComponent},
+    {path: 'faculty-dashboard', component: FacultyComponent},
 
 ];
 export const routes = RouterModule.forRoot(router);
