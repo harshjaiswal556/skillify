@@ -11,17 +11,18 @@
             (focus)="isFocused = true" >Search Your Course...</mat-label>
             <input 
               matInput 
+              (keyup)="onSearch(searchValue)"
               type="text" 
-              [(ngModel)]="value" 
+              [(ngModel)]="searchValue" 
               [ngClass]="{'focused-input': isFocused}" 
               (focus)="isFocused = true"  
               (blur)="isFocused = false">
-            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear" (click)="searchValue=''">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
           
     </div>    
-    <app-course />
+    <app-course [searchText]="searchValue" />
 </div>
 <app-footer/>

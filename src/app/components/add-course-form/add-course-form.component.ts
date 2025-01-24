@@ -1,52 +1,75 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { CourseService } from '../../services/course.service';
 
 @Component({
   selector: 'app-add-course-form',
   standalone: false,
-  
+
   templateUrl: './add-course-form.component.html',
   styleUrl: './add-course-form.component.css'
 })
 export class AddCourseFormComponent {
   courseForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private courseService : CourseService){
-    this.save()
+  @Input() title: string = '';
+  @Input() price: number = 0;
+  @Input() description: string = '';
+  @Input() id: string = '';
+
+  updateCourse: boolean = false;
+
+  constructor(private fb: FormBuilder, private courseService: CourseService) {
+    this.save();
+    console.log(this.title);
+
   }
 
-  imgValidator(): ValidatorFn{
-    return (control: AbstractControl): ValidationErrors | null => {
-      const file = control.value as File;
-      console.log(file);
-      
-      if (file) {
-        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-        return allowedTypes.includes(file.type) ? null : { invalidFileType: true };
-      }
-      return null;
-    };
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['title'] || changes['price'] || changes['description']) {
+      this.courseForm.patchValue({
+        title: this.title,
+        price: this.price,
+        description: this.description,
+        id: this.id,
+      });
+      this.updateCourse = true
+    }
   }
 
-  save(){
+  save() {
+    const date = new Date();
+
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
     this.courseForm = this.fb.group({
-      title: ['', Validators.required],
-      price: ['', Validators.required],
+      title: [this.title, Validators.required],
+      price: [this.price, Validators.required],
       image: [''],
-      description: ['', Validators.required],
-      tag: 'web'
+      description: [this.description, Validators.required],
+      date: `${day}-${month}-${year}`
     })
   }
 
-  courseSubmit(){
-    if(this.courseForm.valid){
+  courseSubmit() {
+    if (this.courseForm.valid) {
       const formValue = this.courseForm.value
-      this.courseService.addCourses(formValue).subscribe(res => {
-        console.log(res);
-        alert("Course added successfully!!!");
-        this.courseForm.reset();
-      })
+      if (this.updateCourse) {
+        console.log(formValue);
+        this.courseService.updateCourseById(this.id, formValue).subscribe(res => {
+          alert("Course updated successfully!!!");
+          this.courseForm.reset();
+        })
+
+      } else {
+        this.courseService.addCourses(formValue).subscribe(res => {
+          console.log(res);
+          alert("Course added successfully!!!");
+          this.courseForm.reset();
+        })
+      }
     }
+
   }
 }

@@ -21,16 +21,24 @@ export class SignUpFormComponent {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      role: 'student'
+      cPassword: ['', Validators.required],
+      role: ['', Validators.required]
     })
   }
 
   signUpSubmit(){
     if(this.signUpForm.valid){
-      const formValue = this.signUpForm.value as SignUp
-      this.signUpService.createUser(formValue).subscribe(res => {
-        console.log(res);
-      })
+      const password = this.signUpForm.get('password')?.value;
+      const cPassword = this.signUpForm.get('cPassword')?.value;
+      if(password === cPassword){
+        const formValue = this.signUpForm.value as SignUp      
+        this.signUpService.createUser(formValue).subscribe(res => {
+          alert("Thankyou for joining skillify");
+          this.signUpForm.reset();
+        })
+      }else{
+        alert("Password doesn't match")
+      }
     }
   }
 }

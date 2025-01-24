@@ -7,21 +7,43 @@
                 Valid name is required.
             </div>
     </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address*</label>
-        <input type="email" formControlName="email" class="form-control"
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label for="exampleFormControlInput1" class="form-label">Email Address*</label>
+            <input type="email" formControlName="email" class="form-control"
             placeholder="Enter Your Email">
             <div *ngIf="(signUpForm.controls['email'].invalid) && (signUpForm.controls['email'].touched)" class="text-danger">
                 Valid email is required.
             </div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Password*</label>
-        <input type="password" formControlName="password" class="form-control"
-            placeholder="Enter Your Password" minlength="8">
-            <div *ngIf="(signUpForm.controls['password'].invalid) && (signUpForm.controls['password'].touched)" class="text-danger">
-                Valid password is required.
+        </div>
+        <div class="mb-3 col-md-6">
+            <label for="exampleFormControlInput1" class="form-label">Select Role*</label>
+            <select class="form-select" aria-label="Default select example" formControlName="role">
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+            </select>
+            <div *ngIf="(signUpForm.controls['role'].invalid) && (signUpForm.controls['role'].touched)" class="text-danger">
+                Valid role is required.
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <label for="exampleFormControlInput1" class="form-label">Password*</label>
+            <input type="password" formControlName="password" class="form-control"
+                placeholder="Enter Your Password" minlength="8">
+                <div *ngIf="(signUpForm.controls['password'].invalid) && (signUpForm.controls['password'].touched)" class="text-danger">
+                    Valid password is required.
+                </div>
+        </div>
+        <div class="mb-3 col-md-6">
+            <label for="exampleFormControlInput1" class="form-label">Confirm Password*</label>
+            <input type="password" formControlName="cPassword" class="form-control"
+                placeholder="Enter Your Password" minlength="8">
+                <div *ngIf="(signUpForm.controls['cPassword'].invalid) && (signUpForm.controls['cPassword'].touched)" class="text-danger">
+                    Valid password is required.
+                </div>
+        </div>
     </div>
     <div class="mb-3">
         <a style="text-decoration: none; color: #4dc591;" routerLink="/login">Already have an account? Click here to login</a>

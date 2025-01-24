@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './all-courses.component.css'
 })
 export class AllCoursesComponent {
-  value: string = '';
+  searchValue: string = '';
   isFocused: boolean = false;
+
+  onSearch(value: string): void {
+    this.searchValue = value;
+  }
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FacultyReportService } from '../../services/faculty/faculty-report.service';
+import { CourseService } from '../../services/course.service';
 
 @Component({
   selector: 'app-faculty-detailed-report',
@@ -8,9 +10,39 @@ import { Component } from '@angular/core';
   styleUrl: './faculty-detailed-report.component.css'
 })
 export class FacultyDetailedReportComponent {
-  reports: any[] = [
-    {position: 1, name: 'ML - Python', order_value: 100, date: new Date('2025-01-01'), students: 10 },
-    { position: 2, name: 'MEAN Stack', order_value: 200, date: new Date('2025-02-01'), students: 20 },
-    { position: 3, name: 'MERN Stack', order_value: 300, date: new Date('2025-03-01'), students: 11 },
-  ];
+
+  reports: any[] = [];
+
+  constructor (private facultyReportService : FacultyReportService, private courseService : CourseService){
+    this.facultyReportService.getData().subscribe(res=>{
+      console.log(res);
+      this.reports = res
+    })
+  }
+
+  deleteCourseId : string = '';
+
+  title: string = '';
+  price : number = 0;
+  id : string = '';
+  description : string = '';
+
+  deleteCourseById(id : string){
+    this.deleteCourseId = id;
+  }
+  
+  deleteCourse(){
+    this.courseService.deleteCourseById(this.deleteCourseId).subscribe(res => {
+      console.log(res);
+      window.location.reload();
+    })
+  }
+
+  editCourseById(title : string, price : number, description : string, id : string){
+    this.title = title;
+    this.price = price;
+    this.description = description;    
+    this.id = id;
+  }
+
 }

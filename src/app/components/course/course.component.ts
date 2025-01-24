@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { CourseService } from '../../services/course.service';
 import { Course } from './course.interface';
 
@@ -15,23 +15,30 @@ export class CourseComponent {
   courseLength: number = 0;
 
   @Input() displayCoursesCount: number = this.courseLength;
+  @Input() searchText: string = '';
+  filteredCourses: Course[] = [];
 
   constructor(private courseService: CourseService){
     this.courseService.getCourses().subscribe(res=>{
       this.courses = res;
+      this.filteredCourses = [...this.courses];
     })
   }  
   
-  // ngOnInit(){
-  //   this.courseService.getCourses().subscribe(res=>{
-  //     this.courses = res;
-  //   })
-  // }
-
-  get limitedCourses() {
-    if (this.displayCoursesCount === 0) {
-      return this.courses.slice(0, this.courses.length);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['searchText'] && this.courses) {
+      this.filterCourses();
     }
-    return this.courses.slice(0, this.displayCoursesCount);
+  }
+
+  filterCourses(): void {
+    const searchTextLower = this.searchText.toLowerCase();
+    this.filteredCourses = this.courses.filter((course) =>
+      course.title.toLowerCase().includes(searchTextLower)
+    );
+  }
+
+  get limitedCourses(): Course[] {
+    return this.filteredCourses;
   }
 }

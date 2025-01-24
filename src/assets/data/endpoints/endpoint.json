@@ -1,11 +1,11 @@
 {
   "courses": [
     {
-      "image": "assets/courses/mean.jpeg",
       "title": "MEAN Stack",
-      "description": "JavaScript stack with MongoDB, Express.js, Angular, and Node.js.",
       "price": 2399,
-      "tag": "web",
+      "image": "",
+      "description": "JavaScript and TypeScript with MongoDB, Express.js, Angular, and Node.js.",
+      "date": "24-1-2025",
       "id": "3f05"
     },
     {
@@ -13,7 +13,7 @@
       "title": "MERN Stack",
       "description": "JavaScript stack with MongoDB, Express.js, React, and Node.js.",
       "price": 2399,
-      "tag": "web",
+      "date": "13-1-2025",
       "id": "76cf"
     },
     {
@@ -21,7 +21,7 @@
       "title": "ML - Python",
       "description": "A Versatile programming language for machine learning.",
       "price": 3499,
-      "tag": "python",
+      "date": "23-12-2024",
       "id": "f1e4"
     },
     {
@@ -29,7 +29,7 @@
       "title": "Data Science - Python",
       "description": "A Versatile programming language for Data Science.",
       "price": 3499,
-      "tag": "python",
+      "date": "23-1-2025",
       "id": "b4c9"
     },
     {
@@ -37,7 +37,7 @@
       "title": "Kotlin",
       "description": "Beginner friendly course to start your journey in App Development.",
       "price": 1499,
-      "tag": "App",
+      "date": "23-1-2025",
       "id": "0560"
     },
     {
@@ -45,15 +45,15 @@
       "title": "MySQL",
       "description": "Learn basic to intermediate level of MySQL Database.",
       "price": 499,
-      "tag": "Database",
+      "date": "23-1-2025",
       "id": "d5f6"
     },
     {
-      "image": "assets/courses/mern.jpeg",
-      "title": "App - Java",
-      "description": "Start learning App Development using Java language.",
+      "title": "App (Java)",
       "price": 3499,
-      "tag": "App",
+      "image": "",
+      "description": "Start learning App Development using Java language.",
+      "date": "23-1-2025",
       "id": "2869"
     }
   ],
@@ -108,6 +108,21 @@
       "email": "hsj@gmail.com",
       "password": "12345678",
       "role": "student"
+    },
+    {
+      "id": "91de",
+      "name": "h",
+      "email": "hsjaiswal3110@mail.com",
+      "password": "12345678",
+      "role": "faculty"
+    },
+    {
+      "id": "f745",
+      "name": "harsh",
+      "email": "faculty@gmail.com",
+      "password": "12345678",
+      "cPassword": "12345678",
+      "role": "faculty"
     }
   ],
   "contact": [
@@ -116,6 +131,12 @@
       "name": "Harsh Jaiswal",
       "email": "hsjaiswal3110@gmail.com",
       "message": "Hello"
+    },
+    {
+      "id": "fbf8",
+      "name": "harsh jaiswal",
+      "email": "hsj@gmail.com",
+      "message": "jVHAKA"
     }
   ]
 }

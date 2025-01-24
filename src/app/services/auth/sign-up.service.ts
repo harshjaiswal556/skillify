@@ -18,7 +18,7 @@ export class SignUpService {
           return this.http.post<any>(this.url, item);
           
         } else {
-          console.log("Email already exists");
+          alert("Email already exists");
           throw new Error("Email already exists");
         }
       }),

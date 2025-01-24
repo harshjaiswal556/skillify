@@ -19,7 +19,7 @@
         </div>
         <div class="mb-3 col-md-6">
             <label for="exampleFormControlInput1" class="form-label">Upload Image</label>
-            <input type="file" formControlName="image" class="form-control">
+            <input type="file" formControlName="image" class="form-control" accept="image/png, image/jpg, image/jpeg">
         </div>
     </div>
     <div class="mb-3">
@@ -32,6 +32,6 @@
             </div>
     </div>
     <article>
-        <input type="submit" value="Add Course" style="margin-right: 10px;" [disabled]="courseForm.invalid" >
+        <input type="submit" [value]="updateCourse ? 'Update Course' : 'Add Course'"  style="margin-right: 10px;" [disabled]="courseForm.invalid" >
     </article>
 </form>

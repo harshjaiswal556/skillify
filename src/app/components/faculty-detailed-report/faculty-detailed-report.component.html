@@ -37,18 +37,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let report of reports">
-                    <td class="text-center align-middle p-3">{{report.position}}</td>
-                    <td class="text-center align-middle p-3">{{report.name}}</td>
-                    <td class="text-center align-middle p-3">Rs. {{report.order_value}}</td>
-                    <td class="text-center align-middle p-3">{{report.date | date:'yyyy-MM-dd'}}</td>
+                <tr *ngFor="let report of reports; index as i">
+                    <td class="text-center align-middle p-3">{{i+1}}</td>
+                    <td class="text-center align-middle p-3">{{report.title}}</td>
+                    <td class="text-center align-middle p-3">Rs. {{report.price}}</td>
+                    <td class="text-center align-middle p-3">{{report.date}}</td>
                     <td class="text-center align-middle p-3">{{report.students}}</td>
                     <td class="text-center align-middle p-3">
                         <button style="margin: 0 8px;" mat-fab>
-                            <mat-icon>delete</mat-icon>
+                            <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteCourseById(report.id)">delete</mat-icon>
                         </button>
                         <button style="margin: 0 8px;" mat-fab>
-                            <mat-icon>edit</mat-icon>
+                            <mat-icon data-bs-toggle="modal" data-bs-target="#editCourse" (click)="editCourseById(report.title, report.price, report.description, report.id)" >edit</mat-icon>
                         </button>
                     </td>
                 </tr>
@@ -56,3 +56,34 @@
         </table>
     </article>
 </section>
+
+<div class="modal fade" id="editCourse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header mb-3 d-flex col justify-content-between">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update Course</h1>
+                <mat-icon class="close" data-bs-dismiss="modal" aria-label="Close">close</mat-icon>
+            </div>
+            <div class="modal-body">
+                <app-add-course-form [title]="title" [price]="price" [description]="description" [id]="id" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete Course</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure want to delete this course?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" (click)="deleteCourse()" >Delete Course</button>
+        </div>
+      </div>
+    </div>
+  </div>
