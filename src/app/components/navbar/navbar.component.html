@@ -22,7 +22,8 @@
             </ul>
           </li>
           <div class="nav-item">
-            <button routerLink="/signup" class="btn btn-outline-success custom-login-btn">Sign Up</button>
+            <button *ngIf="!isLoggedIn" routerLink="/signup" class="btn btn-outline-success custom-login-btn">Sign Up</button>
+            <button *ngIf="isLoggedIn" (click)="logOut()" class="btn btn-outline-danger ">Log Out</button>
           </div>
         </ul>
       </div>

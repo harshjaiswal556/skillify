@@ -16,11 +16,11 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let report of reports">
-                  <td class="text-center align-middle p-3">{{report.position}}</td>
-                  <td class="text-center align-middle p-3">{{report.name}}</td>
-                  <td class="text-center align-middle p-3">Rs. {{report.order_value}}</td>
-                  <td class="text-center align-middle p-3">{{report.date | date:'yyyy-MM-dd'}}</td>
+              <tr *ngFor="let report of reports; index as i">
+                  <td class="text-center align-middle p-3">{{i+1}}</td>
+                  <td class="text-center align-middle p-3">{{report.title}}</td>
+                  <td class="text-center align-middle p-3">Rs. {{report.price}}</td>
+                  <td class="text-center align-middle p-3">{{report.date}}</td>
               </tr>
           </tbody>
       </table>

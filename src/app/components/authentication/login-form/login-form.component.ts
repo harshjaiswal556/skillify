@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Login } from './login-form.interface';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/auth/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -12,10 +13,12 @@ import { LoginService } from '../../../services/auth/login.service';
 })
 export class LoginFormComponent {
   loginForm!: FormGroup;
-  constructor(private fb : FormBuilder, private loginService : LoginService){
+  constructor(private fb : FormBuilder, private loginService : LoginService, private router : Router){
     this.save()
   }
   
+  userId : string = '';
+
   save(){
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -27,7 +30,13 @@ export class LoginFormComponent {
     if (this.loginForm.valid) {
       const formValue = this.loginForm.value as Login; 
       this.loginService.getUser(formValue.email, formValue.password).subscribe(res => {
-        console.log(res);
+        // console.log(res);
+        this.userId = res.id;
+        if(res.role === "faculty"){
+          this.router.navigate(['/faculty-dashboard'])
+        }else{
+          this.router.navigate(['student-dashboard'])
+        }
       })
     }
   }

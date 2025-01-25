@@ -7,11 +7,11 @@ import { map, Observable } from 'rxjs';
 })
 export class FacultyReportService {
 
-  protected url = 'http://localhost:3000/courses'
+  protected url = 'http://localhost:3000/users'
 
   constructor(private http : HttpClient) { }
 
-  getData(): Observable<any>{
-    return this.http.get(this.url).pipe(map(res=>res))
+  getData(id : string): Observable<any>{
+    return this.http.get(`${this.url}?id=${id}`).pipe(map(res=>res))
   }
 }

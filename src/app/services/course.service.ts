@@ -15,6 +15,10 @@ export class CourseService {
     return this.http.get(this.url).pipe(map(res => res));
   }
 
+  getCoursesById(id : string): Observable<any>{
+    return this.http.get(`${this.url}?id=${id}`).pipe(map(res => res))
+  }
+
   addCourses(item: any): Observable<any> {
     return this.http.post<any>(this.url, item)
   }

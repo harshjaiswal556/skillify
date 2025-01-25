@@ -1,6 +1,7 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { CourseService } from '../../services/course.service';
+import { SignUpService } from '../../services/auth/sign-up.service';
 
 @Component({
   selector: 'app-add-course-form',
@@ -16,10 +17,11 @@ export class AddCourseFormComponent {
   @Input() price: number = 0;
   @Input() description: string = '';
   @Input() id: string = '';
+  @Input() userId: string = '';
 
   updateCourse: boolean = false;
 
-  constructor(private fb: FormBuilder, private courseService: CourseService) {
+  constructor(private fb: FormBuilder, private courseService: CourseService, private userService: SignUpService) {
     this.save();
     console.log(this.title);
 
@@ -48,16 +50,19 @@ export class AddCourseFormComponent {
       price: [this.price, Validators.required],
       image: [''],
       description: [this.description, Validators.required],
-      date: `${day}-${month}-${year}`
+      date: `${day}-${month}-${year}`,
     })
   }
 
   courseSubmit() {
     if (this.courseForm.valid) {
       const formValue = this.courseForm.value
+      console.log(formValue);
+      console.log(this.userId);
+      
       if (this.updateCourse) {
-        console.log(formValue);
         this.courseService.updateCourseById(this.id, formValue).subscribe(res => {
+          // this.userService.addCourseToUser()
           alert("Course updated successfully!!!");
           this.courseForm.reset();
         })
@@ -65,8 +70,10 @@ export class AddCourseFormComponent {
       } else {
         this.courseService.addCourses(formValue).subscribe(res => {
           console.log(res);
-          alert("Course added successfully!!!");
-          this.courseForm.reset();
+          this.userService.addCourseToUser(this.userId, res.id).subscribe(res=>{
+            alert("Course added successfully!!!");
+            this.courseForm.reset();
+          })
         })
       }
     }

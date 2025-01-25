@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap } from 'rxjs';
+import { SignUp } from '../../components/authentication/sign-up-form/sign-up-form.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,23 @@ export class SignUpService {
       }),
       switchMap(result => result)
     );
+  }
+
+  addCourseToUser(userId : string, courseId : string):Observable<any>{
+    return this.http.get<SignUp>(`${this.url}/${userId}`).pipe(
+      switchMap(user => {
+        user.course.push(courseId);
+        return this.http.put(`${this.url}/${userId}`, user);
+      })
+    )
+  }
+
+  removeCourseFromUser(userId : string, courseId : string):Observable<any>{
+    return this.http.get<SignUp>(`${this.url}/${userId}`).pipe(
+      switchMap(user => {
+        user.course = user.course.filter(id => id !== courseId);
+        return this.http.put(`${this.url}/${userId}`, user);
+      })
+    )
   }
 }

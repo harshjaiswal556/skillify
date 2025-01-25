@@ -3,9 +3,10 @@
     {
       "title": "MEAN Stack",
       "price": 2399,
-      "image": "",
+      "image": "assets/courses/mean.jpeg",
       "description": "JavaScript and TypeScript with MongoDB, Express.js, Angular, and Node.js.",
       "date": "24-1-2025",
+      "faculty": "91de",
       "id": "3f05"
     },
     {
@@ -14,6 +15,7 @@
       "description": "JavaScript stack with MongoDB, Express.js, React, and Node.js.",
       "price": 2399,
       "date": "13-1-2025",
+      "faculty": "91de",
       "id": "76cf"
     },
     {
@@ -22,6 +24,7 @@
       "description": "A Versatile programming language for machine learning.",
       "price": 3499,
       "date": "23-12-2024",
+      "faculty": "91de",
       "id": "f1e4"
     },
     {
@@ -30,6 +33,7 @@
       "description": "A Versatile programming language for Data Science.",
       "price": 3499,
       "date": "23-1-2025",
+      "faculty": "91de",
       "id": "b4c9"
     },
     {
@@ -38,23 +42,34 @@
       "description": "Beginner friendly course to start your journey in App Development.",
       "price": 1499,
       "date": "23-1-2025",
+      "faculty": "f745",
       "id": "0560"
     },
     {
-      "image": "assets/courses/mean.jpeg",
       "title": "MySQL",
+      "price": 999,
+      "image": "assets/courses/mean.jpeg",
       "description": "Learn basic to intermediate level of MySQL Database.",
-      "price": 499,
-      "date": "23-1-2025",
+      "date": "24-1-2025",
+      "faculty": "91de",
       "id": "d5f6"
     },
     {
       "title": "App (Java)",
       "price": 3499,
-      "image": "",
+      "image": "assets/courses/python.jpeg",
       "description": "Start learning App Development using Java language.",
       "date": "23-1-2025",
+      "faculty": "f745",
       "id": "2869"
+    },
+    {
+      "title": "harsh",
+      "price": 0,
+      "image": "",
+      "description": "h",
+      "date": "24-1-2025",
+      "id": "1cd0"
     }
   ],
   "reviews": [
@@ -114,7 +129,11 @@
       "name": "h",
       "email": "hsjaiswal3110@mail.com",
       "password": "12345678",
-      "role": "faculty"
+      "role": "faculty",
+      "course": [
+        "3f05",
+        "1cd0"
+      ]
     },
     {
       "id": "f745",

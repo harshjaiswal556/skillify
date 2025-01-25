@@ -17,7 +17,7 @@
                 <mat-icon class="close" data-bs-dismiss="modal" aria-label="Close">close</mat-icon>
             </div>
             <div class="modal-body">
-                <app-add-course-form />
+                <app-add-course-form [userId]="userId" />
             </div>
         </div>
     </div>
@@ -39,16 +39,16 @@
             <tbody>
                 <tr *ngFor="let report of reports; index as i">
                     <td class="text-center align-middle p-3">{{i+1}}</td>
-                    <td class="text-center align-middle p-3">{{report.title}}</td>
-                    <td class="text-center align-middle p-3">Rs. {{report.price}}</td>
-                    <td class="text-center align-middle p-3">{{report.date}}</td>
-                    <td class="text-center align-middle p-3">{{report.students}}</td>
+                    <td class="text-center align-middle p-3">{{report[0].title}}</td>
+                    <td class="text-center align-middle p-3">Rs. {{report[0].price}}</td>
+                    <td class="text-center align-middle p-3">{{report[0].date}}</td>
+                    <td class="text-center align-middle p-3">{{report[0].students}}</td>
                     <td class="text-center align-middle p-3">
                         <button style="margin: 0 8px;" mat-fab>
-                            <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteCourseById(report.id)">delete</mat-icon>
+                            <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteCourseById(report[0].id)">delete</mat-icon>
                         </button>
                         <button style="margin: 0 8px;" mat-fab>
-                            <mat-icon data-bs-toggle="modal" data-bs-target="#editCourse" (click)="editCourseById(report.title, report.price, report.description, report.id)" >edit</mat-icon>
+                            <mat-icon data-bs-toggle="modal" data-bs-target="#editCourse" (click)="editCourseById(report[0].title, report[0].price, report[0].description, report[0].id)" >edit</mat-icon>
                         </button>
                     </td>
                 </tr>
