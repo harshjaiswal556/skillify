@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { StudentReportService } from '../../services/student/student-report.service';
 import { CourseService } from '../../services/course.service';
+import { SignUpService } from '../../services/auth/sign-up.service';
 
 export interface PeriodicElement {
   name: string;
@@ -21,7 +22,7 @@ export class DetailedReportComponent {
   reports: any[] = [];
   courses: any[] = [];
 
-  constructor (private studentReportService : StudentReportService, private courseService: CourseService){
+  constructor (private studentReportService : StudentReportService, private courseService: CourseService, private signUpService : SignUpService){
 
     const storageId = localStorage.getItem("userId");
 
@@ -29,10 +30,18 @@ export class DetailedReportComponent {
       
       this.studentReportService.getData(storageId).subscribe(res=>{
         this.courses = res[0].course;
+        console.log(this.courses);
+        
         for (let index = 0; index < this.courses.length; index++) {
           this.courseService.getCoursesById(this.courses[index].courseId).subscribe(res => {
-            this.reports.push(res)
-            console.log(this.reports);
+            if(res && res.length>0){
+              this.reports.push(res)
+            }else{
+              this.signUpService.removeCourseFromStudent(storageId, this.courses[index].courseId).subscribe(res=>{
+                console.log(res);
+                
+              })
+            }
           })
         }
       })

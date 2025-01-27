@@ -60,4 +60,13 @@ export class SignUpService {
       })
     )
   }
+
+  removeCourseFromStudent(userId : string, courseId : string):Observable<any>{
+    return this.http.get<SignUp>(`${this.url}/${userId}`).pipe(
+      switchMap(user => {
+        user.course = user.course.filter(cId => cId.courseId!==courseId);
+        return this.http.put(`${this.url}/${userId}`, user)
+      })
+    )
+  }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Course } from '../components/course/course.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +31,16 @@ export class CourseService {
   deleteCourseById(id:string):Observable<any>{
     return this.http.delete(this.url+"/"+id);
   }
+
+  addStudentToCourse(userId : string, courseId : string):Observable<any>{
+      return this.http.get<Course>(`${this.url}/${courseId}`).pipe(
+        switchMap(user => {
+          if (!user.students) {
+            user.students = [];
+          }
+          user.students.push(userId);
+          return this.http.put(`${this.url}/${courseId}`, user);
+        })
+      )
+    }
 }

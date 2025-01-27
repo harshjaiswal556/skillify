@@ -42,7 +42,8 @@
                     <td class="text-center align-middle p-3">{{report[0].title}}</td>
                     <td class="text-center align-middle p-3">Rs. {{report[0].price}}</td>
                     <td class="text-center align-middle p-3">{{report[0].date}}</td>
-                    <td class="text-center align-middle p-3">{{report[0].students}}</td>
+                    <td *ngIf="report[0].students" class="text-center align-middle p-3">{{report[0].students.length}}</td>
+                    <td *ngIf="!report[0].students" class="text-center align-middle p-3">0</td>
                     <td class="text-center align-middle p-3">
                         <button style="margin: 0 8px;" mat-fab>
                             <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteCourseById(report[0].id)">delete</mat-icon>

@@ -17,7 +17,6 @@ export class OverviewComponent {
     if(storageId){
       this.user.getData(storageId).subscribe(res => {
         console.log(res);
-        
         this.userData = res;
       })
     }

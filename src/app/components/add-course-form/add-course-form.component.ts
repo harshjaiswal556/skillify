@@ -48,7 +48,7 @@ export class AddCourseFormComponent {
     this.courseForm = this.fb.group({
       title: [this.title, Validators.required],
       price: [this.price, Validators.required],
-      image: [''],
+      image: ['assets/courses/mean.jpeg'],
       description: [this.description, Validators.required],
       date: `${day}-${month}-${year}`,
     })

@@ -66,7 +66,9 @@ export class CourseComponent {
     const storageId = localStorage.getItem("userId");
     if(storageId){      
       this.userService.addCourseToStudent(storageId, courseId).subscribe(res=>{
-        alert("Course added successfully!!!");
+        this.courseService.addStudentToCourse(storageId, courseId).subscribe(res=>{
+          alert("Course added successfully!!!");
+        })
       })
     }
   }

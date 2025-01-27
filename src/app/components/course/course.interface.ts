@@ -4,5 +4,6 @@ export interface Course{
     description: string,
     price: number,
     date: string,
-    id: string
+    id: string,
+    students : string[]
 }
