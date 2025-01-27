@@ -64,12 +64,20 @@
       "id": "2869"
     },
     {
-      "title": "harsh",
-      "price": 0,
+      "id": "ffdf",
+      "title": "test 2",
+      "price": 1000,
+      "image": "C:\\fakepath\\COURSE.png",
+      "description": "Hello\n",
+      "date": "27-1-2025"
+    },
+    {
+      "title": "new course 2",
+      "price": 10000,
       "image": "",
-      "description": "h",
-      "date": "24-1-2025",
-      "id": "1cd0"
+      "description": "Description 123",
+      "date": "27-1-2025",
+      "id": "e115"
     }
   ],
   "reviews": [
@@ -115,7 +123,25 @@
       "name": "harsh",
       "email": "hsjaiswal3110@gmail.com",
       "password": "12345678",
-      "role": "student"
+      "role": "student",
+      "course": [
+        {
+          "courseId": "1cd0",
+          "date": "2025-01-27"
+        },
+        {
+          "courseId": "ffdf",
+          "date": "2025-01-27"
+        },
+        {
+          "courseId": "76cf",
+          "date": "2025-01-27"
+        },
+        {
+          "courseId": "3f05",
+          "date": "2025-01-27"
+        }
+      ]
     },
     {
       "id": "0f8e",
@@ -132,7 +158,8 @@
       "role": "faculty",
       "course": [
         "3f05",
-        "1cd0"
+        "ffdf",
+        "e115"
       ]
     },
     {
@@ -142,6 +169,28 @@
       "password": "12345678",
       "cPassword": "12345678",
       "role": "faculty"
+    },
+    {
+      "id": "621f",
+      "name": "harsh",
+      "email": "student@gmail.com",
+      "password": "student@gmail.com",
+      "cPassword": "student@gmail.com",
+      "role": "student"
+    },
+    {
+      "id": "ba6b",
+      "name": "student",
+      "email": "student123@gmail.com",
+      "password": "12345678",
+      "cPassword": "12345678",
+      "role": "student",
+      "course": [
+        {
+          "courseId": "76cf",
+          "date": "2025-01-27"
+        }
+      ]
     }
   ],
   "contact": [

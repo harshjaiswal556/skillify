@@ -1,6 +1,8 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { CourseService } from '../../services/course.service';
 import { Course } from './course.interface';
+import { SignUpService } from '../../services/auth/sign-up.service';
+import { LoginService } from '../../services/auth/login.service';
 
 @Component({
   selector: 'app-course',
@@ -14,15 +16,29 @@ export class CourseComponent {
   courses!: Course[]
   courseLength: number = 0;
 
+  isStudentLoggedIn : boolean = false;
+
   @Input() displayCoursesCount: number = this.courseLength;
   @Input() searchText: string = '';
   filteredCourses: Course[] = [];
 
-  constructor(private courseService: CourseService){
+  constructor(private courseService: CourseService, private userService : SignUpService, private loginService : LoginService){
+    
+    const storageId = localStorage.getItem("userId");
+
     this.courseService.getCourses().subscribe(res=>{
       this.courses = res;
       this.filteredCourses = [...this.courses];
     })
+    console.log(this.displayCoursesCount);
+
+    if (storageId) {
+      this.loginService.getUserById(storageId).subscribe(res=>{
+        if (res.role === "student") {
+          this.isStudentLoggedIn = true
+        }
+      })
+    }
   }  
   
   ngOnChanges(changes: SimpleChanges): void {
@@ -39,6 +55,19 @@ export class CourseComponent {
   }
 
   get limitedCourses(): Course[] {
+    if (this.displayCoursesCount===0) {
+      return this.filteredCourses;
+    }
+    this.filteredCourses = this.filteredCourses.slice(0, this.displayCoursesCount);
     return this.filteredCourses;
+  }
+
+  purchaseCourse(courseId : string){
+    const storageId = localStorage.getItem("userId");
+    if(storageId){      
+      this.userService.addCourseToStudent(storageId, courseId).subscribe(res=>{
+        alert("Course added successfully!!!");
+      })
+    }
   }
 }

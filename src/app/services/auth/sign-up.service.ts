@@ -30,7 +30,23 @@ export class SignUpService {
   addCourseToUser(userId : string, courseId : string):Observable<any>{
     return this.http.get<SignUp>(`${this.url}/${userId}`).pipe(
       switchMap(user => {
+        if (!user.course) {
+          user.course = [];
+        }
         user.course.push(courseId);
+        return this.http.put(`${this.url}/${userId}`, user);
+      })
+    )
+  }
+
+  addCourseToStudent(userId : string, courseId : string):Observable<any>{
+    return this.http.get<SignUp>(`${this.url}/${userId}`).pipe(
+      switchMap(user => {
+        const currentDate = new Date().toISOString().split('T')[0];
+        if (!user.course) {
+          user.course = [];
+        }
+        user.course.push({ courseId: courseId, date: currentDate });
         return this.http.put(`${this.url}/${userId}`, user);
       })
     )

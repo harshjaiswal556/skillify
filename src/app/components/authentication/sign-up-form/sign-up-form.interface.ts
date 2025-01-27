@@ -4,5 +4,5 @@ export interface SignUp {
     email: string;
     password: string;
     role: string;
-    course: string[]
+    course: any[]
 }

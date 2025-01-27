@@ -14,7 +14,7 @@
         <div class="card-text fw-bold">
             Rs. {{item.price}}
         </div>
-        <a href="#" class="card-button"> Purchase</a>
+        <a *ngIf="isStudentLoggedIn" class="card-button" (click)="purchaseCourse(item.id)"> Purchase</a>
     </div>
 </div>
 </div>

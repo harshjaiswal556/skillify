@@ -7,7 +7,9 @@
           Begin your journey to mastering skills with <span class="highlight">Skillify's</span> tailored learning experience.
         </p>
         <div class="custom-buttons d-flex mt-3">
-          <button class="btn btn-success start-btn mx-3" routerLink="/login">Get Started</button>
+          <button *ngIf="!isLoggedin" class="btn btn-success start-btn mx-3" routerLink="/login">Get Started</button>
+          <button *ngIf="((isLoggedin) && (role==='faculty'))" class="btn btn-success start-btn mx-3" routerLink="/faculty-dashboard">View Dashboard</button>
+          <button *ngIf="((isLoggedin) && (role==='student'))" class="btn btn-success start-btn mx-3" routerLink="/student-dashboard">View Dashboard</button>
           <button class="btn btn-success course-btn mx-3" routerLink="/course">View Courses</button>
         </div>
   </div>

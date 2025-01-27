@@ -34,4 +34,12 @@ export class LoginService {
       }
     }))
   }
+
+  getUserById(userId : string):Observable<any>{
+    return this.http.get<any[]>(`${this.url}?id=${userId}`).pipe(map(users=>{
+      if(users.length!==0){
+        return users[0];
+      }
+    }))
+  }
 }

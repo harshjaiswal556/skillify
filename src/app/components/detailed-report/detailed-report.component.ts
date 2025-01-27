@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StudentReportService } from '../../services/student/student-report.service';
+import { CourseService } from '../../services/course.service';
 
 export interface PeriodicElement {
   name: string;
@@ -17,16 +18,25 @@ export interface PeriodicElement {
 })
 export class DetailedReportComponent {
 
-  reports: any[] = [
-    // {position: 1, name: 'ML - Python', order_value: 100, date: new Date('2025-01-01') },
-    // { position: 2, name: 'MEAN Stack', order_value: 200, date: new Date('2025-02-01') },
-    // { position: 3, name: 'MERN Stack', order_value: 300, date: new Date('2025-03-01') },
-  ];
+  reports: any[] = [];
+  courses: any[] = [];
 
-  constructor (private studentReportService : StudentReportService){
-    this.studentReportService.getData().subscribe(res=>{
-      this.reports = res;
-    })
+  constructor (private studentReportService : StudentReportService, private courseService: CourseService){
+
+    const storageId = localStorage.getItem("userId");
+
+    if (storageId) {
+      
+      this.studentReportService.getData(storageId).subscribe(res=>{
+        this.courses = res[0].course;
+        for (let index = 0; index < this.courses.length; index++) {
+          this.courseService.getCoursesById(this.courses[index].courseId).subscribe(res => {
+            this.reports.push(res)
+            console.log(this.reports);
+          })
+        }
+      })
+    }
   }
   
 }
