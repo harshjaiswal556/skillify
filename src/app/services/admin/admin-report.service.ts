@@ -13,4 +13,9 @@ export class AdminReportService {
   getData(id : string): Observable<any>{
     return this.http.get(`${this.url}?id=${id}`).pipe(map(res=>res));
   }
+
+  deleteUserById(userId : string):Observable<any>{
+    return this.http.delete(this.url+"/"+userId)
+  }
+  
 }

@@ -10,6 +10,7 @@
           <button *ngIf="!isLoggedin" class="btn btn-success start-btn mx-3" routerLink="/login">Get Started</button>
           <button *ngIf="((isLoggedin) && (role==='faculty'))" class="btn btn-success start-btn mx-3" routerLink="/faculty-dashboard">View Dashboard</button>
           <button *ngIf="((isLoggedin) && (role==='student'))" class="btn btn-success start-btn mx-3" routerLink="/student-dashboard">View Dashboard</button>
+          <button *ngIf="((isLoggedin) && (role==='admin'))" class="btn btn-success start-btn mx-3" routerLink="/admin-dashboard">View Dashboard</button>
           <button class="btn btn-success course-btn mx-3" routerLink="/course">View Courses</button>
         </div>
   </div>

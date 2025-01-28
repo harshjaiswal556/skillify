@@ -37,6 +37,8 @@ isStudent : boolean = false;
 
       this.faculty.getAllFaculty().subscribe(res=>{
         this.facultyData = res;
+        console.log(res);
+        
       })
 
       this.student.getAllStudent().subscribe(res=>{

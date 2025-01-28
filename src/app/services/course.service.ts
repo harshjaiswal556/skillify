@@ -25,7 +25,7 @@ export class CourseService {
   }
 
   updateCourseById(id : string, courseData : any): Observable<any>{
-    return this.http.put(`${this.url}/${id}`, courseData)
+    return this.http.patch(`${this.url}/${id}`, courseData)
   }
 
   deleteCourseById(id:string):Observable<any>{
@@ -39,6 +39,15 @@ export class CourseService {
             user.students = [];
           }
           user.students.push(userId);
+          return this.http.put(`${this.url}/${courseId}`, user);
+        })
+      )
+    }
+
+    removeStudentToCourse(userId : string, courseId : string):Observable<any>{
+      return this.http.get<Course>(`${this.url}/${courseId}`).pipe(
+        switchMap(user => {
+          user.students = user.students.filter(sId => sId !== userId)
           return this.http.put(`${this.url}/${courseId}`, user);
         })
       )

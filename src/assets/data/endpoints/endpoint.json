@@ -1,18 +1,6 @@
 {
   "courses": [
     {
-      "title": "MEAN Stack",
-      "price": 2399,
-      "image": "assets/courses/mean.jpeg",
-      "description": "JavaScript and TypeScript with MongoDB, Express.js, Angular, and Node.js.",
-      "date": "24-1-2025",
-      "id": "3f05",
-      "students": [
-        "7234",
-        "ba6b"
-      ]
-    },
-    {
       "image": "assets/courses/mern.jpeg",
       "title": "MERN Stack",
       "description": "JavaScript stack with MongoDB, Express.js, React, and Node.js.",
@@ -42,7 +30,8 @@
       "description": "Beginner friendly course to start your journey in App Development.",
       "price": 1499,
       "date": "23-1-2025",
-      "id": "0560"
+      "id": "0560",
+      "students": []
     },
     {
       "title": "MySQL",
@@ -50,7 +39,10 @@
       "image": "assets/courses/mean.jpeg",
       "description": "Learn basic to intermediate level of MySQL Database.",
       "date": "24-1-2025",
-      "id": "d5f6"
+      "id": "d5f6",
+      "students": [
+        "7234"
+      ]
     },
     {
       "title": "App (Java)",
@@ -58,23 +50,22 @@
       "image": "assets/courses/python.jpeg",
       "description": "Start learning App Development using Java language.",
       "date": "23-1-2025",
-      "id": "2869"
+      "id": "2869",
+      "students": [
+        "7234",
+        "ba6b"
+      ]
     },
     {
-      "title": "new course 2",
-      "price": 10000,
-      "image": "",
-      "description": "Description 123",
-      "date": "27-1-2025",
-      "id": "e115"
-    },
-    {
-      "id": "df3c",
-      "title": "New Course 1",
-      "price": 1000,
+      "id": "ce3d",
+      "title": "Hello world",
+      "price": 990,
       "image": "assets/courses/mean.jpeg",
-      "description": "Description",
-      "date": "27-1-2025"
+      "description": "Hello world world!!!",
+      "date": "28-1-2025",
+      "students": [
+        "7234"
+      ]
     }
   ],
   "reviews": [
@@ -123,8 +114,16 @@
       "role": "student",
       "course": [
         {
-          "courseId": "3f05",
-          "date": "2025-01-27"
+          "courseId": "d5f6",
+          "date": "2025-01-28"
+        },
+        {
+          "courseId": "2869",
+          "date": "2025-01-28"
+        },
+        {
+          "courseId": "ce3d",
+          "date": "2025-01-28"
         }
       ]
     },
@@ -134,34 +133,6 @@
       "email": "hsj@gmail.com",
       "password": "12345678",
       "role": "admin"
-    },
-    {
-      "id": "91de",
-      "name": "h",
-      "email": "hsjaiswal3110@mail.com",
-      "password": "12345678",
-      "role": "faculty",
-      "course": [
-        "3f05",
-        "e115",
-        "df3c"
-      ]
-    },
-    {
-      "id": "f745",
-      "name": "harsh",
-      "email": "faculty@gmail.com",
-      "password": "12345678",
-      "cPassword": "12345678",
-      "role": "faculty"
-    },
-    {
-      "id": "621f",
-      "name": "harsh",
-      "email": "student@gmail.com",
-      "password": "student@gmail.com",
-      "cPassword": "student@gmail.com",
-      "role": "student"
     },
     {
       "id": "ba6b",
@@ -176,9 +147,20 @@
           "date": "2025-01-27"
         },
         {
-          "courseId": "3f05",
-          "date": "2025-01-27"
+          "courseId": "2869",
+          "date": "2025-01-28"
         }
+      ]
+    },
+    {
+      "id": "85b7",
+      "name": "faculty",
+      "email": "faculty@gmail.com",
+      "password": "12345678",
+      "cPassword": "12345678",
+      "role": "faculty",
+      "course": [
+        "ce3d"
       ]
     }
   ],

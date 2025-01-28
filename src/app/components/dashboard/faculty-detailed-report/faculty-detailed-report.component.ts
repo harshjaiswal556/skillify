@@ -58,8 +58,10 @@ export class FacultyDetailedReportComponent {
   deleteCourse() {
     this.courseService.deleteCourseById(this.deleteCourseId).subscribe(res => {
       this.signUpService.removeCourseFromUser(this.userId, this.deleteCourseId).subscribe(res => {
-        console.log(res);
-        window.location.reload();
+        this.signUpService.removeCourseFromStudent(this.userId, this.deleteCourseId).subscribe(res => {
+          console.log(res);
+          window.location.reload();
+        })
       })
     })
   }

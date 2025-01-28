@@ -18,6 +18,9 @@ export class CourseComponent {
 
   isStudentLoggedIn : boolean = false;
 
+  isCoursePurchased : boolean = false;
+  purchasedCourseIds: Set<string> = new Set();
+
   @Input() displayCoursesCount: number = this.courseLength;
   @Input() searchText: string = '';
   filteredCourses: Course[] = [];
@@ -36,6 +39,14 @@ export class CourseComponent {
       this.loginService.getUserById(storageId).subscribe(res=>{
         if (res.role === "student") {
           this.isStudentLoggedIn = true
+          if (res.course) {
+            
+            for (let index = 0; index < res.course.length; index++) {
+              console.log(res.course[index].courseId);
+              this.purchasedCourseIds.add(res.course[index].courseId);
+            }
+          }
+          
         }
       })
     }
@@ -72,4 +83,16 @@ export class CourseComponent {
       })
     }
   }
+
+  removeCourse(courseId : string){
+    const storageId = localStorage.getItem("userId");
+    if(storageId){      
+      this.userService.removeCourseFromStudent(storageId, courseId).subscribe(res=>{
+        this.courseService.removeStudentToCourse(storageId, courseId).subscribe(res=>{
+          alert("Course removed successfully!!!");
+        })
+      })
+    }
+  }
+
 }
