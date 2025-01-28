@@ -33,9 +33,11 @@ export class LoginFormComponent {
         // console.log(res);
         this.userId = res.id;
         if(res.role === "faculty"){
-          this.router.navigate(['/faculty-dashboard'])
-        }else{
+          this.router.navigate(['faculty-dashboard'])
+        }else if(res.role === "student"){
           this.router.navigate(['student-dashboard'])
+        }else{
+          this.router.navigate(['admin-dashboard'])
         }
       })
     }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { StudentReportService } from '../../services/student/student-report.service';
-import { CourseService } from '../../services/course.service';
-import { SignUpService } from '../../services/auth/sign-up.service';
+import { StudentReportService } from '../../../services/student/student-report.service';
+import { CourseService } from '../../../services/course.service';
+import { SignUpService } from '../../../services/auth/sign-up.service';
 
 export interface PeriodicElement {
   name: string;

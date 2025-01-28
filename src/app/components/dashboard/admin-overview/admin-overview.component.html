@@ -1,0 +1,38 @@
+<div class="container d-flex align-items-start justify-content-between flex-column section">
+    <h1 class="heading">
+        <span class="highlight text-uppercase">Overview</span>
+    </h1>
+    <div class="d-flex col justify-content-start flex-wrap">
+
+        <mat-card appearance="outlined" class="card-sl">
+            <mat-card-header>
+                <mat-card-subtitle>Welcome!!!</mat-card-subtitle>
+                <mat-card-title class="text-uppercase">{{userData[0].name}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+        <mat-card appearance="outlined" class="card-sl card-button" (click)="displayComponent('course')">
+            <mat-card-header>
+                <mat-card-subtitle>Courses</mat-card-subtitle>
+                <mat-card-title class="text-uppercase">{{courseData.length}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+        <mat-card appearance="outlined" class="card-sl card-button" (click)="displayComponent('faculty')">
+            <mat-card-header>
+                <mat-card-subtitle>Faculties</mat-card-subtitle>
+                <mat-card-title class="text-uppercase">{{facultyData.length}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+        <mat-card appearance="outlined" class="card-sl card-button" (click)="displayComponent('student')">
+            <mat-card-header>
+                <mat-card-subtitle>Students</mat-card-subtitle>
+                <mat-card-title class="text-uppercase">{{studentData.length}}</mat-card-title>
+            </mat-card-header>
+        </mat-card>
+    </div>
+</div>
+
+<div>
+    <app-admin-detailed-report *ngIf="activeComponent === 'course'"></app-admin-detailed-report>
+    <app-all-faculty *ngIf="activeComponent === 'faculty'"></app-all-faculty>
+    <app-all-student *ngIf="activeComponent === 'student'"></app-all-student>
+  </div>

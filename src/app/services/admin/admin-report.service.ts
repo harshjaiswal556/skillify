@@ -5,8 +5,7 @@ import { map, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class FacultyReportService {
-
+export class AdminReportService {
   protected url = 'http://localhost:3000/users'
 
   constructor(private http : HttpClient) { }
@@ -14,9 +13,4 @@ export class FacultyReportService {
   getData(id : string): Observable<any>{
     return this.http.get(`${this.url}?id=${id}`).pipe(map(res=>res));
   }
-
-  getAllFaculty(): Observable<any>{
-    return this.http.get(`${this.url}?role=faculty`).pipe(map(res=>res));
-  }
-
 }

@@ -31,10 +31,15 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AllCoursesComponent } from './pages/all-courses/all-courses.component';
 import { StudentComponent } from './pages/dashboard/student/student.component';
-import { OverviewComponent } from './components/overview/overview.component';
-import { DetailedReportComponent } from './components/detailed-report/detailed-report.component';
+import { OverviewComponent } from './components/dashboard/overview/overview.component';
+import { DetailedReportComponent } from './components/dashboard/detailed-report/detailed-report.component';
 import { FacultyComponent } from './pages/dashboard/faculty/faculty.component';
-import { FacultyDetailedReportComponent } from './components/faculty-detailed-report/faculty-detailed-report.component';
+import { FacultyDetailedReportComponent } from './components/dashboard/faculty-detailed-report/faculty-detailed-report.component';
+import { AdminComponent } from './pages/dashboard/admin/admin.component';
+import { AdminOverviewComponent } from './components/dashboard/admin-overview/admin-overview.component';
+import { AdminDetailedReportComponent } from './components/dashboard/admin-detailed-report/admin-detailed-report.component';
+import { AllFacultyComponent } from './components/dashboard/all-faculty/all-faculty.component';
+import { AllStudentComponent } from './components/dashboard/all-student/all-student.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +66,11 @@ import { FacultyDetailedReportComponent } from './components/faculty-detailed-re
     DetailedReportComponent,
     FacultyComponent,
     FacultyDetailedReportComponent,
+    AdminComponent,
+    AdminOverviewComponent,
+    AdminDetailedReportComponent,
+    AllFacultyComponent,
+    AllStudentComponent,
   ],
   imports: [
     BrowserModule,

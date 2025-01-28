@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { FacultyReportService } from '../../services/faculty/faculty-report.service';
-import { CourseService } from '../../services/course.service';
-import { SignUp } from '../authentication/sign-up-form/sign-up-form.interface';
-import { SignUpService } from '../../services/auth/sign-up.service';
-import { LoginService } from '../../services/auth/login.service';
+import { FacultyReportService } from '../../../services/faculty/faculty-report.service';
+import { CourseService } from '../../../services/course.service';
+import { SignUp } from '../../authentication/sign-up-form/sign-up-form.interface';
+import { SignUpService } from '../../../services/auth/sign-up.service';
+import { LoginService } from '../../../services/auth/login.service';
 
 @Component({
   selector: 'app-faculty-detailed-report',

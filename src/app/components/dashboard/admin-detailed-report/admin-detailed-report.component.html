@@ -1,0 +1,31 @@
+<div class="container d-flex align-items-start justify-content-between flex-column section">
+    <h1 class="heading">
+      <span class="highlight text-uppercase">Detailed Report</span>
+    </h1>
+    </div>
+  
+  <section>
+    <article class="gallery-table">
+        <table>
+            <thead>
+                <tr>
+                    <th class="text-center p-3">S.No.</th>
+                    <th class="text-center p-3">Course Name</th>
+                    <th class="text-center p-3">Order Value</th>
+                    <th class="text-center p-3">Published Date</th>
+                    <th class="text-center p-3">Total Students</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let course of courseData; index as i">
+                    <td class="text-center align-middle p-3">{{i+1}}</td>
+                    <td class="text-center align-middle p-3">{{course.title}}</td>
+                    <td class="text-center align-middle p-3">Rs. {{course.price}}</td>
+                    <td class="text-center align-middle p-3">{{course.date}}</td>
+                    <td *ngIf="course.students" class="text-center align-middle p-3">{{course.students.length}}</td>
+                    <td *ngIf="!course.students" class="text-center align-middle p-3">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+  </section>

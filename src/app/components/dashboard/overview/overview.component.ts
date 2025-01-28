@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FacultyReportService } from '../../services/faculty/faculty-report.service';
+import { FacultyReportService } from '../../../services/faculty/faculty-report.service';
 
 @Component({
   selector: 'app-overview',

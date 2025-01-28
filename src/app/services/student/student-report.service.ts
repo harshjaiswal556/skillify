@@ -6,7 +6,7 @@ import { map, Observable, pipe } from 'rxjs';
   providedIn: 'root'
 })
 export class StudentReportService {
-  
+
   protected url = 'http://localhost:3000/users'
 
   constructor(private http : HttpClient) { }
@@ -14,4 +14,9 @@ export class StudentReportService {
   getData(id : string): Observable<any>{
     return this.http.get(`${this.url}?id=${id}`).pipe(map(res=>res))
   }
+
+  getAllStudent(): Observable<any>{
+    return this.http.get(`${this.url}?role=student`).pipe(map(res=>res));
+  }
+  
 }

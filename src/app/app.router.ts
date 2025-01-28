@@ -9,6 +9,8 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { AllCoursesComponent } from './pages/all-courses/all-courses.component';
 import { StudentComponent } from './pages/dashboard/student/student.component';
 import { FacultyComponent } from './pages/dashboard/faculty/faculty.component';
+import { AdminComponent } from './pages/dashboard/admin/admin.component';
+import { AuthGuard } from './auth.gaurd';
 
 export const router: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,8 +22,9 @@ export const router: Routes = [
     {path: 'faq', component: FaqComponent},
     {path: 'course', component: AllCoursesComponent},
     
-    {path: 'student-dashboard', component: StudentComponent},
-    {path: 'faculty-dashboard', component: FacultyComponent},
+    {path: 'student-dashboard', component: StudentComponent, canActivate:[AuthGuard]},
+    {path: 'faculty-dashboard', component: FacultyComponent, canActivate:[AuthGuard]},
+    {path: 'admin-dashboard', component: AdminComponent, canActivate:[AuthGuard]}
 
 ];
 export const routes = RouterModule.forRoot(router);
