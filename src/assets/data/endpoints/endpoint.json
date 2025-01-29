@@ -55,8 +55,7 @@
       "date": "23-1-2025",
       "id": "2869",
       "students": [
-        "7234",
-        "ba6b"
+        "7234"
       ]
     },
     {
@@ -136,24 +135,6 @@
       "role": "admin"
     },
     {
-      "id": "ba6b",
-      "name": "student",
-      "email": "student123@gmail.com",
-      "password": "12345678",
-      "cPassword": "12345678",
-      "role": "student",
-      "course": [
-        {
-          "courseId": "76cf",
-          "date": "2025-01-27"
-        },
-        {
-          "courseId": "2869",
-          "date": "2025-01-28"
-        }
-      ]
-    },
-    {
       "id": "85b7",
       "name": "faculty",
       "email": "faculty@gmail.com",
@@ -188,6 +169,12 @@
       "id": "25e6",
       "name": "Harsh Jaiswal",
       "email": "harsh.shah2020@vitbhopal.ac.in",
+      "message": "Hello"
+    },
+    {
+      "id": "5387",
+      "name": "Harsh Jaiswal",
+      "email": "hsjaiswal3110@gmail.com",
       "message": "Hello"
     }
   ]

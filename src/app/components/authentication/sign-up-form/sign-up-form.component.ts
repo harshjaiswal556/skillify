@@ -30,7 +30,7 @@ export class SignUpFormComponent implements OnChanges {
       password: ['', Validators.required],
       cPassword: ['', Validators.required],
       role: [this.role, Validators.required],
-      message : ['', Validators.required]
+      message : ['']
     })
   }
 
@@ -73,7 +73,7 @@ export class SignUpFormComponent implements OnChanges {
       const password = this.signUpForm.get('password')?.value;
       const cPassword = this.signUpForm.get('cPassword')?.value;
       if(password === cPassword){
-        if (this.otpNumber === parseInt(this.signUpForm.get('message')?.value)) {
+        if (this.role || this.otpNumber === parseInt(this.signUpForm.get('message')?.value)) {
           console.log("Noicceee");
           const formValue = this.signUpForm.value as SignUp      
           this.signUpService.createUser(formValue).subscribe(res => {
