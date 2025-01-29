@@ -15,7 +15,7 @@
       box-shadow: 0 0 4px #63e4ac;
   }
   
-  input[type="submit"] {
+  input[type="submit"],  input[type="button"] {
       background-color: #4dc591;
       color: white;
       border: none;
@@ -27,7 +27,7 @@
       transition: all 0.3s ease;
   }
   
-  input[type="submit"]:hover{
+  input[type="submit"]:hover,  input[type="button"]:hover{
       background-color: #fff;
       /* transform: scale(1.02); */
       color: #4dc591;

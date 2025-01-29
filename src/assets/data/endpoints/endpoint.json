@@ -6,7 +6,10 @@
       "description": "JavaScript stack with MongoDB, Express.js, React, and Node.js.",
       "price": 2399,
       "date": "13-1-2025",
-      "id": "76cf"
+      "id": "76cf",
+      "students": [
+        "7234"
+      ]
     },
     {
       "image": "assets/courses/python.jpeg",
@@ -63,9 +66,7 @@
       "image": "assets/courses/mean.jpeg",
       "description": "Hello world world!!!",
       "date": "28-1-2025",
-      "students": [
-        "7234"
-      ]
+      "students": []
     }
   ],
   "reviews": [
@@ -122,8 +123,8 @@
           "date": "2025-01-28"
         },
         {
-          "courseId": "ce3d",
-          "date": "2025-01-28"
+          "courseId": "76cf",
+          "date": "2025-01-29"
         }
       ]
     },
@@ -176,6 +177,18 @@
       "name": "harsh jaiswal",
       "email": "hsj@gmail.com",
       "message": "jVHAKA"
+    },
+    {
+      "id": "7faa",
+      "name": "Harsh Jaiswal",
+      "email": "harsh.shah2020@vitbhopal.ac.in",
+      "message": "hello"
+    },
+    {
+      "id": "25e6",
+      "name": "Harsh Jaiswal",
+      "email": "harsh.shah2020@vitbhopal.ac.in",
+      "message": "Hello"
     }
   ]
 }

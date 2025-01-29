@@ -1,5 +1,6 @@
 
-    <form #form1="ngForm" (ngSubmit)="save(form1.value)" novalidate>
+    <!-- <form #form1="ngForm" (ngSubmit)="sendEmail($event)" novalidate> -->
+    <form #form1="ngForm" (ngSubmit)="save(form1.value, $event)" novalidate>
         <div class="mb-3">
             <label for="exampleFormControlName1" class="form-label">Full Name*</label>
             <input type="text" name="name" class="form-control" [(ngModel)]="contact.name" #name="ngModel" id="exampleFormControlName1" required

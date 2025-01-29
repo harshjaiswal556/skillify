@@ -1,20 +1,19 @@
 
-<form [formGroup]="signUpForm" (ngSubmit)="signUpSubmit()" novalidate>
+<form [formGroup]="signUpForm" (ngSubmit)="signUpSubmit($event)" novalidate>
     <div class="mb-3">
         <label for="exampleFormControlName1" class="form-label">Full Name*</label>
-        <input formControlName="name" type="text" class="form-control" placeholder="Enter Your Name" pattern="^[a-zA-Z][a-zA-Z\s]*$">
+        <input formControlName="name" name="name" type="text" class="form-control" placeholder="Enter Your Name" pattern="^[a-zA-Z][a-zA-Z\s]*$">
             <div *ngIf="(signUpForm.controls['name'].invalid) && (signUpForm.controls['name'].touched)" class="text-danger">
                 Valid name is required.
             </div>
     </div>
     <div class="row">
         <div class="mb-3 col-md-6">
-            <label for="exampleFormControlInput1" class="form-label">Email Address*</label>
-            <input type="email" formControlName="email" class="form-control"
-            placeholder="Enter Your Email">
-            <div *ngIf="(signUpForm.controls['email'].invalid) && (signUpForm.controls['email'].touched)" class="text-danger">
-                Valid email is required.
-            </div>
+            <label for="exampleFormControlName1" class="form-label">Email ID*</label>
+            <input formControlName="user" name="user" type="email" class="form-control" placeholder="Enter Your Email" >
+                <div *ngIf="(signUpForm.controls['user'].invalid) && (signUpForm.controls['user'].touched)" class="text-danger">
+                    Valid email is required.
+                </div>
         </div>
         <div *ngIf="!role" class="mb-3 col-md-6">
             <label for="exampleFormControlInput1" class="form-label">Select Role*</label>
@@ -43,6 +42,15 @@
                 <div *ngIf="(signUpForm.controls['cPassword'].invalid) && (signUpForm.controls['cPassword'].touched)" class="text-danger">
                     Valid password is required.
                 </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            <input type="password" class="form-control" name="message" formControlName="message" placeholder="Enter Your OTP">
+        </div>
+        <div class="mb-3 col-md-6">
+            <input type="button" value="Generate OTP" (click)="otp($event)" >
         </div>
     </div>
     <div class="mb-3">
