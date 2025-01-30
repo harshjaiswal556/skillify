@@ -79,6 +79,7 @@ export class CourseComponent {
       this.userService.addCourseToStudent(storageId, courseId).subscribe(res=>{
         this.courseService.addStudentToCourse(storageId, courseId).subscribe(res=>{
           alert("Course added successfully!!!");
+          window.location.reload();
         })
       })
     }
@@ -90,6 +91,7 @@ export class CourseComponent {
       this.userService.removeCourseFromStudent(storageId, courseId).subscribe(res=>{
         this.courseService.removeStudentToCourse(storageId, courseId).subscribe(res=>{
           alert("Course removed successfully!!!");
+          window.location.reload()
         })
       })
     }

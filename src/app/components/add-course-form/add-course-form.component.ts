@@ -73,6 +73,7 @@ export class AddCourseFormComponent {
           this.userService.addCourseToUser(this.userId, res.id).subscribe(res=>{
             alert("Course added successfully!!!");
             this.courseForm.reset();
+            window.location.reload();
           })
         })
       }

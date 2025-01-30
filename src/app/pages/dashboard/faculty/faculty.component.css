@@ -1,0 +1,16 @@
+.section{
+    padding: 0rem 0 5rem 0;
+}
+
+.mat-mdc-fab{
+    background-color: #4dc591 !important;
+}
+
+.mat-mdc-fab-base{
+    width: 45px;
+    height: 45px;
+}
+
+mat-icon{
+    color: white;
+}

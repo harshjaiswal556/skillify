@@ -25,8 +25,8 @@ export class SignUpFormComponent implements OnChanges {
   private save(){
     this.signUpForm = this.fb.group({
       name: ['', Validators.required],
-      user: ['', Validators.required],
-      // user: ['', [Validators.required, Validators.email]],
+      email: ['', Validators.required],
+      // email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       cPassword: ['', Validators.required],
       role: [this.role, Validators.required],
@@ -44,7 +44,7 @@ export class SignUpFormComponent implements OnChanges {
   otp(e : Event){
     e.preventDefault();
     const templateParams = {
-      user: this.signUpForm.get('user')?.value,  
+      user: this.signUpForm.get('email')?.value,  
       name: this.signUpForm.get('name')?.value,  
       message: this.otpNumber.toString(),  
     };

@@ -43,4 +43,8 @@ export class LoginService {
     }))
   }
 
+  deleteUserById(userId : string):Observable<any>{
+    return this.http.delete(this.url+"/"+userId)
+  }
+
 }

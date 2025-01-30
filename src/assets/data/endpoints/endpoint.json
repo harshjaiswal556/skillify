@@ -1,31 +1,15 @@
 {
   "courses": [
     {
-      "image": "assets/courses/mern.jpeg",
-      "title": "MERN Stack",
-      "description": "JavaScript stack with MongoDB, Express.js, React, and Node.js.",
-      "price": 2399,
-      "date": "13-1-2025",
-      "id": "76cf",
-      "students": [
-        "7234"
-      ]
-    },
-    {
-      "image": "assets/courses/python.jpeg",
-      "title": "ML - Python",
-      "description": "A Versatile programming language for machine learning.",
-      "price": 3499,
-      "date": "23-12-2024",
-      "id": "f1e4"
-    },
-    {
       "image": "assets/courses/python.jpeg",
       "title": "Data Science - Python",
       "description": "A Versatile programming language for Data Science.",
       "price": 3499,
       "date": "23-1-2025",
-      "id": "b4c9"
+      "id": "b4c9",
+      "students": [
+        "7082"
+      ]
     },
     {
       "image": "assets/courses/mern.jpeg",
@@ -44,7 +28,8 @@
       "date": "24-1-2025",
       "id": "d5f6",
       "students": [
-        "7234"
+        "7234",
+        "7082"
       ]
     },
     {
@@ -59,13 +44,32 @@
       ]
     },
     {
-      "id": "ce3d",
-      "title": "Hello world",
-      "price": 990,
+      "id": "2e24",
+      "title": "test course",
+      "price": 1990,
       "image": "assets/courses/mean.jpeg",
-      "description": "Hello world world!!!",
-      "date": "28-1-2025",
+      "description": "Hello world description",
+      "date": "30-1-2025"
+    },
+    {
+      "id": "c381",
+      "title": "MERN Stack",
+      "price": 3990,
+      "image": "assets/courses/mean.jpeg",
+      "description": "This is a mern stack course",
+      "date": "30-1-2025",
       "students": []
+    },
+    {
+      "id": "8d38",
+      "title": "GoLang",
+      "price": 1999,
+      "image": "assets/courses/mean.jpeg",
+      "description": "This is a golang course",
+      "date": "30-1-2025",
+      "students": [
+        "7082"
+      ]
     }
   ],
   "reviews": [
@@ -129,20 +133,57 @@
     },
     {
       "id": "0f8e",
-      "name": "hsj",
+      "name": "Harsh Shah Jaiswal",
       "email": "hsj@gmail.com",
       "password": "12345678",
       "role": "admin"
     },
     {
-      "id": "85b7",
-      "name": "faculty",
+      "id": "7082",
+      "name": "shivansh",
+      "email": "shivanshshukla0227@gmail.com",
+      "password": "shivanshshukla0227",
+      "cPassword": "shivanshshukla0227",
+      "role": "student",
+      "message": "44682",
+      "course": [
+        {
+          "courseId": "b4c9",
+          "date": "2025-01-30"
+        },
+        {
+          "courseId": "d5f6",
+          "date": "2025-01-30"
+        },
+        {
+          "courseId": "8d38",
+          "date": "2025-01-30"
+        }
+      ]
+    },
+    {
+      "id": "ea41",
+      "name": "Faculty Harsh",
+      "email": "harshshahjaiswal@gmail.com",
+      "password": "harshshahjaiswal",
+      "cPassword": "harshshahjaiswal",
+      "role": "faculty",
+      "message": "32184",
+      "course": [
+        "2e24"
+      ]
+    },
+    {
+      "id": "5c61",
+      "name": "Faculty",
       "email": "faculty@gmail.com",
       "password": "12345678",
       "cPassword": "12345678",
       "role": "faculty",
+      "message": "",
       "course": [
-        "ce3d"
+        "c381",
+        "8d38"
       ]
     }
   ],

@@ -17,15 +17,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let faculty of studentData; index as i">
+                <tr *ngFor="let student of studentData; index as i">
                     <td class="text-center align-middle p-3">{{i+1}}</td>
-                    <td class="text-center align-middle p-3">{{faculty.name}}</td>
-                    <td class="text-center align-middle p-3">{{faculty.email}}</td>
-                    <td *ngIf="faculty.course" class="text-center align-middle p-3">{{faculty.course.length}}</td>
-                    <td *ngIf="!faculty.course" class="text-center align-middle p-3">0</td>
+                    <td class="text-center align-middle p-3">{{student.name}}</td>
+                    <td class="text-center align-middle p-3">{{student.email}}</td>
+                    <td *ngIf="student.course" class="text-center align-middle p-3">{{student.course.length}}</td>
+                    <td *ngIf="!student.course" class="text-center align-middle p-3">0</td>
                     <td class="text-center align-middle p-3">
                         <button style="margin: 0 8px;" mat-fab>
-                            <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteUserById(faculty.id)">delete</mat-icon>
+                            <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteUserById(student.id)">delete</mat-icon>
                         </button>
                     </td>
                 </tr>
