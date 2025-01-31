@@ -3,9 +3,10 @@
 }
 
 app-chart{
-  width:80% !important;
-  height:auto !important;
-
+  max-width:80% !important;
+  height:70vh !important;
+  display: flex;
+  justify-content: center;
 }
 .heading {
   font-size: 1.8rem;

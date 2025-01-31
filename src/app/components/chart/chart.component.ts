@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges, OnDestroy } from '@angular/core';
+import { Component, Input, SimpleChanges, OnDestroy, OnChanges } from '@angular/core';
 import Chart from 'chart.js/auto';
 
 @Component({
@@ -12,7 +12,7 @@ export class ChartComponent implements OnDestroy {
 
   @Input() chartLabel: string[] = [];
   @Input() chartData: number[] = [];
-  @Input() chartType: any = 'bar';
+  @Input() chartType: any = null;
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['chartType'] || changes['chartLabel'] || changes['chartData']) {
@@ -32,15 +32,25 @@ export class ChartComponent implements OnDestroy {
     const canvas: any = document.getElementById('canvas');
     if (!canvas) return; 
 
+    if (this.chartType===null) {
+      this.chartType = 'bar'
+    }
+
     this.chart = new Chart(canvas, {
-      type: this.chartType || 'bar',
+      type: this.chartType,
       data: {
         labels: this.chartLabel,
         datasets: [
           {
             label: 'Chart visualization of students and courses',
             data: this.chartData,
-            backgroundColor: "#4dc591",
+            backgroundColor: [
+              "#548c2f",
+              "#f9a620",
+              "#a8d5e2",
+              "#ffd449",
+              "#104911"
+            ],
           },
         ],
       },

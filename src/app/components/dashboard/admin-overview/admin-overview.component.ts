@@ -28,9 +28,11 @@ isStudent : boolean = false;
 chartLabel : string[] = [];
 chartData : number[] = [];
 chartType : any;
+activeComponent: string = 'course'; 
 
   constructor(private user : AdminReportService, private course : CourseService, private faculty : FacultyReportService, private student : StudentReportService, private route : Router){
     const storageId = localStorage.getItem("userId");
+    this.chartType = 'bar'
     if(storageId){
       this.user.getData(storageId).subscribe(res => {
         console.log(res);
@@ -39,7 +41,7 @@ chartType : any;
 
       this.course.getCourses().subscribe(res=>{
         this.courseData = res
-        res.map((item: { title: string; students: any[]; }) => {
+        this.courseData.map((item: { title: string; students: any[]; }) => {
           this.chartLabel.push(item.title);
           if (!item.students) {
             this.chartData.push(0);
@@ -55,14 +57,48 @@ chartType : any;
 
       this.student.getAllStudent().subscribe(res=>{
         this.studentData = res;
+        
       })
     }
     
   }
-  activeComponent: string = 'course'; 
 
   displayComponent(component: string): void {
     this.activeComponent = component;
+    if (this.activeComponent === 'course') {
+      this.chartLabel = []
+      this.chartData = []
+      this.courseData.map((item: { title: string; students: any[]; }) => {
+        this.chartLabel.push(item.title);
+        if (!item.students) {
+          this.chartData.push(0);
+        }else{
+          this.chartData.push(item.students.length);
+        }
+      });
+    }else if (this.activeComponent === 'faculty') {
+      this.chartLabel = []
+      this.chartData = []
+      this.facultyData.map((item: { name: string; course: any[]; }) => {
+        this.chartLabel.push(item.name);
+        if (!item.course) {
+          this.chartData.push(0);
+        }else{
+          this.chartData.push(item.course.length);
+        }
+      });
+    }else if (this.activeComponent === 'student') {
+      this.chartLabel = []
+      this.chartData = []
+      this.studentData.map((item: { name: string; course: any[]; }) => {
+        this.chartLabel.push(item.name);
+        if (!item.course) {
+          this.chartData.push(0);
+        }else{
+          this.chartData.push(item.course.length);
+        }
+      });
+    }
   }
 
   chartTypeToggle(type : string){
