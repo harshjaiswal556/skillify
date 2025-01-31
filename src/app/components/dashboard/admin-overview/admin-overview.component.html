@@ -35,4 +35,25 @@
     <app-admin-detailed-report *ngIf="activeComponent === 'course'"></app-admin-detailed-report>
     <app-all-faculty *ngIf="activeComponent === 'faculty'"></app-all-faculty>
     <app-all-student *ngIf="activeComponent === 'student'"></app-all-student>
-  </div>
+</div>
+
+<div class="container d-flex justify-content-center">
+    <h1 class="heading">
+        Select Your Preffered <span class="highlight">Chart Type</span> To View Data
+      </h1>
+    <div class="example-flex-container d-flex">
+        <div class="example-button-container mx-3" (click)="chartTypeToggle('bar')">
+            <button mat-fab class="text-light" style="width: auto; padding: 0.5rem 1rem; font-weight: 700;">
+                Bar
+            </button>
+        </div>
+        <div class="example-button-container mx-3" (click)="chartTypeToggle('line')">
+            <button mat-fab class="text-light" style="width: auto; padding: 0.5rem 1rem; font-weight: 700;">
+                Line
+            </button>
+        </div>
+    </div>
+</div>
+<div class="chart d-flex justify-content-center row mb-3">
+    <app-chart *ngIf="chartType" [chartLabel]="chartLabel" [chartData]="chartData" [chartType]="chartType" />
+</div>

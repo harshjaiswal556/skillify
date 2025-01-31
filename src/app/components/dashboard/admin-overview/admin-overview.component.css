@@ -2,9 +2,14 @@
   padding: 2rem 0 5rem 0;
 }
 
+app-chart{
+  width:80% !important;
+  height:auto !important;
+
+}
 .heading {
   font-size: 1.8rem;
-  margin-bottom: 20px;
+  margin-bottom: 0px !important;
   /* text-align: center; */
 }
 
@@ -58,4 +63,8 @@ mat-card-title {
   .section {
     padding: 2rem;
   }
+}
+
+.mat-mdc-fab{
+  background-color: #4dc591 !important;
 }

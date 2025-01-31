@@ -29,7 +29,8 @@
       "id": "d5f6",
       "students": [
         "7234",
-        "7082"
+        "7082",
+        "6593"
       ]
     },
     {
@@ -40,7 +41,8 @@
       "date": "23-1-2025",
       "id": "2869",
       "students": [
-        "7234"
+        "7234",
+        "6593"
       ]
     },
     {
@@ -49,7 +51,10 @@
       "price": 1990,
       "image": "assets/courses/mean.jpeg",
       "description": "Hello world description",
-      "date": "30-1-2025"
+      "date": "30-1-2025",
+      "students": [
+        "6593"
+      ]
     },
     {
       "id": "c381",
@@ -68,7 +73,8 @@
       "description": "This is a golang course",
       "date": "30-1-2025",
       "students": [
-        "7082"
+        "7082",
+        "6593"
       ]
     }
   ],
@@ -124,10 +130,6 @@
         {
           "courseId": "2869",
           "date": "2025-01-28"
-        },
-        {
-          "courseId": "76cf",
-          "date": "2025-01-29"
         }
       ]
     },
@@ -170,7 +172,10 @@
       "role": "faculty",
       "message": "32184",
       "course": [
-        "2e24"
+        "2e24",
+        "b4c9",
+        "d5f6",
+        "2869"
       ]
     },
     {
@@ -183,7 +188,35 @@
       "message": "",
       "course": [
         "c381",
-        "8d38"
+        "8d38",
+        "0560"
+      ]
+    },
+    {
+      "id": "6593",
+      "name": "Harsh Jaiswal",
+      "email": "tech.harsh2003@gmail.com",
+      "password": "tech.harsh2003",
+      "cPassword": "tech.harsh2003",
+      "role": "student",
+      "message": "93213",
+      "course": [
+        {
+          "courseId": "d5f6",
+          "date": "2025-01-31"
+        },
+        {
+          "courseId": "2e24",
+          "date": "2025-01-31"
+        },
+        {
+          "courseId": "2869",
+          "date": "2025-01-31"
+        },
+        {
+          "courseId": "8d38",
+          "date": "2025-01-31"
+        }
       ]
     }
   ],

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/auth/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,12 +12,16 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
 
   isLoggedIn : boolean = false
+  role : string = '';
 
-  constructor(private route : Router){
+  constructor(private route : Router, private user : LoginService){
     const storageId = localStorage.getItem("userId");
     if (storageId) {
       this.isLoggedIn = true;
     }
+    this.user.getUserById(String(storageId)).subscribe(res=>{
+      this.role = res.role        
+    })
   }
 
   logOut(){

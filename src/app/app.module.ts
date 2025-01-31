@@ -40,6 +40,8 @@ import { AdminOverviewComponent } from './components/dashboard/admin-overview/ad
 import { AdminDetailedReportComponent } from './components/dashboard/admin-detailed-report/admin-detailed-report.component';
 import { AllFacultyComponent } from './components/dashboard/all-faculty/all-faculty.component';
 import { AllStudentComponent } from './components/dashboard/all-student/all-student.component';
+import { ChartComponent } from './components/chart/chart.component';
+
 
 @NgModule({
   declarations: [
@@ -71,6 +73,7 @@ import { AllStudentComponent } from './components/dashboard/all-student/all-stud
     AdminDetailedReportComponent,
     AllFacultyComponent,
     AllStudentComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
