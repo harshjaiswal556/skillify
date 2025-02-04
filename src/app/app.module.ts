@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { routes } from './app.router';
@@ -43,6 +43,15 @@ import { AllStudentComponent } from './components/dashboard/all-student/all-stud
 import { ChartComponent } from './components/chart/chart.component';
 
 
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { authReducer } from './store/reducer/auth.reducer';
+// import { AuthEffects } from './store/effect/auth.effect';
+import { LoginService } from './services/auth/login.service';
+import { AuthEffects } from './store/effect/auth.effect';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,10 +93,13 @@ import { ChartComponent } from './components/chart/chart.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({ auth: authReducer }),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    // LoginService
   ],
   bootstrap: [AppComponent]
 })

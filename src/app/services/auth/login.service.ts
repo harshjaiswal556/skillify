@@ -27,10 +27,12 @@ export class LoginService {
         }else{
           alert("Invalid Login Credentials");
           console.log("Data not found");
+          return null
         }
       }else{
         alert("Invalid Login Credentials");
         console.log("Data not found");
+        return null
       }
     }))
   }
