@@ -8,9 +8,8 @@ import { login, loginSuccess, loginFailure } from '../action/auth.action';
 @Injectable()
 export class AuthEffects {
     login$;
-  constructor(private actions$: Actions, private authService: LoginService, private store: Store) {
+  constructor(private actions$: Actions, private authService: LoginService) {
 
-  
   this.login$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(login),

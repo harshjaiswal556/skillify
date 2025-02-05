@@ -28,7 +28,7 @@ export class OverviewComponent {
 
   ngOnInit(){
     this.store.select('auth').pipe().subscribe(authUser => {
-      console.log(authUser);
+      console.log(authUser.user.email);
         if (authUser) {
           this.user.getData(authUser.user.id).subscribe(res => {
             console.log(res);
