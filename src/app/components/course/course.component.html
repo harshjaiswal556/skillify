@@ -12,10 +12,10 @@
             {{item.description}}
         </div>
         <div class="card-text fw-bold">
-            Rs. {{item.price}}
+            Duration: {{item.duration}} hrs
         </div>
-        <a *ngIf="isStudentLoggedIn && !purchasedCourseIds.has(item.id)" class="card-button" (click)="purchaseCourse(item.id)"> Purchase</a>
-        <a *ngIf="isStudentLoggedIn && purchasedCourseIds.has(item.id)" class="card-button-remove" (click)="removeCourse(item.id)"> Remove</a>
+        <a *ngIf="isStudentLoggedIn && !purchasedCourseIds.has(item.id)" class="card-button" (click)="purchaseCourse(item.id)">Enroll Now</a>
+        <a *ngIf="isStudentLoggedIn && purchasedCourseIds.has(item.id)" class="card-button-remove" (click)="removeCourse(item.id)">Remove</a>
     </div>
 </div>
 </div>

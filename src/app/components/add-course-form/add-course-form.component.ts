@@ -14,7 +14,7 @@ export class AddCourseFormComponent {
   courseForm!: FormGroup;
 
   @Input() title: string = '';
-  @Input() price: number = 0;
+  @Input() duration: number = 0;
   @Input() description: string = '';
   @Input() id: string = '';
   @Input() userId: string = '';
@@ -28,10 +28,10 @@ export class AddCourseFormComponent {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['title'] || changes['price'] || changes['description']) {
+    if (changes['title'] || changes['duration'] || changes['description']) {
       this.courseForm.patchValue({
         title: this.title,
-        price: this.price,
+        duration: this.duration,
         description: this.description,
         id: this.id,
       });
@@ -47,7 +47,7 @@ export class AddCourseFormComponent {
     let year = date.getFullYear();
     this.courseForm = this.fb.group({
       title: [this.title, Validators.required],
-      price: [this.price, Validators.required],
+      duration: [this.duration, Validators.required],
       image: ['assets/courses/mean.jpeg'],
       description: [this.description, Validators.required],
       date: `${day}-${month}-${year}`,

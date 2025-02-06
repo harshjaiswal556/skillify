@@ -2,7 +2,7 @@ export interface Course{
     image: string,
     title: string,
     description: string,
-    price: number,
+    duration: number,
     date: string,
     id: string,
     students : string[]

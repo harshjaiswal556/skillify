@@ -38,7 +38,7 @@ export class AdminDetailedReportComponent {
   deleteCourseId: string = '';
 
   title: string = '';
-  price: number = 0;
+  duration: number = 0;
   id: string = '';
   description: string = '';
 
@@ -55,9 +55,9 @@ export class AdminDetailedReportComponent {
     })
   }
 
-  editCourseById(title: string, price: number, description: string, id: string) {
+  editCourseById(title: string, duration: number, description: string, id: string) {
     this.title = title;
-    this.price = price;
+    this.duration = duration;
     this.description = description;
     this.id = id;
   }

@@ -11,7 +11,7 @@
                 <tr>
                     <th class="text-center p-3">S.No.</th>
                     <th class="text-center p-3">Course Name</th>
-                    <th class="text-center p-3">Order Value</th>
+                    <th class="text-center p-3">Duration(hrs)</th>
                     <th class="text-center p-3">Published Date</th>
                     <th class="text-center p-3">Total Students</th>
                     <th class="text-center p-3">Actions</th>
@@ -21,7 +21,7 @@
                 <tr *ngFor="let course of courseData; index as i">
                     <td class="text-center align-middle p-3" data-label="S.No.">{{i+1}}</td>
                     <td class="text-center align-middle p-3" data-label="Course Name">{{course.title}}</td>
-                    <td class="text-center align-middle p-3" data-label="Order Value">Rs. {{course.price}}</td>
+                    <td class="text-center align-middle p-3" data-label="Duration(hrs)"> {{course.duration}} hrs</td>
                     <td class="text-center align-middle p-3" data-label="Published Date">{{course.date}}</td>
                     <td *ngIf="course.students" class="text-center align-middle p-3" data-label="Total Students">{{course.students.length}}</td>
                     <td *ngIf="!course.students" class="text-center align-middle p-3" data-label="Total Students">0</td>
@@ -30,7 +30,7 @@
                             <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteCourseById(course.id)">delete</mat-icon>
                         </button>
                         <button style="margin: 0 8px;" mat-fab>
-                            <mat-icon data-bs-toggle="modal" data-bs-target="#editCourse" (click)="editCourseById(course.title, course.price, course.description, course.id)" >edit</mat-icon>
+                            <mat-icon data-bs-toggle="modal" data-bs-target="#editCourse" (click)="editCourseById(course.title, course.duration, course.description, course.id)" >edit</mat-icon>
                         </button>
                     </td>
                 </tr>
@@ -48,7 +48,7 @@
                 <mat-icon class="close" data-bs-dismiss="modal" aria-label="Close">close</mat-icon>
             </div>
             <div class="modal-body">
-                <app-add-course-form [title]="title" [price]="price" [description]="description" [id]="id" />
+                <app-add-course-form [title]="title" [duration]="duration" [description]="description" [id]="id" />
             </div>
         </div>
     </div>
