@@ -38,11 +38,11 @@
             </thead>
             <tbody>
                 <tr *ngFor="let faculty of facultyData; index as i">
-                    <td class="text-center align-middle p-3">{{i+1}}</td>
-                    <td class="text-center align-middle p-3">{{faculty.name}}</td>
-                    <td class="text-center align-middle p-3">{{faculty.email}}</td>
-                    <td *ngIf="faculty.course" class="text-center align-middle p-3">{{faculty.course.length}}</td>
-                    <td *ngIf="!faculty.course" class="text-center align-middle p-3">0</td>
+                    <td class="text-center align-middle p-3" data-label="S.No.">{{i+1}}</td>
+                    <td class="text-center align-middle p-3" data-label="Faculty Name">{{faculty.name}}</td>
+                    <td class="text-center align-middle p-3" data-label="Faculty Email">{{faculty.email}}</td>
+                    <td *ngIf="faculty.course" class="text-center align-middle p-3" data-label="Total Course">{{faculty.course.length}}</td>
+                    <td *ngIf="!faculty.course" class="text-center align-middle p-3" data-label="Total Course">0</td>
                     <td class="text-center align-middle p-3">
                         <button style="margin: 0 8px;" mat-fab>
                             <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteUserById(faculty.id)">delete</mat-icon>

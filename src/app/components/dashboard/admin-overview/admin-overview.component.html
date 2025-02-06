@@ -37,27 +37,27 @@
     <app-all-student *ngIf="activeComponent === 'student'"></app-all-student>
 </div>
 
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center flex-wrap">
     <h1 class="heading">
         Select Your Preffered <span class="highlight">Chart Type</span> To View Data
       </h1>
-    <div class="example-flex-container d-flex">
-        <div class="example-button-container mx-3" (click)="chartTypeToggle('bar')">
+    <div class="example-flex-container d-flex flex-wrap">
+        <div class="example-button-container mx-3 my-3" (click)="chartTypeToggle('bar')">
             <button mat-fab class="text-light" style="width: auto; padding: 0.5rem 1rem; font-weight: 700;">
                 Bar
             </button>
         </div>
-        <div class="example-button-container mx-3" (click)="chartTypeToggle('line')">
+        <div class="example-button-container mx-3 my-3" (click)="chartTypeToggle('line')">
             <button mat-fab class="text-light" style="width: auto; padding: 0.5rem 1rem; font-weight: 700;">
                 Line
             </button>
         </div>
-        <div class="example-button-container mx-3" (click)="chartTypeToggle('pie')">
+        <div class="example-button-container mx-3 my-3" (click)="chartTypeToggle('pie')">
             <button mat-fab class="text-light" style="width: auto; padding: 0.5rem 1rem; font-weight: 700;">
                 Pie
             </button>
         </div>
-        <div class="example-button-container mx-3" (click)="chartTypeToggle('polarArea')">
+        <div class="example-button-container mx-3 my-3" (click)="chartTypeToggle('polarArea')">
             <button mat-fab class="text-light" style="width: auto; padding: 0.5rem 1rem; font-weight: 700;">
                 PolarArea
             </button>

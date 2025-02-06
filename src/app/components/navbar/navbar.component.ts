@@ -18,10 +18,10 @@ export class NavbarComponent {
     const storageId = localStorage.getItem("userId");
     if (storageId) {
       this.isLoggedIn = true;
+      this.user.getUserById(String(storageId)).subscribe(res=>{
+        this.role = res.role        
+      })
     }
-    this.user.getUserById(String(storageId)).subscribe(res=>{
-      this.role = res.role        
-    })
   }
 
   logOut(){

@@ -17,10 +17,10 @@
           </thead>
           <tbody>
               <tr *ngFor="let report of reports; index as i">
-                  <td class="text-center align-middle p-3">{{i+1}}</td>
-                  <td class="text-center align-middle p-3">{{report[0].title}}</td>
-                  <td class="text-center align-middle p-3">Rs. {{report[0].price}}</td>
-                  <td class="text-center align-middle p-3">{{courses[i].date}}</td>
+                  <td class="text-center align-middle p-3" data-label="S.No.">{{i+1}}</td>
+                  <td class="text-center align-middle p-3" data-label="Course Name">{{report[0].title}}</td>
+                  <td class="text-center align-middle p-3" data-label="Order Value">Rs. {{report[0].price}}</td>
+                  <td class="text-center align-middle p-3" data-label="Purchase Date">{{courses[i].date}}</td>
               </tr>
           </tbody>
       </table>

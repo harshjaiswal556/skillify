@@ -19,12 +19,12 @@
             </thead>
             <tbody>
                 <tr *ngFor="let course of courseData; index as i">
-                    <td class="text-center align-middle p-3">{{i+1}}</td>
-                    <td class="text-center align-middle p-3">{{course.title}}</td>
-                    <td class="text-center align-middle p-3">Rs. {{course.price}}</td>
-                    <td class="text-center align-middle p-3">{{course.date}}</td>
-                    <td *ngIf="course.students" class="text-center align-middle p-3">{{course.students.length}}</td>
-                    <td *ngIf="!course.students" class="text-center align-middle p-3">0</td>
+                    <td class="text-center align-middle p-3" data-label="S.No.">{{i+1}}</td>
+                    <td class="text-center align-middle p-3" data-label="Course Name">{{course.title}}</td>
+                    <td class="text-center align-middle p-3" data-label="Order Value">Rs. {{course.price}}</td>
+                    <td class="text-center align-middle p-3" data-label="Published Date">{{course.date}}</td>
+                    <td *ngIf="course.students" class="text-center align-middle p-3" data-label="Total Students">{{course.students.length}}</td>
+                    <td *ngIf="!course.students" class="text-center align-middle p-3" data-label="Total Students">0</td>
                     <td class="text-center align-middle p-3">
                         <button style="margin: 0 8px;" mat-fab>
                             <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteCourseById(course.id)">delete</mat-icon>
