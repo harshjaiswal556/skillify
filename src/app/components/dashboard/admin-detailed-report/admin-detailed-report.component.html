@@ -18,8 +18,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let course of courseData; index as i">
-                    <td class="text-center align-middle p-3" data-label="S.No.">{{i+1}}</td>
+                <tr *ngFor="let course of displayedData; index as i">
+                    <td class="text-center align-middle p-3" data-label="S.No.">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
                     <td class="text-center align-middle p-3" data-label="Course Name">{{course.title}}</td>
                     <td class="text-center align-middle p-3" data-label="Duration(hrs)"> {{course.duration}} hrs</td>
                     <td class="text-center align-middle p-3" data-label="Published Date">{{course.date}}</td>
@@ -36,7 +36,14 @@
                 </tr>
             </tbody>
         </table>
-    </article>
+
+        
+      </article>
+      <div class="d-flex justify-content-center pagination">
+        <button class="btn btn-outline-success custom-btn" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button class="btn btn-outline-success custom-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+      </div>
   </section>
 
 

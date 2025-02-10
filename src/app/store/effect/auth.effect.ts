@@ -8,7 +8,7 @@ import { login, loginSuccess, loginFailure, verifyUser } from '../action/auth.ac
 @Injectable()
 export class AuthEffects {
     login$;
-    loginById$;
+    // loginById$;
     userId = localStorage.getItem("userId")
   constructor(private actions$: Actions, private authService: LoginService) {
 
@@ -29,24 +29,24 @@ export class AuthEffects {
     );
   });
 
-  this.loginById$ = createEffect(()=>{
-    return this.actions$.pipe(
-      ofType(verifyUser),
-      switchMap(() =>
-        // const userId = localStorage.getItem("userId");
-        this.authService.getUserById("7234").pipe(
-          map(user => {
-            console.log(user);
-            if (user) {
-              return loginSuccess({ user:user });
-            } else {
-              return loginFailure({ error: 'Invalid credentials' });
-            }
-          })
-        )
-      )
-    );
-  })
+  // this.loginById$ = createEffect(()=>{
+  //   return this.actions$.pipe(
+  //     ofType(verifyUser),
+  //     switchMap(() =>
+  //       // const userId = localStorage.getItem("userId");
+  //       this.authService.getUserById("7234").pipe(
+  //         map(user => {
+  //           console.log(user);
+  //           if (user) {
+  //             return loginSuccess({ user:user });
+  //           } else {
+  //             return loginFailure({ error: 'Invalid credentials' });
+  //           }
+  //         })
+  //       )
+  //     )
+  //   );
+  // })
   
 }
 }

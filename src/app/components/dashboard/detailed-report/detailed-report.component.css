@@ -35,6 +35,25 @@ tbody tr:hover {
     background-color: #4dc59117;
     transition: background-color 0.3s ease;
 }
+.pagination{
+    padding: 0 5rem 5rem 5rem;
+}
+
+.pagination span{
+    margin: 0 2rem;
+    width: 100px;
+    text-align: center;
+}
+
+.custom-btn{
+    color: #4dc591;
+    border-color: #4dc591;
+}
+
+.custom-btn:hover{
+    background-color: #4dc591;
+    color: #fff;
+}
 
 @media (max-width: 768px) {
     table {

@@ -17,8 +17,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let student of studentData; index as i">
-                    <td class="text-center align-middle p-3" data-label="S.No.">{{i+1}}</td>
+                <tr *ngFor="let student of displayedData; index as i">
+                    <td class="text-center align-middle p-3" data-label="S.No.">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
                     <td class="text-center align-middle p-3" data-label="Student Name">{{student.name}}</td>
                     <td class="text-center align-middle p-3" data-label="Student Email">{{student.email}}</td>
                     <td *ngIf="student.course" class="text-center align-middle p-3" data-label="Total Course">{{student.course.length}}</td>
@@ -32,6 +32,11 @@
             </tbody>
         </table>
     </article>
+    <div class="d-flex justify-content-center pagination">
+      <button class="btn btn-outline-success custom-btn" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button class="btn btn-outline-success custom-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
   </section>
 
 

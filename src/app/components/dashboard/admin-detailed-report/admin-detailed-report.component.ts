@@ -16,7 +16,12 @@ export class AdminDetailedReportComponent {
 
   userData: any[] = [];
   courseData: any[] = [];
+  displayedData: any[] = [];
   userId : string = ''
+
+  currentPage: number = 1;
+  pageSize: number = 3;
+  totalPages: number = 0;
 
   constructor(private user: AdminReportService, private course: CourseService, private signUp : SignUpService) {
     const storageId = localStorage.getItem("userId");
@@ -24,10 +29,10 @@ export class AdminDetailedReportComponent {
       this.user.getData(storageId).subscribe(res => {
         if (res[0].role === "admin") {
           this.course.getCourses().subscribe(res => {
-            this.courseData = res
-            this.userId = storageId
-            console.log(res);
-            
+            this.courseData = res;
+            this.totalPages = Math.ceil(this.courseData.length / this.pageSize);
+            this.updateDisplayedData();
+            this.userId = storageId;
           })
         }
       })
@@ -41,6 +46,27 @@ export class AdminDetailedReportComponent {
   duration: number = 0;
   id: string = '';
   description: string = '';
+
+  updateDisplayedData() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    this.displayedData = this.courseData.slice(startIndex, startIndex + this.pageSize);
+    console.log("displayed data: "+this.displayedData);
+    
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updateDisplayedData();
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updateDisplayedData();
+    }
+  }
 
   deleteCourseById(id: string) {
     this.deleteCourseId = id;

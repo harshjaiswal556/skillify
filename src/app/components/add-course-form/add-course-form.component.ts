@@ -47,7 +47,7 @@ export class AddCourseFormComponent {
     let year = date.getFullYear();
     this.courseForm = this.fb.group({
       title: [this.title, Validators.required],
-      duration: [this.duration, Validators.required],
+      duration: [this.duration, [Validators.required, Validators.min(1), Validators.max(100)]],
       image: ['assets/courses/mean.jpeg'],
       description: [this.description, Validators.required],
       date: `${day}-${month}-${year}`,

@@ -16,8 +16,13 @@ export class FacultyDetailedReportComponent {
 
   reports: any[] = [];
   courses: any[] = [];
+  displayedData: any[] = [];
   currentUser: SignUp | null = null;
-  userId: string = ''
+  userId: string = '';
+
+  currentPage: number = 1;
+  pageSize: number = 3;
+  totalPages: number = 0;
 
   constructor(private facultyReportService: FacultyReportService, private courseService: CourseService, private userService: LoginService, private signUpService: SignUpService) {
 
@@ -35,14 +40,35 @@ export class FacultyDetailedReportComponent {
             this.courseService.getCoursesById(this.courses[index]).subscribe(res => {
               this.reports.push(res)
               console.log(this.reports);
+              this.totalPages = Math.ceil(this.reports.length / this.pageSize);
+              this.updateDisplayedData();
             })
           }
         })
       }
-    
-
-
   }
+
+  updateDisplayedData() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    this.displayedData = this.reports.slice(startIndex, startIndex + this.pageSize);
+    console.log("displayed data: "+this.displayedData);
+    
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updateDisplayedData();
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updateDisplayedData();
+    }
+  }
+
 
   deleteCourseId: string = '';
 

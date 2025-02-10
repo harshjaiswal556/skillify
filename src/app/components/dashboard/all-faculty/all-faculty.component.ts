@@ -16,8 +16,13 @@ export class AllFacultyComponent {
 
   userData: any[] = [];
   facultyData: any[] = [];
+  displayedData: any[] = [];
   role: string = '';
   deleteUserId : string = '';
+
+  currentPage: number = 1;
+  pageSize: number = 3;
+  totalPages: number = 0;
 
   constructor(private user: AdminReportService, private faculty: FacultyReportService, private courseService : CourseService, private signUpService : SignUpService) {
     const storageId = localStorage.getItem("userId");
@@ -26,6 +31,8 @@ export class AllFacultyComponent {
         if (res[0].role === "admin") {
           this.faculty.getAllFaculty().subscribe(res => {
             this.facultyData = res;
+            this.totalPages = Math.ceil(this.facultyData.length / this.pageSize);
+            this.updateDisplayedData();
             this.role = 'faculty'
             console.log(res);
 
@@ -34,6 +41,27 @@ export class AllFacultyComponent {
       })
     }
 
+  }
+
+  updateDisplayedData() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    this.displayedData = this.facultyData.slice(startIndex, startIndex + this.pageSize);
+    console.log("displayed data: "+this.displayedData);
+    
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updateDisplayedData();
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updateDisplayedData();
+    }
   }
 
   deleteUserById(id : string){

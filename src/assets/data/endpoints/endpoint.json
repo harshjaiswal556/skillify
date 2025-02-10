@@ -30,7 +30,8 @@
       "date": "23-1-2025",
       "id": "2869",
       "students": [
-        "7234"
+        "7234",
+        "7082"
       ]
     },
     {
@@ -41,6 +42,33 @@
       "description": "Hello world description",
       "date": "30-1-2025",
       "students": []
+    },
+    {
+      "id": "ec98",
+      "title": "Test course 123",
+      "duration": 10,
+      "image": "assets/courses/mean.jpeg",
+      "description": "Description",
+      "date": "7-2-2025"
+    },
+    {
+      "id": "f59a",
+      "title": "title",
+      "duration": 99,
+      "image": "assets/courses/mean.jpeg",
+      "description": "description of this course",
+      "date": "7-2-2025"
+    },
+    {
+      "id": "340c",
+      "title": "course3",
+      "duration": 88,
+      "image": "assets/courses/mean.jpeg",
+      "description": "Description",
+      "date": "7-2-2025",
+      "students": [
+        "7082"
+      ]
     }
   ],
   "reviews": [
@@ -119,8 +147,12 @@
           "date": "2025-01-30"
         },
         {
-          "courseId": "8d38",
-          "date": "2025-01-30"
+          "courseId": "2869",
+          "date": "2025-02-07"
+        },
+        {
+          "courseId": "340c",
+          "date": "2025-02-08"
         }
       ]
     },
@@ -171,7 +203,12 @@
       "password": "jaiswalvibha45",
       "cPassword": "jaiswalvibha45",
       "role": "faculty",
-      "message": "62993"
+      "message": "62993",
+      "course": [
+        "ec98",
+        "f59a",
+        "340c"
+      ]
     }
   ],
   "contact": [
