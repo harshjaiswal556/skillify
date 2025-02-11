@@ -11,6 +11,7 @@ import { StudentComponent } from './pages/dashboard/student/student.component';
 import { FacultyComponent } from './pages/dashboard/faculty/faculty.component';
 import { AdminComponent } from './pages/dashboard/admin/admin.component';
 import { AuthGuard } from './auth.gaurd';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 export const router: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,7 +24,9 @@ export const router: Routes = [
     
     {path: 'student-dashboard', component: StudentComponent, canActivate:[AuthGuard]},
     {path: 'faculty-dashboard', component: FacultyComponent, canActivate:[AuthGuard]},
-    {path: 'admin-dashboard', component: AdminComponent, canActivate:[AuthGuard]}
+    {path: 'admin-dashboard', component: AdminComponent, canActivate:[AuthGuard]},
+
+    {path: '**', component: PageNotFoundComponent}
 
 ];
 export const routes = RouterModule.forRoot(router);

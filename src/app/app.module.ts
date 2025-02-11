@@ -50,6 +50,7 @@ import { authReducer } from './store/reducer/auth.reducer';
 // import { AuthEffects } from './store/effect/auth.effect';
 import { LoginService } from './services/auth/login.service';
 import { AuthEffects } from './store/effect/auth.effect';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { AuthEffects } from './store/effect/auth.effect';
     AdminDetailedReportComponent,
     AllFacultyComponent,
     AllStudentComponent,
-    ChartComponent
+    ChartComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -14,11 +14,11 @@
         <div class="carousel-inner">
           <div *ngFor="let group of groupedTestimonials; index as i" class="carousel-item review" [class.active]="i-1">
             <div class="row text-center d-flex align-items-stretch">
-              <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch" *ngFor="let testimonial of group">
+              <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch" *ngFor="let testimonial of group; index as idx">
                 <div class="card testimonial-card">
                   <div class="card-up" [style.background-color]="testimonial.bgColor"></div>
                   <div class="avatar mx-auto bg-white">
-                    <img [src]="testimonial.image" (click)="open(i)" class="rounded-circle img-fluid" />
+                    <img [src]="testimonial.image" (click)="open(i*3+idx)" class="rounded-circle img-fluid" />
                   </div>
                   <div class="card-body">
                     <h4 class="mb-4">{{ testimonial.name }}</h4>

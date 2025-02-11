@@ -1,11 +1,11 @@
 {
   "courses": [
     {
-      "image": "assets/courses/python.jpeg",
-      "title": "Data Science - Python",
+      "image": "assets/courses/mean.jpeg",
+      "title": "Data Science - Python beginner",
       "description": "A Versatile programming language for Data Science.",
-      "duration": 34,
-      "date": "23-1-2025",
+      "duration": 30,
+      "date": "11-2-2025",
       "id": "b4c9",
       "students": [
         "7082"
@@ -19,8 +19,7 @@
       "date": "24-1-2025",
       "id": "d5f6",
       "students": [
-        "7082",
-        "7234"
+        "7082"
       ]
     },
     {
@@ -50,7 +49,10 @@
       "duration": 10,
       "image": "assets/courses/mean.jpeg",
       "description": "Description",
-      "date": "7-2-2025"
+      "date": "7-2-2025",
+      "students": [
+        "7234"
+      ]
     },
     {
       "id": "f59a",
@@ -129,8 +131,8 @@
           "date": "2025-01-28"
         },
         {
-          "courseId": "d5f6",
-          "date": "2025-02-10"
+          "courseId": "ec98",
+          "date": "2025-02-11"
         }
       ]
     },
@@ -197,16 +199,6 @@
           "date": "2025-02-04"
         }
       ]
-    },
-    {
-      "id": "ecea",
-      "name": "Sundaram",
-      "email": "r.sundaram2015@gmail.com",
-      "password": "r.sundaram2015",
-      "cPassword": "r.sundaram2015",
-      "role": "student",
-      "message": "66782",
-      "course": []
     },
     {
       "id": "7b5f",

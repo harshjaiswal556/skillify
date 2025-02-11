@@ -38,12 +38,11 @@ export class LoginFormComponent {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       
-      // Dispatch login action
-
       this.store.dispatch(login({ email, password }));
 
       this.store.select('auth').pipe().subscribe(user => {
-        console.log(user);
+        // console.log(user);
+        // debugger
         if (user) {
           switch (user.user.role) {
             case 'faculty':
