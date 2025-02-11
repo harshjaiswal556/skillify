@@ -37,6 +37,14 @@
   .container-right {
       width: 48%;
   }
+
+  .container-right{
+    padding: 3rem 1rem;
+  }
+
+  main{
+    padding: 5rem;
+  }
   
   .contact-us {
       border-top-left-radius: 8px;
@@ -96,6 +104,10 @@
       .container-right {
           width: 100%;
       }
+
+      .container-right{
+        padding: 1rem;
+      }
   
       .contact-head h1 {
           font-size: 2rem;
@@ -106,3 +118,12 @@
       }
   }
   
+
+  @media screen and (max-width:500px) {
+    .container{
+        padding: 1.5rem;
+    }
+    main{
+        padding: 1.5rem;
+    }
+  }

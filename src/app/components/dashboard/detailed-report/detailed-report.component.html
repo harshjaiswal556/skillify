@@ -25,7 +25,7 @@
           </tbody>
       </table>
   </article>
-  <div class="d-flex justify-content-center pagination">
+  <div *ngIf="reports.length>pageSize" class="d-flex justify-content-center pagination">
     <button class="btn btn-outline-success custom-btn" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
     <span>Page {{ currentPage }} of {{ totalPages }}</span>
     <button class="btn btn-outline-success custom-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>

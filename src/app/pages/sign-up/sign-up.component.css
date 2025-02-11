@@ -21,6 +21,10 @@
     width: 48%;
 }
 
+.container-right{
+  height: 500px;
+}
+
 .form {
       width: 100%;
       background: #fff;
@@ -39,7 +43,7 @@
     width: 100%;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    max-width: 525px;
+    /* max-width: 525px; */
     object-fit: cover;
 }
 
@@ -78,7 +82,7 @@
       border: 2px solid #4dc591;
   }
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 968px) {
       .signUp-container {
           flex-direction: column;
       }
@@ -102,6 +106,6 @@
         padding: 1rem 0;
     }
     main{
-        padding: 3rem 1rem;
+        padding: 3rem 1.5rem;
     }
   }

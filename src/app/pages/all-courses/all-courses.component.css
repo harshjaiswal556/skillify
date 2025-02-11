@@ -33,4 +33,13 @@
     border-color: #4dc591 !important; 
     background-color: #4dc591;
   }
+
+  @media screen and (max-width: 500px) {
+    .course{
+      padding: 1.5rem;
+  }
+    .example-form-field{
+      width: 100%;
+    }
+  }
   

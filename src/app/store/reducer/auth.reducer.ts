@@ -24,20 +24,20 @@ export const authReducer = createReducer(
 
   on(AuthActions.login, (state, { email, password }) => ({
     ...state,
-    isLoggedIn: false,  // Or update according to your logic
-    user: null,         // Reset user on login request
+    isLoggedIn: false,  
+    user: null,        
   })),
 
   on(AuthActions.loginSuccess, (state, { user }) => ({
     ...state,
     isLoggedIn: true,
-    user,  // Set user in the state
+    user,  
   })),
 
   on(AuthActions.logout, (state) => ({
     ...state,
     isLoggedIn: false,
-    user: null,  // Reset user when logging out
+    user: null,  
   }))
 );
 

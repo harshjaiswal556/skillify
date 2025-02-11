@@ -78,7 +78,7 @@
           font-size: 2rem;
       }
   
-      input[type="submit"] {
+      input[type="submit"], .address {
           font-size: 1rem;
       }
   }

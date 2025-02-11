@@ -19,7 +19,8 @@
       "date": "24-1-2025",
       "id": "d5f6",
       "students": [
-        "7082"
+        "7082",
+        "7234"
       ]
     },
     {
@@ -106,6 +107,13 @@
       "review": "I've been using Skillify for a few months, and I've seen such a positive change in my skills and confidence. The courses are engaging, and the teachers are excellent!",
       "bgColor": "#985b65",
       "id": "27fd"
+    },
+    {
+      "name": "Anupam Roy",
+      "image": "assets/testimonials/shubh.jpeg",
+      "review": "I've been using Skillify for a few months, and I've seen such a positive change in my skills and confidence. The courses are engaging, and the teachers are excellent!",
+      "bgColor": "#5b7498",
+      "id": "2ffx"
     }
   ],
   "users": [
@@ -119,6 +127,10 @@
         {
           "courseId": "2869",
           "date": "2025-01-28"
+        },
+        {
+          "courseId": "d5f6",
+          "date": "2025-02-10"
         }
       ]
     },
