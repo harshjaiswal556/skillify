@@ -16,11 +16,11 @@ export const initialState: AuthState = {
 export const authReducer = createReducer(
   initialState,
 
-  on(AuthActions.verifyUser, (state) => {
-    const persistedState = localStorage.getItem('userId'); 
-    console.log(persistedState);
-    return persistedState ? JSON.parse(persistedState) : state;        
-  }),
+  // on(AuthActions.verifyUser, (state) => {
+  //   const persistedState = localStorage.getItem('userId'); 
+  //   console.log(persistedState);
+  //   return persistedState ? JSON.parse(persistedState) : state;        
+  // }),
 
   on(AuthActions.login, (state, { email, password }) => ({
     ...state,

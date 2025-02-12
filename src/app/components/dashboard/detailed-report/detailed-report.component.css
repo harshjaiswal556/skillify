@@ -135,3 +135,7 @@ mat-icon{
     cursor: pointer;
     color: black !important;
   }
+
+  .deactivated-row{
+    color: red;
+}

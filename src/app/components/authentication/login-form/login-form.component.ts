@@ -48,11 +48,11 @@ export class LoginFormComponent {
             case 'faculty':
               this.router.navigate(['faculty-dashboard']);
               break;
-            case 'student':
-              this.router.navigate(['student-dashboard']);
+              case 'student':
+                this.router.navigate(['student-dashboard']);
               break;
-            default:
-              this.router.navigate(['admin-dashboard']);
+              default:
+                this.router.navigate(['admin-dashboard']);
           }
         }
       });

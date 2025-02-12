@@ -34,12 +34,10 @@ export class FacultyDetailedReportComponent {
         this.userId = storageId
         console.log(storageId);
         this.facultyReportService.getData(storageId).subscribe(res => {
-          console.log(res[0]);
           this.courses = res[0].course;
           for (let index = 0; index < this.courses.length; index++) {
             this.courseService.getCoursesById(this.courses[index]).subscribe(res => {
               this.reports.push(res)
-              console.log(this.reports);
               this.totalPages = Math.ceil(this.reports.length / this.pageSize);
               this.updateDisplayedData();
             })
@@ -51,8 +49,6 @@ export class FacultyDetailedReportComponent {
   updateDisplayedData() {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     this.displayedData = this.reports.slice(startIndex, startIndex + this.pageSize);
-    console.log("displayed data: "+this.displayedData);
-    
   }
 
   nextPage() {
@@ -71,27 +67,37 @@ export class FacultyDetailedReportComponent {
 
 
   deleteCourseId: string = '';
+  activateCourseId: string = '';
+  totalNoOfStudents: number = 0;
 
   title: string = '';
   duration: number = 0;
   id: string = '';
   description: string = '';
 
-  deleteCourseById(id: string) {
+  deleteCourseById(id: string, totalStd: number) {
     this.deleteCourseId = id;
-    console.log(this.deleteCourseId);
-    
+    this.totalNoOfStudents = totalStd
+  }
+
+  activateCourseById(id: string){
+    this.activateCourseId = id;
   }
 
   deleteCourse() {
-    this.courseService.deleteCourseById(this.deleteCourseId).subscribe(res => {
-      this.signUpService.removeCourseFromUser(this.userId, this.deleteCourseId).subscribe(res => {
-        this.signUpService.removeCourseFromStudent(this.userId, this.deleteCourseId).subscribe(res => {
-          console.log(res);
+    if (this.totalNoOfStudents === 0) {
+      this.courseService.deleteCourseById(this.deleteCourseId).subscribe(res=>{
+        this.signUpService.removeCourseFromUser(this.userId, this.deleteCourseId).subscribe(res=>{
+          alert("Course deleted successfully!!!")
           window.location.reload();
         })
       })
-    })
+    }else{
+      this.courseService.deactivateCourseById(this.deleteCourseId).subscribe(res=>{
+        alert("Students are enrolled in this course, the course has been deactivated.");
+        window.location.reload();
+      })
+    }
   }
 
   editCourseById(title: string, duration: number, description: string, id: string) {
@@ -101,4 +107,10 @@ export class FacultyDetailedReportComponent {
     this.id = id;
   }
 
+  activateCourse(){
+      this.courseService.activateCourseById(this.activateCourseId).subscribe(res=>{
+          alert("Course activated successfully!!!")
+          window.location.reload();
+      })
+    }
 }

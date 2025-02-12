@@ -35,6 +35,9 @@ tbody tr:hover {
     background-color: #4dc59117;
     transition: background-color 0.3s ease;
 }
+.deactivated-row{
+    color: red;
+}
 .pagination{
     padding: 0 5rem 5rem 5rem;
 }

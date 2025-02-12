@@ -3,6 +3,9 @@
     <span class="highlight text-uppercase">Detailed Report</span>
   </h1>
   </div>
+  <div class="container d-flex align-items-start justify-content-between flex-row section">
+    <p>*Deactivated course row will be displayed in red color.</p>
+</div>
 
 <section>
   <article class="gallery-table">
@@ -16,7 +19,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let report of displayedData; index as i">
+              <tr *ngFor="let report of displayedData; index as i" [ngClass]="{'deactivated-row': report[0].isDeactivate}">
                   <td class="text-center align-middle p-3" data-label="S.No.">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
                   <td class="text-center align-middle p-3" data-label="Course Name">{{report[0].title}}</td>
                   <td class="text-center align-middle p-3" data-label="Duration(hrs)">{{report[0].duration}} hrs</td>

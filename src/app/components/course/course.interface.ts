@@ -4,6 +4,7 @@ export interface Course{
     description: string,
     duration: number,
     date: string,
+    isDeactivate: boolean,
     id: string,
     students : string[]
 }

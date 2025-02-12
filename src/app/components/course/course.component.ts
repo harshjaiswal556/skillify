@@ -30,7 +30,7 @@ export class CourseComponent {
     const storageId = localStorage.getItem("userId");
 
     this.courseService.getCourses().subscribe(res=>{
-      this.courses = res;
+      this.courses = res.filter((course: { isDeactivate: boolean; }) => !course.isDeactivate);
       this.filteredCourses = [...this.courses];
     })
     console.log(this.displayCoursesCount);
@@ -42,7 +42,6 @@ export class CourseComponent {
           if (res.course) {
             
             for (let index = 0; index < res.course.length; index++) {
-              console.log(res.course[index].courseId);
               this.purchasedCourseIds.add(res.course[index].courseId);
             }
           }

@@ -7,7 +7,10 @@
             &nbsp;
             Add Course
       </button>
-</div>
+    </div>
+    <div class="container d-flex align-items-start justify-content-between flex-row section">
+        <p>*Deactivated course row will be displayed in red color.</p>
+    </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -37,21 +40,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let report of displayedData; index as i">
+                <tr *ngFor="let report of displayedData; index as i" [ngClass]="{'deactivated-row': report[0].isDeactivate}">
                     <td class="text-center align-middle p-3" data-label="S.No.">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
                     <td class="text-center align-middle p-3" data-label="Course Name">{{report[0].title}}</td>
                     <td class="text-center align-middle p-3" data-label="Duration(hrs)">{{report[0].duration}} hrs</td>
                     <td class="text-center align-middle p-3" data-label="Published Date">{{report[0].date}}</td>
                     <td *ngIf="report[0].students" class="text-center align-middle p-3" data-label="Total Students">{{report[0].students.length}}</td>
                     <td *ngIf="!report[0].students" class="text-center align-middle p-3" data-label="Total Students">0</td>
-                    <td class="text-center align-middle p-3">
-                        <button style="margin: 0 8px;" mat-fab (click)="deleteCourseById(report[0].id)" data-bs-toggle="modal" data-bs-target="#deleteCourseModal">
+                    <td class="text-center align-middle p-3" *ngIf="!report[0].isDeactivate">
+                        <button style="margin: 0 8px;" mat-fab (click)="deleteCourseById(report[0].id, report[0].students.length)" data-bs-toggle="modal" data-bs-target="#deleteCourseModal">
                             <mat-icon>delete</mat-icon>
                         </button>
                         <button style="margin: 0 8px;" mat-fab (click)="editCourseById(report[0].title, report[0].duration, report[0].description, report[0].id)" data-bs-toggle="modal" data-bs-target="#editCourse">
                             <mat-icon>edit</mat-icon>
                         </button>
                     </td>
+                    <td *ngIf="report[0].isDeactivate" class="text-center align-middle p-3">
+                        <button data-bs-toggle="modal" data-bs-target="#activateCourseModal" (click)="activateCourseById(report[0].id)" mat-fab class="text-light" style="width: auto; padding: 0.5rem 1rem; font-weight: 700;">
+                        Activate
+                  </button>
+                </td>
                 </tr>
             </tbody>
         </table>
@@ -89,6 +97,23 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" (click)="deleteCourse()" >Delete Course</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="activateCourseModal" tabindex="-1" aria-labelledby="activateCourseModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Activate Course</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure want to activate this course?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="activateCourse()" >Activate Course</button>
         </div>
       </div>
     </div>

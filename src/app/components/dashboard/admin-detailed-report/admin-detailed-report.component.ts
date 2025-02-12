@@ -41,6 +41,8 @@ export class AdminDetailedReportComponent {
   }
 
   deleteCourseId: string = '';
+  activateCourseId: string = '';
+  totalNoOfStudents: number = 0;
 
   title: string = '';
   duration: number = 0;
@@ -68,17 +70,29 @@ export class AdminDetailedReportComponent {
     }
   }
 
-  deleteCourseById(id: string) {
+  deleteCourseById(id: string, totalStd: number) {
     this.deleteCourseId = id;
+    this.totalNoOfStudents = totalStd
+  }
+
+  activateCourseById(id: string){
+    this.activateCourseId = id;
   }
 
   deleteCourse() {
-    this.course.deleteCourseById(this.deleteCourseId).subscribe(res => {
-      this.signUp.removeCourseFromUser(this.userId, this.deleteCourseId).subscribe(res => {
-        console.log(res);
+    if (this.totalNoOfStudents === 0) {
+      this.course.deleteCourseById(this.deleteCourseId).subscribe(res=>{
+        this.signUp.removeCourseFromUser(this.userId, this.deleteCourseId).subscribe(res=>{
+          alert("Course deleted successfully!!!")
+          window.location.reload();
+        })
+      })
+    }else{
+      this.course.deactivateCourseById(this.deleteCourseId).subscribe(res=>{
+        alert("Students are enrolled in this course, the course has been deactivated.");
         window.location.reload();
       })
-    })
+    }
   }
 
   editCourseById(title: string, duration: number, description: string, id: string) {
@@ -86,6 +100,13 @@ export class AdminDetailedReportComponent {
     this.duration = duration;
     this.description = description;
     this.id = id;
+  }
+
+  activateCourse(){
+    this.course.activateCourseById(this.activateCourseId).subscribe(res=>{
+        alert("Course activated successfully!!!")
+        window.location.reload();
+    })
   }
 
 }

@@ -32,6 +32,14 @@ export class CourseService {
     return this.http.delete(this.url+"/"+id);
   }
 
+  deactivateCourseById(id: string):Observable<any>{
+    return this.http.patch(`${this.url}/${id}`, {isDeactivate : true});
+  }
+
+  activateCourseById(id: string):Observable<any>{
+    return this.http.patch(`${this.url}/${id}`, {isDeactivate : false});
+  }
+
   addStudentToCourse(userId : string, courseId : string):Observable<any>{
       return this.http.get<Course>(`${this.url}/${courseId}`).pipe(
         switchMap(user => {

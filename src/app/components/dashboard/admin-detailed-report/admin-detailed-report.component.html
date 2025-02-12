@@ -18,21 +18,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let course of displayedData; index as i">
+                <tr *ngFor="let course of displayedData; index as i" [ngClass]="{'deactivated-row': course.isDeactivate}">
                     <td class="text-center align-middle p-3" data-label="S.No.">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
                     <td class="text-center align-middle p-3" data-label="Course Name">{{course.title}}</td>
                     <td class="text-center align-middle p-3" data-label="Duration(hrs)"> {{course.duration}} hrs</td>
                     <td class="text-center align-middle p-3" data-label="Published Date">{{course.date}}</td>
                     <td *ngIf="course.students" class="text-center align-middle p-3" data-label="Total Students">{{course.students.length}}</td>
                     <td *ngIf="!course.students" class="text-center align-middle p-3" data-label="Total Students">0</td>
-                    <td class="text-center align-middle p-3">
+                    <td class="text-center align-middle p-3" *ngIf="!course.isDeactivate">
                         <button style="margin: 0 8px;" mat-fab>
-                            <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteCourseById(course.id)">delete</mat-icon>
+                            <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteCourseById(course.id, course.students.length)">delete</mat-icon>
                         </button>
                         <button style="margin: 0 8px;" mat-fab>
                             <mat-icon data-bs-toggle="modal" data-bs-target="#editCourse" (click)="editCourseById(course.title, course.duration, course.description, course.id)" >edit</mat-icon>
                         </button>
                     </td>
+                    <td *ngIf="course.isDeactivate" class="text-center align-middle p-3">
+                      <button data-bs-toggle="modal" data-bs-target="#activateCourseModal" (click)="activateCourseById(course.id)" mat-fab class="text-light" style="width: auto; padding: 0.5rem 1rem; font-weight: 700;">
+                      Activate
+                </button>
+              </td>
                 </tr>
             </tbody>
         </table>
@@ -76,3 +81,19 @@
     </div>
   </div>
   
+  <div class="modal" id="activateCourseModal" tabindex="-1" aria-labelledby="activateCourseModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Activate Course</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure want to activate this course?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="activateCourse()" >Activate Course</button>
+        </div>
+      </div>
+    </div>
+  </div>
