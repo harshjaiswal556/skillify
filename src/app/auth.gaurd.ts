@@ -1,9 +1,4 @@
-// import { Injectable } from '@angular/core';
-// import { CanActivate, Router } from '@angular/router';
 
-// }
-
-// auth.guard.ts
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { LoginService } from './services/auth/login.service';

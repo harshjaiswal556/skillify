@@ -19,9 +19,9 @@ export class HeroComponent {
     
       if (storageId) {
         this.isLoggedin = true
+        this.user.getData(String(storageId)).subscribe(res=>{
+          this.role = res[0].role        
+        })
       }
-      this.user.getData(String(storageId)).subscribe(res=>{
-        this.role = res[0].role        
-      })
   }
 }

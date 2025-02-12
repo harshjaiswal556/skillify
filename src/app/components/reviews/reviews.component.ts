@@ -20,13 +20,9 @@ export class ReviewsComponent {
     this.reviewService.getReviews().subscribe(res=>{
       this.testimonials = res;
       
-      console.log(this.testimonials);
-      
-      
       for (let i = 0; i < this.testimonials.length; i++) {
         
         const src = this.testimonials[i]['image'];
-        console.log(src);
         const caption = this.testimonials[i]['name'];
         const thumb = 'assets/image/' + i + '-thumb.jpg';
         const album = {
