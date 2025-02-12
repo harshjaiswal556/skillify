@@ -8,6 +8,9 @@ app-chart{
   display: flex;
   justify-content: center;
 }
+.chart{
+  max-width: 95%;
+}
 .heading {
   font-size: 1.8rem;
   margin-bottom: 0px !important;
@@ -63,6 +66,9 @@ mat-card-title {
 @media screen and (max-width: 600px) {
   .section {
     padding: 2rem;
+  }
+  .container{
+    padding: 1.5rem;
   }
 }
 

@@ -56,8 +56,6 @@ totalPages: number = 0;
   updateDisplayedData() {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     this.displayedData = this.reports.slice(startIndex, startIndex + this.pageSize);
-    console.log("displayed data: "+this.displayedData);
-    
   }
 
   nextPage() {

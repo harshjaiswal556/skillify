@@ -18,6 +18,7 @@
 
 body{
 background: linear-gradient(60deg, rgba(203,255,232,1) 0%, rgb(255, 237, 248) 50%, rgba(221,255,240,1) 100%);
+overflow-x: hidden;
 }
 /* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

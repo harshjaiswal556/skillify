@@ -14,7 +14,7 @@
         <div class="card-text fw-bold">
             Duration: {{item.duration}} hrs
         </div>
-        <a *ngIf="isStudentLoggedIn && !purchasedCourseIds.has(item.id)" class="card-button" (click)="purchaseCourse(item.id)">Enroll Now</a>
+        <a *ngIf="isStudentLoggedIn && !purchasedCourseIds.has(item.id)" class="card-button" (click)="purchaseCourse(item.id)">Enrol Now</a>
         <a *ngIf="isStudentLoggedIn && purchasedCourseIds.has(item.id)" class="card-button-remove" (click)="removeCourse(item.id)">Remove</a>
     </div>
 </div>

@@ -14,3 +14,11 @@
 mat-icon{
     color: white;
 }
+
+@media screen and (max-width:500px) {
+    .section{
+        padding: 0rem 1.5rem;
+        margin-bottom: 4rem;
+    }
+
+}

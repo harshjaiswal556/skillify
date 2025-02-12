@@ -60,6 +60,9 @@ tbody tr:hover {
         display: flex;
         justify-content: center;
         overflow-x: auto;
+        background-color:#4dc59100;
+        box-shadow: none;
+        border-radius: 0;
     }
 
     thead {
@@ -77,11 +80,8 @@ tbody tr:hover {
         border-bottom: 1px solid #ddd;
         padding: 1rem;
         background-color: white;
+        border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    tbody tr:hover {
-        background-color: #fff;
     }
 
     tbody td {
@@ -105,6 +105,16 @@ tbody tr:hover {
     tbody td[data-label="Actions"] {
         display: flex;
         justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .section{
+        padding: 1.5rem;
+    }
+
+    .gallery-table{
+        padding: 0rem 1.5rem 3rem 1.5rem;
     }
 }
 
