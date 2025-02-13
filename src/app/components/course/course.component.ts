@@ -17,13 +17,18 @@ export class CourseComponent {
   courseLength: number = 0;
 
   isStudentLoggedIn : boolean = false;
-
   isCoursePurchased : boolean = false;
   purchasedCourseIds: Set<string> = new Set();
 
   @Input() displayCoursesCount: number = this.courseLength;
   @Input() searchText: string = '';
   filteredCourses: Course[] = [];
+
+  displayedData: any[] = [];
+
+  currentPage: number = 1;
+  pageSize: number = 3;
+  totalPages: number = 0;
 
   constructor(private courseService: CourseService, private userService : SignUpService, private loginService : LoginService){
     
@@ -32,15 +37,18 @@ export class CourseComponent {
     this.courseService.getCourses().subscribe(res=>{
       this.courses = res.filter((course: { isDeactivate: boolean; }) => !course.isDeactivate);
       this.filteredCourses = [...this.courses];
+      console.log(this.filteredCourses);
+      
+      this.totalPages = Math.ceil(this.filteredCourses.length / this.pageSize);
+      this.updateDisplayedData();
     })
-    console.log(this.displayCoursesCount);
+    // console.log(this.displayCoursesCount);
 
     if (storageId) {
       this.loginService.getUserById(storageId).subscribe(res=>{
         if (res.role === "student") {
           this.isStudentLoggedIn = true
           if (res.course) {
-            
             for (let index = 0; index < res.course.length; index++) {
               this.purchasedCourseIds.add(res.course[index].courseId);
             }
@@ -62,14 +70,14 @@ export class CourseComponent {
     this.filteredCourses = this.courses.filter((course) =>
       course.title.toLowerCase().includes(searchTextLower)
     );
+    this.updateDisplayedData();
   }
 
   get limitedCourses(): Course[] {
     if (this.displayCoursesCount===0) {
       return this.filteredCourses;
     }
-    this.filteredCourses = this.filteredCourses.slice(0, this.displayCoursesCount);
-    return this.filteredCourses;
+    return this.filteredCourses.slice(0, this.displayCoursesCount);
   }
 
   purchaseCourse(courseId : string){
@@ -95,5 +103,26 @@ export class CourseComponent {
       })
     }
   }
+  updateDisplayedData() {
+    if (this.displayCoursesCount > 0) {
+      this.displayedData = this.filteredCourses.slice(0, this.displayCoursesCount);
+    } else {
+      const startIndex = (this.currentPage - 1) * this.pageSize;
+      this.displayedData = this.filteredCourses.slice(startIndex, startIndex + this.pageSize);
+    }
+  }
 
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updateDisplayedData();
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updateDisplayedData();
+    }
+  }
 }

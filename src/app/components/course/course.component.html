@@ -1,5 +1,5 @@
 <div class="d-flex col justify-content-around flex-wrap">
-<div class="course-card" *ngFor="let item of limitedCourses">
+<div class="course-card" *ngFor="let item of displayedData">
     <div class="card-sl">
         <div class="card-image">
             <img
@@ -19,3 +19,8 @@
     </div>
 </div>
 </div>
+<div *ngIf="displayCoursesCount === 0" class="d-flex justify-content-center pagination">
+    <button class="btn btn-outline-success custom-btn" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button class="btn btn-outline-success custom-btn" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>

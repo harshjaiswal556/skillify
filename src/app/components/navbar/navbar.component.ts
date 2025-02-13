@@ -26,6 +26,7 @@ export class NavbarComponent {
 
   logOut(){
     localStorage.removeItem("userId");
+    localStorage.removeItem("user");
     this.route.navigate(["/login"])
   }
 }

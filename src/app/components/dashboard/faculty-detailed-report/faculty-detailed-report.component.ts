@@ -35,9 +35,13 @@ export class FacultyDetailedReportComponent {
         console.log(storageId);
         this.facultyReportService.getData(storageId).subscribe(res => {
           this.courses = res[0].course;
+          console.log(res[0]);
+          
           for (let index = 0; index < this.courses.length; index++) {
             this.courseService.getCoursesById(this.courses[index]).subscribe(res => {
               this.reports.push(res)
+              console.log(res);
+              
               this.totalPages = Math.ceil(this.reports.length / this.pageSize);
               this.updateDisplayedData();
             })
@@ -78,6 +82,8 @@ export class FacultyDetailedReportComponent {
   deleteCourseById(id: string, totalStd: number) {
     this.deleteCourseId = id;
     this.totalNoOfStudents = totalStd
+    console.log(id);
+    
   }
 
   activateCourseById(id: string){
@@ -85,19 +91,10 @@ export class FacultyDetailedReportComponent {
   }
 
   deleteCourse() {
-    if (this.totalNoOfStudents === 0) {
-      this.courseService.deleteCourseById(this.deleteCourseId).subscribe(res=>{
-        this.signUpService.removeCourseFromUser(this.userId, this.deleteCourseId).subscribe(res=>{
-          alert("Course deleted successfully!!!")
-          window.location.reload();
-        })
-      })
-    }else{
       this.courseService.deactivateCourseById(this.deleteCourseId).subscribe(res=>{
-        alert("Students are enrolled in this course, the course has been deactivated.");
+        alert("The course has been deactivated.");
         window.location.reload();
       })
-    }
   }
 
   editCourseById(title: string, duration: number, description: string, id: string) {

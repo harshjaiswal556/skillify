@@ -5,7 +5,7 @@ import { AuthState } from '../../../store/reducer/auth.reducer';
 import { login } from '../../../store/action/auth.action';
 // import { selectUser } from '../../../store/selector/auth.selector';
 import { Router } from '@angular/router';
-import { take } from 'rxjs/operators';
+import { distinctUntilChanged, filter, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -40,10 +40,13 @@ export class LoginFormComponent {
       
       this.store.dispatch(login({ email, password }));
 
-      this.store.select('auth').pipe().subscribe(user => {
-        // console.log(user);
-        // debugger
-        if (user) {
+      this.store.select('auth').pipe(filter(user => {
+        return user.user !== null
+      }),
+      distinctUntilChanged()).subscribe(user => {
+        if (user.user) {
+          // console.log(user);
+          // debugger
           switch (user.user.role) {
             case 'faculty':
               this.router.navigate(['faculty-dashboard']);

@@ -69,6 +69,15 @@
       "students": [
         "7082"
       ]
+    },
+    {
+      "id": "0a11",
+      "title": "title 123",
+      "duration": 77,
+      "image": "assets/courses/mean.jpeg",
+      "description": "Description",
+      "date": "13-2-2025",
+      "isDeactivate": false
     }
   ],
   "reviews": [
@@ -121,6 +130,8 @@
       "name": "harsh",
       "email": "hsjaiswal3110@gmail.com",
       "password": "12345678",
+      "isDeactivateByUser": false,
+      "isDeactivateByAdmin": false,
       "role": "student",
       "course": [
         {
@@ -138,6 +149,8 @@
       "name": "Harsh Shah Jaiswal",
       "email": "hsj@gmail.com",
       "password": "12345678",
+      "isDeactivateByUser": false,
+      "isDeactivateByAdmin": false,
       "role": "admin"
     },
     {
@@ -146,6 +159,8 @@
       "email": "shivanshshukla0227@gmail.com",
       "password": "shivanshshukla0227",
       "cPassword": "shivanshshukla0227",
+      "isDeactivateByUser": false,
+      "isDeactivateByAdmin": false,
       "role": "student",
       "message": "44682",
       "course": [
@@ -173,12 +188,15 @@
       "email": "harshshahjaiswal@gmail.com",
       "password": "harshshahjaiswal",
       "cPassword": "harshshahjaiswal",
+      "isDeactivateByUser": false,
+      "isDeactivateByAdmin": false,
       "role": "faculty",
       "message": "32184",
       "course": [
         "b4c9",
         "d5f6",
-        "2869"
+        "2869",
+        "0a11"
       ]
     },
     {
@@ -187,6 +205,8 @@
       "email": "rijul.jain2002@gmail.com",
       "password": "rijul.jain2002",
       "cPassword": "rijul.jain2002",
+      "isDeactivateByUser": false,
+      "isDeactivateByAdmin": false,
       "role": "student",
       "message": "85060",
       "course": [
@@ -202,6 +222,8 @@
       "email": "jaiswalvibha45@gmail.com",
       "password": "jaiswalvibha45",
       "cPassword": "jaiswalvibha45",
+      "isDeactivateByUser": false,
+      "isDeactivateByAdmin": false,
       "role": "faculty",
       "message": "62993",
       "course": [

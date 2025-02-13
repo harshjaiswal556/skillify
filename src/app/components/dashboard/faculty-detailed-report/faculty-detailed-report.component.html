@@ -48,7 +48,7 @@
                     <td *ngIf="report[0].students" class="text-center align-middle p-3" data-label="Total Students">{{report[0].students.length}}</td>
                     <td *ngIf="!report[0].students" class="text-center align-middle p-3" data-label="Total Students">0</td>
                     <td class="text-center align-middle p-3" *ngIf="!report[0].isDeactivate">
-                        <button style="margin: 0 8px;" mat-fab (click)="deleteCourseById(report[0].id, report[0].students.length)" data-bs-toggle="modal" data-bs-target="#deleteCourseModal">
+                        <button style="margin: 0 8px;" mat-fab (click)="deleteCourseById(report[0].id, report[0].students?.length ?? 0)" data-bs-toggle="modal" data-bs-target="#deleteCourseModal">
                             <mat-icon>delete</mat-icon>
                         </button>
                         <button style="margin: 0 8px;" mat-fab (click)="editCourseById(report[0].title, report[0].duration, report[0].description, report[0].id)" data-bs-toggle="modal" data-bs-target="#editCourse">
@@ -89,14 +89,14 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Delete Course</h5>
+          <h5 class="modal-title">Deactivate Course</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Are you sure want to delete this course?</p>
+          <p>Are you sure want to Deactivate this course?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" (click)="deleteCourse()" >Delete Course</button>
+          <button type="button" class="btn btn-danger" (click)="deleteCourse()" >Deactivate Course</button>
         </div>
       </div>
     </div>

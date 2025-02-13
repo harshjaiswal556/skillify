@@ -19,8 +19,8 @@ export class OverviewComponent {
 
   constructor(
     private user: FacultyReportService,
-    private courseService: CourseService,  
-    private store: Store<{auth: AuthState}>
+    private courseService: CourseService,
+    private store: Store<{ auth: AuthState }>
   ) {
     const storageId = localStorage.getItem("userId");
     if (storageId) {
@@ -36,7 +36,6 @@ export class OverviewComponent {
       if (authUser) {
         this.user.getData(authUser.user.id).subscribe(res => {
           this.userData = res;
-          this.fetchDeactivatedCourses();
         });
       }
     });
@@ -44,18 +43,30 @@ export class OverviewComponent {
 
   fetchDeactivatedCourses() {
     this.deactivatedCourseCount = 0;
+    console.log(this.userData[0].course);
 
-    if (this.userData.length > 0 && this.userData[0].course) {
-      const courseIds = this.userData[0].course.map((c: { courseId: any; }) => c.courseId);
-      courseIds.forEach((courseId: string) => {
-        console.log(courseId);
-        
-        this.courseService.getCoursesById(courseId).subscribe(courseData => {
-          if (courseData && courseData.length > 0 && courseData[0].isDeactivate) {
-            this.deactivatedCourseCount++;
-          }
+    const user = localStorage.getItem("user");
+    if (user && this.userData.length > 0 && this.userData[0].course) {
+      const userRole = JSON.parse(user).role;
+      if (userRole === 'student') {
+        const courseIds = this.userData[0].course.map((c: { courseId: any; }) => c.courseId);
+        courseIds.forEach((courseId: string) => {
+          this.courseService.getCoursesById(courseId).subscribe(courseData => {
+            if (courseData && courseData.length > 0 && courseData[0].isDeactivate) {
+              this.deactivatedCourseCount++;
+            }
+          });
         });
-      });
+      } else if (userRole === 'faculty') {
+        const courseIds = this.userData[0].course; 
+        courseIds.forEach((courseId: string) => {
+          this.courseService.getCoursesById(courseId).subscribe(courseData => {
+            if (courseData && courseData.length > 0 && courseData[0].isDeactivate) {
+              this.deactivatedCourseCount++;
+            }
+          });
+        });
+      }
     }
   }
 }

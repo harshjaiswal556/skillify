@@ -19,10 +19,10 @@ export class LoginService {
 
   getUser(email : any, password : any):Observable<any>{
     return this.http.get<any[]>(`${this.url}?email=${email}`).pipe(map(users=>{
-      if(users.length !== 0 ){
+      if(!(users[0].isDeactivateByUser || users[0].isDeactivateByAdmin) ){
         if(password === users[0].password){
-          // this.currentUserSubject.next(users[0])
           localStorage.setItem("userId",users[0].id);
+          localStorage.setItem("user", JSON.stringify(users[0]));
           return users[0];
         }else{
           alert("Invalid Login Credentials");
@@ -30,7 +30,7 @@ export class LoginService {
           return null
         }
       }else{
-        alert("Invalid Login Credentials");
+        alert("Your ID has been deactivated.");
         console.log("Data not found");
         return null
       }
@@ -46,7 +46,17 @@ export class LoginService {
   }
 
   deleteUserById(userId : string):Observable<any>{
-    return this.http.delete(this.url+"/"+userId)
+    // return this.http.delete(this.url+"/"+userId);
+    return this.http.patch(`${this.url}/${userId}`, {isDeactivateByUser : true});
   }
+
+  deleteUserByIdAdmin(userId : string):Observable<any>{
+    console.log(userId);
+    debugger
+    // return this.http.delete(this.url+"/"+userId);
+    return this.http.patch(`${this.url}/${userId}`, {isDeactivateByAdmin : true});
+  }
+
+
 
 }

@@ -70,6 +70,16 @@ a{
     cursor: pointer;
 }
 
+.pagination{
+    padding: 3rem 5rem 0rem 5rem;
+}
+
+.pagination span{
+    margin: 0 2rem;
+    width: 100px;
+    text-align: center;
+}
+
 /* 
 @media screen and (max-width: 500px) {
     .course-card{
