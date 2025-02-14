@@ -132,3 +132,7 @@ mat-icon{
         padding: 2rem;
     }
   }
+
+  .deactivated-row{
+    color: red;
+  }

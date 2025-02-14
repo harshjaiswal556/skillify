@@ -20,6 +20,7 @@ export class AllFacultyComponent {
   displayedData: any[] = [];
   role: string = '';
   deleteUserId : string = '';
+  activateUserId : string = '';
 
   currentPage: number = 1;
   pageSize: number = 3;
@@ -75,39 +76,29 @@ export class AllFacultyComponent {
         if (res) {
           this.loginService.deleteUserByIdAdmin(this.deleteUserId).subscribe(res=>{
             alert("User deactivated successfully!!!");
+            window.location.reload();
           })
         }
-      })
-    // console.log(this.deleteUserId);
-    
-    // this.user.getData(this.deleteUserId).subscribe(res => {
-    //   console.log(res[0].course);
-    //   if (res[0].course) {
-    //     for (let index = 0; index < res[0].course.length; index++) {
-    //       const courseId = res[0].course[index];
-          
-    //       this.courseService.deleteCourseById(courseId).subscribe(res => {
-    //         this.signUpService.removeCourseFromUser(this.deleteUserId, courseId).subscribe(res => {
-    //           this.signUpService.removeCourseFromStudent(this.deleteUserId, courseId).subscribe(res => {
-    //             this.user.deleteUserById(this.deleteUserId).subscribe(res=>{
-    //               console.log(res);
-    //               alert("User deleted successfully");
-    //             })
-    //             window.location.reload();
-    //           })
-    //         })
-    //       })
-    //     }
-    //   }else{
-    //     this.user.deleteUserById(this.deleteUserId).subscribe(res=>{
-    //       console.log(res);
-    //       alert("User deleted successfully");
-    //       window.location.reload();
-    //     })
-    //   }
-    // })
-
-    
+      })    
   }
 }
+
+activateUserById(id : string){
+this.activateUserId = id
+}
+
+activateUser(){
+  const adminUserId = localStorage.getItem("userId")
+    if (adminUserId) {
+      this.loginService.getUserById(this.activateUserId).subscribe(res=>{
+        if (res) {
+          this.loginService.activateUserByIdAdmin(this.activateUserId).subscribe(res=>{
+            alert("User activated successfully!!!");
+            window.location.reload();
+          })
+        }
+      })  
+    }
+}
+
 }

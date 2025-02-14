@@ -8,6 +8,9 @@
             Add Faculty
       </button>
 </div>
+<div class="container d-flex align-items-start justify-content-between flex-row section">
+  <p>*Deactivated course row will be displayed in red color.</p>
+</div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -37,17 +40,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let faculty of displayedData; index as i">
+                <tr *ngFor="let faculty of displayedData; index as i" [ngClass]="{'deactivated-row': (faculty.isDeactivateByUser || faculty.isDeactivateByAdmin)}">
                     <td class="text-center align-middle p-3" data-label="S.No.">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
                     <td class="text-center align-middle p-3" data-label="Faculty Name">{{faculty.name}}</td>
                     <td class="text-center align-middle p-3" data-label="Faculty Email">{{faculty.email}}</td>
                     <td *ngIf="faculty.course" class="text-center align-middle p-3" data-label="Total Course">{{faculty.course.length}}</td>
                     <td *ngIf="!faculty.course" class="text-center align-middle p-3" data-label="Total Course">0</td>
-                    <td class="text-center align-middle p-3">
+                    <td class="text-center align-middle p-3" *ngIf="!(faculty.isDeactivateByAdmin || faculty.isDeactivateByUser)">
                         <button style="margin: 0 8px;" mat-fab>
                             <mat-icon data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteUserById(faculty.id)">delete</mat-icon>
                         </button>
                     </td>
+                    <td *ngIf="faculty.isDeactivateByUser || faculty.isDeactivateByAdmin" class="text-center align-middle p-3">
+                      <button data-bs-toggle="modal" data-bs-target="#activateFacultyModal" (click)="activateUserById(faculty.id)" mat-fab class="text-light" style="width: auto; padding: 0.5rem 1rem; font-weight: 700;">
+                      Activate
+                </button>
+              </td>
                 </tr>
             </tbody>
         </table>
@@ -72,6 +80,23 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" (click)="deleteUser()" >Delete User</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="activateFacultyModal" tabindex="-1" aria-labelledby="activateFacultyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Activate User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure want to activate this user?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="activateUser()" >Activate User</button>
         </div>
       </div>
     </div>

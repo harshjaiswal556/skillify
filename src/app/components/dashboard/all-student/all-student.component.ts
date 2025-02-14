@@ -3,6 +3,7 @@ import { AdminReportService } from '../../../services/admin/admin-report.service
 import { FacultyReportService } from '../../../services/faculty/faculty-report.service';
 import { StudentReportService } from '../../../services/student/student-report.service';
 import { CourseService } from '../../../services/course.service';
+import { LoginService } from '../../../services/auth/login.service';
 
 @Component({
   selector: 'app-all-student',
@@ -15,12 +16,13 @@ export class AllStudentComponent {
 studentData : any[] = [];
 displayedData: any[] = [];
 deleteUserId : string = '';
+activateUserId : string = '';
 
 currentPage: number = 1;
 pageSize: number = 3;
 totalPages: number = 0;
 
-  constructor(private user : AdminReportService, private student : StudentReportService, private courseService : CourseService){
+  constructor(private user : AdminReportService, private student : StudentReportService, private courseService : CourseService, private login : LoginService){
     const storageId = localStorage.getItem("userId");
     if(storageId){
       this.user.getData(storageId).subscribe(res=>{
@@ -79,4 +81,23 @@ totalPages: number = 0;
       
     })
   }
+
+  activateUserById(id : string){
+    this.activateUserId = id
+    }
+    
+    activateUser(){
+      const adminUserId = localStorage.getItem("userId")
+        if (adminUserId) {
+          this.login.getUserById(this.activateUserId).subscribe(res=>{
+            if (res) {
+              this.login.activateUserByIdAdmin(this.activateUserId).subscribe(res=>{
+                alert("User activated successfully!!!");
+                window.location.reload();
+              })
+            }
+          })  
+        }
+    }
+    
 }

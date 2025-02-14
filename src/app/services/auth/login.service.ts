@@ -51,12 +51,11 @@ export class LoginService {
   }
 
   deleteUserByIdAdmin(userId : string):Observable<any>{
-    console.log(userId);
-    debugger
-    // return this.http.delete(this.url+"/"+userId);
     return this.http.patch(`${this.url}/${userId}`, {isDeactivateByAdmin : true});
   }
 
-
+  activateUserByIdAdmin(userId : string):Observable<any>{
+    return this.http.patch(`${this.url}/${userId}`, {isDeactivateByAdmin : false,isDeactivateByUser : false});
+  }
 
 }
