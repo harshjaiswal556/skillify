@@ -82,7 +82,8 @@ activeComponent: string = 'course';
           this.chartData.push(item.students.length);
         }
       });
-    }else if (this.activeComponent === 'faculty') {
+    }else 
+    if (this.activeComponent === 'faculty') {
       this.chartLabel = []
       this.chartData = []
       this.facultyData.map((item: { name: string; course: any[]; }) => {

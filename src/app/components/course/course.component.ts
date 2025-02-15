@@ -28,7 +28,7 @@ export class CourseComponent {
   displayedData: any[] = [];
 
   currentPage: number = 1;
-  pageSize: number = 3;
+  pageSize: number = 9;
   totalPages: number = 0;
 
   constructor(private courseService: CourseService, private userService : SignUpService, private loginService : LoginService, private secureStorage : SecureStorageService){

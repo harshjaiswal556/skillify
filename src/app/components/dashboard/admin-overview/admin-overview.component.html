@@ -37,7 +37,7 @@
     <app-all-student *ngIf="activeComponent === 'student'"></app-all-student>
 </div>
 
-<div class="container d-flex justify-content-center flex-wrap">
+<div class="container d-flex justify-content-center flex-wrap" *ngIf="activeComponent!=='course'">
     <h1 class="heading">
         Select Your Preffered <span class="highlight">Chart Type</span> To View Data
       </h1>
@@ -64,6 +64,6 @@
         </div>
     </div>
 </div>
-<div class="chart d-flex justify-content-center row mb-3">
+<div class="chart d-flex justify-content-center row mb-3" *ngIf="activeComponent!=='course'">
     <app-chart *ngIf="chartType" [chartLabel]="chartLabel" [chartData]="chartData" [chartType]="chartType" />
 </div>
