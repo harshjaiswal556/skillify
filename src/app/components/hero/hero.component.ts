@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SignUpService } from '../../services/auth/sign-up.service';
 import { LoginService } from '../../services/auth/login.service';
 import { FacultyReportService } from '../../services/faculty/faculty-report.service';
+import { SecureStorageService } from '../../services/auth/secure-storage.service';
 
 @Component({
   selector: 'app-hero',
@@ -14,14 +15,14 @@ export class HeroComponent {
   isLoggedin : boolean = false;
   role : string = '';
 
-  constructor(private user : FacultyReportService){
-    const storageId = localStorage.getItem("userId");
-    
-      if (storageId) {
+  constructor(private user : FacultyReportService, private secureStorage : SecureStorageService){
+    // const storageId = localStorage.getItem("userId");
+    const userData = JSON.parse(this.secureStorage.getItem('encrypt'));
+      if (userData) {
         this.isLoggedin = true
-        this.user.getData(String(storageId)).subscribe(res=>{
-          this.role = res[0].role        
-        })
+        // this.user.getData(String(storageId)).subscribe(res=>{
+          this.role = userData.role        
+        // })
       }
   }
 }

@@ -18,7 +18,7 @@
       "image": "assets/courses/mean.jpeg",
       "description": "Learn basic to intermediate level of MySQL Database.",
       "date": "24-1-2025",
-      "isDeactivate": false,
+      "isDeactivate": true,
       "id": "d5f6",
       "students": [
         "7082"
@@ -30,11 +30,12 @@
       "image": "assets/courses/python.jpeg",
       "description": "Start learning App Development using Java language.",
       "date": "23-1-2025",
-      "isDeactivate": true,
+      "isDeactivate": false,
       "id": "2869",
       "students": [
         "7234",
-        "7082"
+        "7082",
+        "0288"
       ]
     },
     {
@@ -67,7 +68,8 @@
       "date": "7-2-2025",
       "isDeactivate": false,
       "students": [
-        "7082"
+        "7082",
+        "7234"
       ]
     },
     {
@@ -77,7 +79,22 @@
       "image": "assets/courses/mean.jpeg",
       "description": "Description",
       "date": "13-2-2025",
-      "isDeactivate": false
+      "isDeactivate": false,
+      "students": [
+        "7234"
+      ]
+    },
+    {
+      "id": "efec",
+      "title": "title edit 123",
+      "duration": 100,
+      "image": "assets/courses/mean.jpeg",
+      "description": "Description",
+      "date": "14-2-2025",
+      "students": [
+        "7234",
+        "0288"
+      ]
     }
   ],
   "reviews": [
@@ -141,6 +158,18 @@
         {
           "courseId": "ec98",
           "date": "2025-02-11"
+        },
+        {
+          "courseId": "0a11",
+          "date": "2025-02-14"
+        },
+        {
+          "courseId": "340c",
+          "date": "2025-02-14"
+        },
+        {
+          "courseId": "efec",
+          "date": "2025-02-14"
         }
       ]
     },
@@ -196,7 +225,8 @@
         "b4c9",
         "d5f6",
         "2869",
-        "0a11"
+        "0a11",
+        "efec"
       ]
     },
     {
@@ -211,8 +241,12 @@
       "message": "85060",
       "course": [
         {
-          "courseId": "c381",
-          "date": "2025-02-04"
+          "courseId": "efec",
+          "date": "2025-02-14"
+        },
+        {
+          "courseId": "2869",
+          "date": "2025-02-14"
         }
       ]
     },
@@ -223,7 +257,7 @@
       "password": "jaiswalvibha45",
       "cPassword": "jaiswalvibha45",
       "isDeactivateByUser": false,
-      "isDeactivateByAdmin": false,
+      "isDeactivateByAdmin": true,
       "role": "faculty",
       "message": "62993",
       "course": [

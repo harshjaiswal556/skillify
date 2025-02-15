@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { SignUp } from '../../components/authentication/sign-up-form/sign-up-form.interface';
+import { SecureStorageService } from './secure-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class LoginService {
 
   private users : SignUp[] = []
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private secureStorage : SecureStorageService) { }
   
   // private currentUserSubject = new BehaviorSubject<SignUp | null>(null);
   // public currentUser$: Observable<SignUp | null> = this.currentUserSubject.asObservable();
@@ -21,8 +22,9 @@ export class LoginService {
     return this.http.get<any[]>(`${this.url}?email=${email}`).pipe(map(users=>{
       if(!(users[0].isDeactivateByUser || users[0].isDeactivateByAdmin) ){
         if(password === users[0].password){
-          localStorage.setItem("userId",users[0].id);
-          localStorage.setItem("user", JSON.stringify(users[0]));
+          // localStorage.setItem("userId",users[0].id);
+          // localStorage.setItem("user", JSON.stringify(users[0]));
+          this.secureStorage.setItem('encrypt', JSON.stringify(users[0]));
           return users[0];
         }else{
           alert("Invalid Login Credentials");

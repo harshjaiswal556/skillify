@@ -4,6 +4,7 @@ import { CourseService } from '../../../services/course.service';
 import { SignUp } from '../../authentication/sign-up-form/sign-up-form.interface';
 import { SignUpService } from '../../../services/auth/sign-up.service';
 import { LoginService } from '../../../services/auth/login.service';
+import { SecureStorageService } from '../../../services/auth/secure-storage.service';
 
 @Component({
   selector: 'app-faculty-detailed-report',
@@ -24,16 +25,18 @@ export class FacultyDetailedReportComponent {
   pageSize: number = 3;
   totalPages: number = 0;
 
-  constructor(private facultyReportService: FacultyReportService, private courseService: CourseService, private userService: LoginService, private signUpService: SignUpService) {
+  constructor(private facultyReportService: FacultyReportService, private courseService: CourseService, private userService: LoginService, private signUpService: SignUpService, private secureStorage : SecureStorageService) {
 
-    const storageId = localStorage.getItem("userId");
+    // const storageId = localStorage.getItem("userId");
+
+    const userData = JSON.parse(secureStorage.getItem('encrypt'));
 
     // this.userService.currentUser$.subscribe(user => {
-      if (storageId) {
+      if (userData) {
         // this.currentUser = user
-        this.userId = storageId
-        console.log(storageId);
-        this.facultyReportService.getData(storageId).subscribe(res => {
+        this.userId = userData.id
+        // console.log(storageId);
+        this.facultyReportService.getData(userData.id).subscribe(res => {
           this.courses = res[0].course;
           console.log(res[0]);
           

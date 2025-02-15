@@ -3,6 +3,7 @@ import { LoginService } from '../../../services/auth/login.service';
 import { CourseService } from '../../../services/course.service';
 import { SignUpService } from '../../../services/auth/sign-up.service';
 import { Router } from '@angular/router';
+import { SecureStorageService } from '../../../services/auth/secure-storage.service';
 
 @Component({
   selector: 'app-faculty',
@@ -13,21 +14,22 @@ import { Router } from '@angular/router';
 })
 export class FacultyComponent {
 
-  constructor (private user : LoginService, private courseService : CourseService, private signUpService : SignUpService, private router : Router){}
+  constructor (private user : LoginService, private courseService : CourseService, private signUpService : SignUpService, private router : Router, private secureStorage : SecureStorageService){}
 
   deleteUser(){
 
-    const deleteUserId = localStorage.getItem("userId")
-    if (deleteUserId) {
-      this.user.getUserById(deleteUserId).subscribe(res=>{
-        if (res) {
-          this.user.deleteUserById(deleteUserId).subscribe(res=>{
+    // const deleteUserId = localStorage.getItem("userId");
+    const userData = JSON.parse(this.secureStorage.getItem('encrypt'));
+    if (userData) {
+      // this.user.getUserById(deleteUserId).subscribe(res=>{
+      //   if (res) {
+          this.user.deleteUserById(userData.id).subscribe(res=>{
             localStorage.clear();
             alert("User deactivated successfully!!!");
             this.router.navigate(['/home']);
           })
-        }
-      })
+      //   }
+      // })
       // this.user.getUserById(deleteUserId).subscribe(res => {
       //   console.log(res.course);
       //   if (res.course) {

@@ -6,6 +6,7 @@ import { AdminReportService } from '../../../services/admin/admin-report.service
 import { Router } from '@angular/router';
 
 import Chart from 'chart.js/auto';
+import { SecureStorageService } from '../../../services/auth/secure-storage.service';
 
 @Component({
   selector: 'app-admin-overview',
@@ -16,7 +17,7 @@ import Chart from 'chart.js/auto';
 })
 export class AdminOverviewComponent {
 
-userData : any[] = [];
+userData : any = [];
 courseData : any[] = [];
 facultyData : any[] = [];
 studentData : any[] = [];
@@ -30,14 +31,19 @@ chartData : number[] = [];
 chartType : any;
 activeComponent: string = 'course'; 
 
-  constructor(private user : AdminReportService, private course : CourseService, private faculty : FacultyReportService, private student : StudentReportService, private route : Router){
-    const storageId = localStorage.getItem("userId");
+  constructor(private user : AdminReportService, private course : CourseService, private faculty : FacultyReportService, private student : StudentReportService, private route : Router, private secureStorage : SecureStorageService){
+
+    // const storageId = localStorage.getItem("userId");
+
+    const userData = JSON.parse(secureStorage.getItem('encrypt'));
+
     this.chartType = 'bar'
-    if(storageId){
-      this.user.getData(storageId).subscribe(res => {
-        console.log(res);
-        this.userData = res;
-      })
+    if(userData){
+      // this.user.getData(storageId).subscribe(res => {
+      //   this.userData = res[0];
+      //   console.log(this.userData);
+      // })
+      this.userData = userData
 
       this.course.getCourses().subscribe(res=>{
         this.courseData = res

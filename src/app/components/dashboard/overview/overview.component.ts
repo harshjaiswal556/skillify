@@ -4,6 +4,7 @@ import { CourseService } from '../../../services/course.service';
 import { Store } from '@ngrx/store';
 import { AuthState } from '../../../store/reducer/auth.reducer';
 import { Observable } from 'rxjs';
+import { SecureStorageService } from '../../../services/auth/secure-storage.service';
 
 @Component({
   selector: 'app-overview',
@@ -20,17 +21,19 @@ export class OverviewComponent {
   constructor(
     private user: FacultyReportService,
     private courseService: CourseService,
-    private store: Store<{ auth: AuthState }>
+    private store: Store<{ auth: AuthState }>,
+    private secureStorage: SecureStorageService
   ) {
-    const storageId = localStorage.getItem("userId");
-    if (storageId) {
-      this.user.getData(storageId).subscribe(res => {
+    const userData = JSON.parse(secureStorage.getItem('encrypt'));
+    if (userData) {
+      this.user.getData(userData.id).subscribe(res => {
         this.userData = res;
+        debugger
         this.fetchDeactivatedCourses();
       });
     }
   }
-
+  
   ngOnInit() {
     this.store.select('auth').pipe().subscribe(authUser => {
       if (authUser) {
@@ -43,11 +46,9 @@ export class OverviewComponent {
 
   fetchDeactivatedCourses() {
     this.deactivatedCourseCount = 0;
-    console.log(this.userData[0].course);
-
-    const user = localStorage.getItem("user");
+    const user = JSON.parse(this.secureStorage.getItem('encrypt'));
     if (user && this.userData.length > 0 && this.userData[0].course) {
-      const userRole = JSON.parse(user).role;
+      const userRole = user.role;
       if (userRole === 'student') {
         const courseIds = this.userData[0].course.map((c: { courseId: any; }) => c.courseId);
         courseIds.forEach((courseId: string) => {

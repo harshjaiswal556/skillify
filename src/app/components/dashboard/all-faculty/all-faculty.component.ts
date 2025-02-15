@@ -5,6 +5,7 @@ import { LoginService } from '../../../services/auth/login.service';
 import { CourseService } from '../../../services/course.service';
 import { SignUpService } from '../../../services/auth/sign-up.service';
 import { Router } from '@angular/router';
+import { SecureStorageService } from '../../../services/auth/secure-storage.service';
 
 @Component({
   selector: 'app-all-faculty',
@@ -26,11 +27,12 @@ export class AllFacultyComponent {
   pageSize: number = 3;
   totalPages: number = 0;
 
-  constructor(private user: AdminReportService, private faculty: FacultyReportService, private courseService : CourseService, private loginService : LoginService, private router : Router) {
-    const storageId = localStorage.getItem("userId");
-    if (storageId) {
-      this.user.getData(storageId).subscribe(res => {
-        if (res[0].role === "admin") {
+  constructor(private user: AdminReportService, private faculty: FacultyReportService, private courseService : CourseService, private loginService : LoginService, private router : Router, private secureStorage : SecureStorageService) {
+    // const storageId = localStorage.getItem("userId");
+    const userData = JSON.parse(secureStorage.getItem('encrypt'));
+    if (userData) {
+      // this.user.getData(storageId).subscribe(res => {
+        if (userData.role === "admin") {
           this.faculty.getAllFaculty().subscribe(res => {
             this.facultyData = res;
             this.totalPages = Math.ceil(this.facultyData.length / this.pageSize);
@@ -40,7 +42,7 @@ export class AllFacultyComponent {
 
           })
         }
-      })
+      // })
     }
 
   }
@@ -70,8 +72,9 @@ export class AllFacultyComponent {
     this.deleteUserId = id;
   }
   deleteUser(){
-    const adminUserId = localStorage.getItem("userId")
-    if (adminUserId) {
+    // const adminUserId = localStorage.getItem("userId")
+    const userData = JSON.parse(this.secureStorage.getItem('encrypt'));
+    if (userData) {
       this.loginService.getUserById(this.deleteUserId).subscribe(res=>{
         if (res) {
           this.loginService.deleteUserByIdAdmin(this.deleteUserId).subscribe(res=>{
@@ -88,8 +91,9 @@ this.activateUserId = id
 }
 
 activateUser(){
-  const adminUserId = localStorage.getItem("userId")
-    if (adminUserId) {
+  // const adminUserId = localStorage.getItem("userId")
+  const userData = JSON.parse(this.secureStorage.getItem('encrypt'));
+    if (userData) {
       this.loginService.getUserById(this.activateUserId).subscribe(res=>{
         if (res) {
           this.loginService.activateUserByIdAdmin(this.activateUserId).subscribe(res=>{

@@ -3,6 +3,7 @@ import { CourseService } from '../../services/course.service';
 import { Course } from './course.interface';
 import { SignUpService } from '../../services/auth/sign-up.service';
 import { LoginService } from '../../services/auth/login.service';
+import { SecureStorageService } from '../../services/auth/secure-storage.service';
 
 @Component({
   selector: 'app-course',
@@ -30,9 +31,13 @@ export class CourseComponent {
   pageSize: number = 3;
   totalPages: number = 0;
 
-  constructor(private courseService: CourseService, private userService : SignUpService, private loginService : LoginService){
+  constructor(private courseService: CourseService, private userService : SignUpService, private loginService : LoginService, private secureStorage : SecureStorageService){
     
-    const storageId = localStorage.getItem("userId");
+    // const storageId = localStorage.getItem("userId");
+
+    // console.log(JSON.parse(secureStorage.getItem('encrypt')));
+
+    const userData = JSON.parse(secureStorage.getItem('encrypt'))
 
     this.courseService.getCourses().subscribe(res=>{
       this.courses = res.filter((course: { isDeactivate: boolean; }) => !course.isDeactivate);
@@ -44,8 +49,8 @@ export class CourseComponent {
     })
     // console.log(this.displayCoursesCount);
 
-    if (storageId) {
-      this.loginService.getUserById(storageId).subscribe(res=>{
+    if (userData) {
+      this.loginService.getUserById(userData.id).subscribe(res=>{
         if (res.role === "student") {
           this.isStudentLoggedIn = true
           if (res.course) {
@@ -57,6 +62,7 @@ export class CourseComponent {
         }
       })
     }
+    
   }  
   
   ngOnChanges(changes: SimpleChanges): void {
@@ -81,10 +87,11 @@ export class CourseComponent {
   }
 
   purchaseCourse(courseId : string){
-    const storageId = localStorage.getItem("userId");
-    if(storageId){      
-      this.userService.addCourseToStudent(storageId, courseId).subscribe(res=>{
-        this.courseService.addStudentToCourse(storageId, courseId).subscribe(res=>{
+    // const storageId = localStorage.getItem("userId");
+    const userData = JSON.parse(this.secureStorage.getItem('encrypt'))
+    if(userData){      
+      this.userService.addCourseToStudent(userData.id, courseId).subscribe(res=>{
+        this.courseService.addStudentToCourse(userData.id, courseId).subscribe(res=>{
           alert("Course added successfully!!!");
           window.location.reload();
         })
@@ -93,10 +100,11 @@ export class CourseComponent {
   }
 
   removeCourse(courseId : string){
-    const storageId = localStorage.getItem("userId");
-    if(storageId){      
-      this.userService.removeCourseFromStudent(storageId, courseId).subscribe(res=>{
-        this.courseService.removeStudentToCourse(storageId, courseId).subscribe(res=>{
+    // const storageId = localStorage.getItem("userId");
+    const userData = JSON.parse(this.secureStorage.getItem('encrypt'))
+    if(userData){      
+      this.userService.removeCourseFromStudent(userData.id, courseId).subscribe(res=>{
+        this.courseService.removeStudentToCourse(userData.id, courseId).subscribe(res=>{
           alert("Course removed successfully!!!");
           window.location.reload()
         })

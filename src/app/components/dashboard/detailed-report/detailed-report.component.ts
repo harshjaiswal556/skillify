@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { StudentReportService } from '../../../services/student/student-report.service';
 import { CourseService } from '../../../services/course.service';
 import { SignUpService } from '../../../services/auth/sign-up.service';
+import { SecureStorageService } from '../../../services/auth/secure-storage.service';
 
 export interface PeriodicElement {
   name: string;
@@ -27,20 +28,22 @@ export class DetailedReportComponent {
 pageSize: number = 3;
 totalPages: number = 0;
 
-  constructor (private studentReportService : StudentReportService, private courseService: CourseService, private signUpService : SignUpService){
+  constructor (private studentReportService : StudentReportService, private courseService: CourseService, private signUpService : SignUpService, private secureStorage : SecureStorageService){
 
-    const storageId = localStorage.getItem("userId");
+    // const storageId = localStorage.getItem("userId");
 
-    if (storageId) {
+    const userData = JSON.parse(secureStorage.getItem('encrypt'));
+
+    if (userData) {
       
-      this.studentReportService.getData(storageId).subscribe(res=>{
+      this.studentReportService.getData(userData.id).subscribe(res=>{
         this.courses = res[0].course;
         for (let index = 0; index < this.courses.length; index++) {
           this.courseService.getCoursesById(this.courses[index].courseId).subscribe(res => {
             if(res && res.length>0){
               this.reports.push(res)
             }else{
-              this.signUpService.removeCourseFromStudent(storageId, this.courses[index].courseId).subscribe(res=>{
+              this.signUpService.removeCourseFromStudent(userData.id, this.courses[index].courseId).subscribe(res=>{
                 console.log(res);
               })
             }

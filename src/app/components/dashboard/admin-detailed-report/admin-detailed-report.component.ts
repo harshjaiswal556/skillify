@@ -4,6 +4,7 @@ import { CourseService } from '../../../services/course.service';
 import { StudentReportService } from '../../../services/student/student-report.service';
 import { FacultyReportService } from '../../../services/faculty/faculty-report.service';
 import { SignUpService } from '../../../services/auth/sign-up.service';
+import { SecureStorageService } from '../../../services/auth/secure-storage.service';
 
 @Component({
   selector: 'app-admin-detailed-report',
@@ -23,19 +24,22 @@ export class AdminDetailedReportComponent {
   pageSize: number = 3;
   totalPages: number = 0;
 
-  constructor(private user: AdminReportService, private course: CourseService, private signUp : SignUpService) {
-    const storageId = localStorage.getItem("userId");
-    if (storageId) {
-      this.user.getData(storageId).subscribe(res => {
-        if (res[0].role === "admin") {
+  constructor(private user: AdminReportService, private course: CourseService, private signUp : SignUpService, private secureStorage : SecureStorageService) {
+    // const storageId = localStorage.getItem("userId");
+    const userData = JSON.parse(secureStorage.getItem('encrypt'))
+    if (userData) {
+      // this.user.getData(storageId).subscribe(res => {
+        if (userData.role === "admin") {
           this.course.getCourses().subscribe(res => {
             this.courseData = res;
             this.totalPages = Math.ceil(this.courseData.length / this.pageSize);
             this.updateDisplayedData();
-            this.userId = storageId;
+            this.userId = userData.id;
+            console.log("hello");
+            
           })
         }
-      })
+      // })
 
     }
   }
