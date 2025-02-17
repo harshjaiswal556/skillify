@@ -35,7 +35,7 @@ export class AdminDetailedReportComponent {
             this.totalPages = Math.ceil(this.courseData.length / this.pageSize);
             this.updateDisplayedData();
             this.userId = userData.id;
-            console.log("hello");
+            // console.log("hello");
             
           })
         }
@@ -56,7 +56,7 @@ export class AdminDetailedReportComponent {
   updateDisplayedData() {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     this.displayedData = this.courseData.slice(startIndex, startIndex + this.pageSize);
-    console.log("displayed data: "+this.displayedData);
+    // console.log("displayed data: "+this.displayedData);
     
   }
 
@@ -84,19 +84,10 @@ export class AdminDetailedReportComponent {
   }
 
   deleteCourse() {
-    if (this.totalNoOfStudents === 0) {
-      this.course.deleteCourseById(this.deleteCourseId).subscribe(res=>{
-        this.signUp.removeCourseFromUser(this.userId, this.deleteCourseId).subscribe(res=>{
-          alert("Course deleted successfully!!!")
-          window.location.reload();
-        })
-      })
-    }else{
-      this.course.deactivateCourseById(this.deleteCourseId).subscribe(res=>{
-        alert("Students are enrolled in this course, the course has been deactivated.");
-        window.location.reload();
-      })
-    }
+    this.course.deactivateCourseById(this.deleteCourseId).subscribe(res=>{
+      alert("The course has been deactivated.");
+      window.location.reload();
+    })
   }
 
   editCourseById(title: string, duration: number, description: string, id: string) {

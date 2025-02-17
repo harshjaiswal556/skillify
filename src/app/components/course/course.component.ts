@@ -42,7 +42,6 @@ export class CourseComponent {
     this.courseService.getCourses().subscribe(res=>{
       this.courses = res.filter((course: { isDeactivate: boolean; }) => !course.isDeactivate);
       this.filteredCourses = [...this.courses];
-      console.log(this.filteredCourses);
       
       this.totalPages = Math.ceil(this.filteredCourses.length / this.pageSize);
       this.updateDisplayedData();
@@ -51,7 +50,7 @@ export class CourseComponent {
 
     if (userData) {
       this.loginService.getUserById(userData.id).subscribe(res=>{
-        if (res.role === "student") {
+        if (res && res.role === "student") {
           this.isStudentLoggedIn = true
           if (res.course) {
             for (let index = 0; index < res.course.length; index++) {

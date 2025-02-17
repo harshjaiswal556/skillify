@@ -23,7 +23,7 @@ export class AddCourseFormComponent {
 
   constructor(private fb: FormBuilder, private courseService: CourseService, private userService: SignUpService) {
     this.save();
-    console.log(this.title);
+    // console.log(this.title);
 
   }
 
@@ -57,9 +57,6 @@ export class AddCourseFormComponent {
   courseSubmit() {
     if (this.courseForm.valid) {
       const formValue = this.courseForm.value
-      console.log(formValue);
-      console.log(this.userId);
-      
       if (this.updateCourse) {
         this.courseService.updateCourseById(this.id, formValue).subscribe(res => {
           // this.userService.addCourseToUser()
@@ -69,7 +66,6 @@ export class AddCourseFormComponent {
 
       } else {
         this.courseService.addCourses(formValue).subscribe(res => {
-          console.log(res);
           this.userService.addCourseToUser(this.userId, res.id).subscribe(res=>{
             alert("Course added successfully!!!");
             this.courseForm.reset();

@@ -28,7 +28,6 @@ export class OverviewComponent {
     if (userData) {
       this.user.getData(userData.id).subscribe(res => {
         this.userData = res;
-        debugger
         this.fetchDeactivatedCourses();
       });
     }
@@ -36,7 +35,7 @@ export class OverviewComponent {
   
   ngOnInit() {
     this.store.select('auth').pipe().subscribe(authUser => {
-      if (authUser) {
+      if (authUser.user) {
         this.user.getData(authUser.user.id).subscribe(res => {
           this.userData = res;
         });

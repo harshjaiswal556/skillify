@@ -28,9 +28,9 @@ export class CourseService {
     return this.http.patch(`${this.url}/${id}`, courseData)
   }
 
-  deleteCourseById(id:string):Observable<any>{
-    return this.http.delete(this.url+"/"+id);
-  }
+  // deleteCourseById(id:string):Observable<any>{
+  //   return this.http.delete(this.url+"/"+id);
+  // }
 
   deactivateCourseById(id: string):Observable<any>{
     return this.http.patch(`${this.url}/${id}`, {isDeactivate : true});

@@ -44,7 +44,7 @@ totalPages: number = 0;
               this.reports.push(res)
             }else{
               this.signUpService.removeCourseFromStudent(userData.id, this.courses[index].courseId).subscribe(res=>{
-                console.log(res);
+                // console.log(res);
               })
             }
             this.totalPages = Math.ceil(this.reports.length / this.pageSize);

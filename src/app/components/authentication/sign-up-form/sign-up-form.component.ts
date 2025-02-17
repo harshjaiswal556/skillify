@@ -37,7 +37,7 @@ export class SignUpFormComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['role'] && !changes['role'].firstChange) {
       this.signUpForm.patchValue({ role: this.role });
-      console.log(`Role updated to: ${this.role}`);
+      // console.log(`Role updated to: ${this.role}`);
     }
   }
 
@@ -67,14 +67,14 @@ export class SignUpFormComponent implements OnChanges {
   }
 
   signUpSubmit(e : Event){
-    console.log("Hello");
+    // console.log("Hello");
     
     if(this.signUpForm.valid){
       const password = this.signUpForm.get('password')?.value;
       const cPassword = this.signUpForm.get('cPassword')?.value;
       if(password === cPassword){
         if (this.role || this.otpNumber === parseInt(this.signUpForm.get('message')?.value)) {
-          console.log("Noicceee");
+          // console.log("Noicceee");
           const formValue = this.signUpForm.value as SignUp      
           this.signUpService.createUser(formValue).subscribe(res => {
             alert("Thankyou for joining skillify");

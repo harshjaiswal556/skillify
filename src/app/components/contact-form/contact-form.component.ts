@@ -27,9 +27,9 @@ export class ContactFormComponent {
 
   save(model: Contact, e : Event){
     e.preventDefault();
-    console.log(model);
+    // console.log(model);
     this.contactService.sendMessage(model).subscribe(res=>{
-      console.log(res);
+      // console.log(res);
       
     })
 

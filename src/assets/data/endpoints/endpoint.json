@@ -26,10 +26,10 @@
     },
     {
       "title": "App (Java)",
-      "duration": 34,
-      "image": "assets/courses/python.jpeg",
+      "duration": 38,
+      "image": "assets/courses/mean.jpeg",
       "description": "Start learning App Development using Java language.",
-      "date": "23-1-2025",
+      "date": "17-2-2025",
       "isDeactivate": false,
       "id": "2869",
       "students": [
@@ -79,7 +79,7 @@
       "image": "assets/courses/mean.jpeg",
       "description": "Description",
       "date": "13-2-2025",
-      "isDeactivate": false,
+      "isDeactivate": true,
       "students": [
         "7234"
       ]
@@ -94,7 +94,8 @@
       "students": [
         "7234",
         "0288"
-      ]
+      ],
+      "isDeactivate": false
     },
     {
       "id": "5fkz",
@@ -50099,6 +50100,14 @@
       "date": "20-7-2025",
       "isDeactivate": false,
       "students": []
+    },
+    {
+      "id": "2ab1",
+      "title": "new course ",
+      "duration": 16,
+      "image": "assets/courses/mean.jpeg",
+      "description": "Hello world",
+      "date": "17-2-2025"
     }
   ],
   "reviews": [
@@ -50238,7 +50247,8 @@
         "d5f6",
         "2869",
         "0a11",
-        "efec"
+        "efec",
+        "2ab1"
       ]
     },
     {
@@ -50277,6 +50287,15 @@
         "f59a",
         "340c"
       ]
+    },
+    {
+      "id": "ef87",
+      "name": "aVJ",
+      "email": "hsj123@gmail.com",
+      "password": "12345678",
+      "cPassword": "12345678",
+      "role": "faculty",
+      "message": ""
     }
   ],
   "contact": [

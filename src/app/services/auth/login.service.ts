@@ -28,19 +28,19 @@ export class LoginService {
           return users[0];
         }else{
           alert("Invalid Login Credentials");
-          console.log("Data not found");
+          // console.log("Data not found");
           return null
         }
       }else{
         alert("Your ID has been deactivated.");
-        console.log("Data not found");
+        // console.log("Data not found");
         return null
       }
     }))
   }
 
   getUserById(userId : string):Observable<any>{
-    return this.http.get<any[]>(`${this.url}?id=${userId}`).pipe(map(users=>{
+    return this.http.get<any[]>(`${this.url}?userId=${userId}`).pipe(map(users=>{
       if(users.length!==0){
         return users[0];
       }

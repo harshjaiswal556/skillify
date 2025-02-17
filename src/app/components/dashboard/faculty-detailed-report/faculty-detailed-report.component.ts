@@ -38,12 +38,12 @@ export class FacultyDetailedReportComponent {
         // console.log(storageId);
         this.facultyReportService.getData(userData.id).subscribe(res => {
           this.courses = res[0].course;
-          console.log(res[0]);
+          // console.log(res[0]);
           
           for (let index = 0; index < this.courses.length; index++) {
             this.courseService.getCoursesById(this.courses[index]).subscribe(res => {
               this.reports.push(res)
-              console.log(res);
+              // console.log(res);
               
               this.totalPages = Math.ceil(this.reports.length / this.pageSize);
               this.updateDisplayedData();
@@ -85,7 +85,7 @@ export class FacultyDetailedReportComponent {
   deleteCourseById(id: string, totalStd: number) {
     this.deleteCourseId = id;
     this.totalNoOfStudents = totalStd
-    console.log(id);
+    // console.log(id);
     
   }
 

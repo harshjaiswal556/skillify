@@ -38,7 +38,7 @@ export class AllFacultyComponent {
             this.totalPages = Math.ceil(this.facultyData.length / this.pageSize);
             this.updateDisplayedData();
             this.role = 'faculty'
-            console.log(res);
+            // console.log(res);
 
           })
         }
@@ -50,7 +50,7 @@ export class AllFacultyComponent {
   updateDisplayedData() {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     this.displayedData = this.facultyData.slice(startIndex, startIndex + this.pageSize);
-    console.log("displayed data: "+this.displayedData);
+    // console.log("displayed data: "+this.displayedData);
     
   }
 
@@ -95,7 +95,7 @@ activateUser(){
   const userData = JSON.parse(this.secureStorage.getItem('encrypt'));
     if (userData) {
       this.loginService.getUserById(this.activateUserId).subscribe(res=>{
-        if (res) {
+        if (res) {          
           this.loginService.activateUserByIdAdmin(this.activateUserId).subscribe(res=>{
             alert("User activated successfully!!!");
             window.location.reload();
